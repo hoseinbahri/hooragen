@@ -6,65 +6,65 @@
       <description>تعداد یادداشتهای اخیر : ۱۰ on هوراژن </description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>فصل سوم</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%B3%D9%88%D9%85/</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%B3%D9%88%D9%85/</guid>
+    <title>جلسه ۱۰ - بررسی نوع typeof و instanceof</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B1%DB%B0---%D8%A8%D8%B1%D8%B1%D8%B3%DB%8C-%D9%86%D9%88%D8%B9-typeof-%D9%88-instanceof</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B1%DB%B0---%D8%A8%D8%B1%D8%B1%D8%B3%DB%8C-%D9%86%D9%88%D8%B9-typeof-%D9%88-instanceof</guid>
+    <description><![CDATA[ این دو operator ابزارهای اساسی برای تشخیص نوع داده‌ها در زمان اجرا هستند. درک تفاوت و کاربرد صحیح هر یک برای نوشتن کدهای مستحکم ضروری است. ]]></description>
+    <pubDate>Fri, 23 Jan 2026 08:47:08 GMT</pubDate>
+  </item><item>
+    <title>جلسه ۷ - اعداد- عملیات پایه و شیء Math</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B7---%D8%A7%D8%B9%D8%AF%D8%A7%D8%AF--%D8%B9%D9%85%D9%84%DB%8C%D8%A7%D8%AA-%D9%BE%D8%A7%DB%8C%D9%87-%D9%88-%D8%B4%DB%8C%D8%A1-Math</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B7---%D8%A7%D8%B9%D8%AF%D8%A7%D8%AF--%D8%B9%D9%85%D9%84%DB%8C%D8%A7%D8%AA-%D9%BE%D8%A7%DB%8C%D9%87-%D9%88-%D8%B4%DB%8C%D8%A1-Math</guid>
+    <description><![CDATA[ بخش ۵: اعداد: عملیات پایه و شیء Math (Numbers: Basic Operations and Math Object) اعداد از پایه‌ای‌ترین انواع داده در جاوااسکریپت هستند. ]]></description>
+    <pubDate>Fri, 23 Jan 2026 08:47:08 GMT</pubDate>
+  </item><item>
+    <title>جلسه ۸ - منطق بولین و مقادیر درست و نادرست</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B8---%D9%85%D9%86%D8%B7%D9%82-%D8%A8%D9%88%D9%84%DB%8C%D9%86-%D9%88-%D9%85%D9%82%D8%A7%D8%AF%DB%8C%D8%B1-%D8%AF%D8%B1%D8%B3%D8%AA-%D9%88-%D9%86%D8%A7%D8%AF%D8%B1%D8%B3%D8%AA</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B8---%D9%85%D9%86%D8%B7%D9%82-%D8%A8%D9%88%D9%84%DB%8C%D9%86-%D9%88-%D9%85%D9%82%D8%A7%D8%AF%DB%8C%D8%B1-%D8%AF%D8%B1%D8%B3%D8%AA-%D9%88-%D9%86%D8%A7%D8%AF%D8%B1%D8%B3%D8%AA</guid>
+    <description><![CDATA[ بخش ۶: منطق بولین: مقادیر Truthy و Falsy (Boolean Logic: Truthy and Falsy Values) این مفهوم یکی از پایه‌ای‌ترین و در عین حال قدرتمندترین مفاهیم در جاوااسکریپت است که درک آن برای نوشتن کدهای تمیز و بهینه ضروری است. ]]></description>
+    <pubDate>Fri, 23 Jan 2026 08:47:08 GMT</pubDate>
+  </item><item>
+    <title>جلسه ۹ - کار با undefined و Null</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B9---%DA%A9%D8%A7%D8%B1-%D8%A8%D8%A7-undefined-%D9%88-Null</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B9---%DA%A9%D8%A7%D8%B1-%D8%A8%D8%A7-undefined-%D9%88-Null</guid>
+    <description><![CDATA[ این دو مفهوم اغلب باعث سردرگمی توسعه‌دهندگان می‌شوند، اما درک تفاوت آن‌ها برای نوشتن کدهای مستحکم و قابل پیش‌بینی ضروری است. مفاهیم کلیدی: ۱. ]]></description>
+    <pubDate>Fri, 23 Jan 2026 08:47:08 GMT</pubDate>
+  </item><item>
+    <title>جلسه ۶ - کار با رشته‌ها- متدها و دستکاری</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B6---%DA%A9%D8%A7%D8%B1-%D8%A8%D8%A7-%D8%B1%D8%B4%D8%AA%D9%87%E2%80%8C%D9%87%D8%A7--%D9%85%D8%AA%D8%AF%D9%87%D8%A7-%D9%88-%D8%AF%D8%B3%D8%AA%DA%A9%D8%A7%D8%B1%DB%8C</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B6---%DA%A9%D8%A7%D8%B1-%D8%A8%D8%A7-%D8%B1%D8%B4%D8%AA%D9%87%E2%80%8C%D9%87%D8%A7--%D9%85%D8%AA%D8%AF%D9%87%D8%A7-%D9%88-%D8%AF%D8%B3%D8%AA%DA%A9%D8%A7%D8%B1%DB%8C</guid>
+    <description><![CDATA[ بخش ۴: کار با رشته‌ها: متدها و دستکاری (Working with Strings: Methods and Manipulation) رشته‌ها از پرکاربردترین انواع داده در جاوااسکریپت هستند. ]]></description>
+    <pubDate>Fri, 23 Jan 2026 08:43:16 GMT</pubDate>
+  </item><item>
+    <title>جلسه ۵ - تبدیل نوع و نوع الزامی Type Conversion و  Coercion</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B5---%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D9%86%D9%88%D8%B9-%D9%88-%D9%86%D9%88%D8%B9-%D8%A7%D9%84%D8%B2%D8%A7%D9%85%DB%8C-Type-Conversion-%D9%88--Coercion</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B5---%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D9%86%D9%88%D8%B9-%D9%88-%D9%86%D9%88%D8%B9-%D8%A7%D9%84%D8%B2%D8%A7%D9%85%DB%8C-Type-Conversion-%D9%88--Coercion</guid>
+    <description><![CDATA[ بخش ۳: تبدیل نوع و نوع الزامی (Type Conversion &amp; Coercion) این بخش به یکی از ویژگی‌های منحصربه‌فرد و گاهی گیج‌کننده جاوااسکریپت می‌پردازد. ]]></description>
+    <pubDate>Fri, 23 Jan 2026 08:39:49 GMT</pubDate>
+  </item><item>
+    <title>جلسه ۴ - پاسخ پرسشها و جمع بندی</title>
+    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B4---%D9%BE%D8%A7%D8%B3%D8%AE-%D9%BE%D8%B1%D8%B3%D8%B4%D9%87%D8%A7-%D9%88-%D8%AC%D9%85%D8%B9-%D8%A8%D9%86%D8%AF%DB%8C</link>
+    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%D8%AF%D9%88%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B4---%D9%BE%D8%A7%D8%B3%D8%AE-%D9%BE%D8%B1%D8%B3%D8%B4%D9%87%D8%A7-%D9%88-%D8%AC%D9%85%D8%B9-%D8%A8%D9%86%D8%AF%DB%8C</guid>
+    <description><![CDATA[ تحلیل پاسخ‌ها: سؤال ۱: پیش‌بینی خروجی بیایید تحلیل مفهومی را دقیق‌تر بررسی کنیم: let x = 5; // مقدار اولیه let y = x; // ایجاد کپی مستقل از مقدار y = 10; // تغییر فقط روی متغیر y اثر می‌گذارد let array1 = [1, 2, 3]; // ایجاد آرایه و ذخیره ارجاع در array1 let array2 = array1; // کپی کردن ارجاع (نه مح... ]]></description>
+    <pubDate>Thu, 22 Jan 2026 12:32:36 GMT</pubDate>
+  </item><item>
+    <title>هوش مصنوعی خلاق</title>
+    <link>https://hooragen.ir/Books/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C-%D8%AE%D9%84%D8%A7%D9%82</link>
+    <guid>https://hooragen.ir/Books/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C-%D8%AE%D9%84%D8%A7%D9%82</guid>
+    <description><![CDATA[  درباره کتاب پیشگفتار مقدمه نویسنده و مترجمان از نگاه مشاهیر مباحث اصلی سفارش کتاب درباره کتاب نویسنده:تام تاولی مترجمان:دکتر حسین بحری ، راضیه فرحمندی ناشر : نشر آوا گستر پویا تاریخ نشر : اردیبهشت 1404 شابک : 8-5-88070-622-978 پیشگفتار من از اوایل دهۀ ۱۹۹۰ در صنعت فناوری فعال بوده‌ام. ]]></description>
+    <pubDate>Wed, 07 Jan 2026 19:00:47 GMT</pubDate>
+  </item><item>
+    <title>هوش مصنوعی</title>
+    <link>https://hooragen.ir/Books/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/</link>
+    <guid>https://hooragen.ir/Books/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Fri, 23 Jan 2026 18:27:35 GMT</pubDate>
+    <pubDate>Wed, 07 Jan 2026 19:00:02 GMT</pubDate>
   </item><item>
-    <title>فصل چهارم</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/</guid>
+    <title>هوش مصنوعی</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Fri, 23 Jan 2026 18:27:35 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۹ -</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B9--</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B9--</guid>
-    <description><![CDATA[ پاسخ شما کاملاً درست و حرفه‌ای است! 👏 بررسی پاسخ شما: ✅ Object.keys(library) - تمام کلیدهای شیء را به درستی برمی‌گرداند ✅ Object.values(library) - تمام مقادیر شیء را به درستی برمی‌گرداند ✅ Object.keys(library).length - تعداد ویژگی‌ها را به روشی هوشمندانه محاسبه کرده‌اید خروجی کد شما: [&quot;name&qu... ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:34:53 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۸ -</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B8--</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B8--</guid>
-    <description><![CDATA[ دسترسی و تغییر ویژگی‌های شیء (Accessing and Modifying Object Properties) در جاوااسکریپت دو روش اصلی برای کار با ویژگی‌های شیء وجود دارد: ۱. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:32:31 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۷ -</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B7--</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B7--</guid>
-    <description><![CDATA[ بسیار سپاسگزارم که این نکته را تذکر دادید. حق با شماست. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:31:10 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۶ -</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B6--</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B6--</guid>
-    <description><![CDATA[ عالی و بی‌نقص! 👏 بررسی پاسخ تو: ✅ تو یک متد به نام getSummary را به درستی به شیء Book اضافه کردی. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:29:20 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۵</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B5</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B5</guid>
-    <description><![CDATA[ بررسی و توضیح نهایی این مفهوم: مقدار person1.name: “نازنین” ✅ دلیل: ✅ تو دقیقاً نقطهٔ کلیدی را تشخیص دادی. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:28:33 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۴-</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B4-</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B4-</guid>
-    <description><![CDATA[ پاسخ تو کاملاً درست و دقیق است! 🎉 این نشان می‌دهد که مفهوم Reference Type را به طور عمقی درک کرده‌ای. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:28:05 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۳ -</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B3--</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B3--</guid>
-    <description><![CDATA[  ✅ تو با نوشتن pages: 250، مقدار ویژگی را به درستی تغییر دادی. ✅ با نوشتن genre: &quot;Poets&quot;، یک ویژگی جدید را اضافه کردی. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 12:27:25 GMT</pubDate>
-  </item><item>
-    <title>جلسه ۲ -</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B2--</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D8%AC%D8%A7%D9%88%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA/%D9%81%D8%B5%D9%84-%DA%86%D9%87%D8%A7%D8%B1%D9%85/%D8%AC%D9%84%D8%B3%D9%87-%DB%B2--</guid>
-    <description><![CDATA[ بررسی پاسخ تو: ✅ شیء Book را به درستی با استفاده از Object Literal تعریف کردی. ✅ ویژگی‌های title، author و pages را به درستی اضافه کردی. ]]></description>
-    <pubDate>Fri, 23 Jan 2026 10:27:13 GMT</pubDate>
+    <pubDate>Wed, 31 Dec 2025 17:02:43 GMT</pubDate>
   </item>
     </channel>
   </rss>
