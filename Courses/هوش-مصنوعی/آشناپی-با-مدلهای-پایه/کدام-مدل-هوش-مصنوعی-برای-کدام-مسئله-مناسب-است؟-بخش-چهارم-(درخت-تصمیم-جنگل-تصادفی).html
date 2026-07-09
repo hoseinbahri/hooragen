@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><title>کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)خرد راستین و اندیشه نوآفرین</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="هوراژن "/><meta property="og:title" content="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)خرد راستین و اندیشه نوآفرین"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)خرد راستین و اندیشه نوآفرین"/><meta name="twitter:description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="og:description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="og:image:alt" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="twitter:domain" content="hooragen.ir"/><meta property="og:url" content="https://hooragen.ir/Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)"/><meta property="twitter:url" content="https://hooragen.ir/Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxob3NlaW5cXE9uZURyaXZlXFxQcm9qZWN0c1xcU3RhdGljIFNpdGVzXFxUZXN0XFxxdWFydHpcXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://hooragen.ir/index.xml"/><meta property="og:image" content="https://hooragen.ir/static/Random Forest.png"/><meta property="og:image:url" content="https://hooragen.ir/static/Random Forest.png"/><meta name="twitter:image" content="https://hooragen.ir/static/Random Forest.png"/><meta property="og:image:type" content="image/.png"/></head><body data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)"><header class="global-header"><div class="global-container"><h1>هوراژن <span class="page-title-suffix">خرد راستین و اندیشه نوآفرین</span></h1></div></header><nav class="global-nav" role="navigation" aria-label="Main Navigation"><div class="global-nav-inner"><div class="nav-brand"><a href="/">هوراژن</a></div><input id="nav-toggle" type="checkbox" class="nav-toggle"/><label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label><ul class="nav-links"><li><a href="/" data-nav="true">صفحه اصلی</a></li><li><a href="/Courses" data-nav="true">دوره ها</a></li><li><a href="/Articles" data-nav="true">مقالات</a></li><li><a href="/Books" data-nav="true">کتاب‌ها</a></li><li><a href="/about" data-nav="true">درباره</a></li></ul></div></nav><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title desktop-only"><a href="../../..">هوراژن </a></h2><div class="flex-component desktop-only" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search desktop-only"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>جستجو</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="مطلبی را جستجو کنید" placeholder="مطلبی را جستجو کنید"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="حالت شب"><title>حالت شب</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="حالت روز"><title>حالت روز</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="حالت خواندن"><title>حالت خواندن</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer desktop-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>{if(a.isFolder&amp;&amp;b.isFolder)return a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;});if(a.isFolder)return-1;if(b.isFolder)return 1;let da=a.data?.date?.getTime()??0;return(b.data?.date?.getTime()??0)-da}&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-40"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>مرورگر</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-40" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">خانه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/">دوره ها</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/هوش-مصنوعی/">هوش مصنوعی</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/">آشنائی با مدلهای پایه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش چهارم (درخت تصمیم/جنگل تصادفی)</a></div></nav><h1 class="article-title">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)</h1><p class="article-subtitle">بررسی مدل هوش مصنوعی «درخت تصمیم/جنگل تصادفی» و کاربردهای آن در حل مسائل به زبان ساده و ذکر مثالهای شهودی</p><p show-comma="true" class="content-meta">نوشته شده در: <time datetime="2026-07-09T07:36:21.012Z">۱۸ تیر ۱۴۰۵</time><span>زمان تقریبی مطالعه: ۱۲ دقیقه</span></p></div></div><article class="popover-hint"><img src="/Images/Random Forest.png" alt="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)" class="article-cover"/><blockquote>
+<p><strong>سایر بخشهای این سلسله مقالات را از دست ندهید:</strong><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم-جنگل تصادفی)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></p>
+</blockquote>
+<p>پس از بررسی الگوریتم‌ها و مدل‌های کلاسیک مانند <strong>Naive Bayes</strong>، <strong>رگرسیون خطی و لجستیک</strong> و <strong>ماشین بردار پشتیبان (SVM)</strong> — که همگی بر پایه محاسبات ریاضی پیوسته، احتمالات یا مرزبندی هندسی عمل می‌کردند — در این بخش به سراغ خانواده‌ای متفاوت اما بسیار کاربردی از مدل‌های هوش مصنوعی می‌رویم: <strong>درخت تصمیم (Decision Tree)</strong> و <strong>جنگل تصادفی (Random Forest)</strong>.<br/>
+این دو مدل نه تنها از نظر ساختاری با مدل‌های قبلی متفاوت هستند، بلکه از نظر <strong>تفسیرپذیری، انعطاف‌پذیری و مقاومت در برابر داده‌های نویزی</strong> نیز مزیت‌های منحصر‌به‌فردی دارند. در حالی که <strong>SVM</strong> یک «مرز هوشمند» می‌سازد و رگرسیون لجستیک یک «احتمال خطی» تولید می‌کند، درخت تصمیم شبیه به یک <strong>فلوچارت تصمیم‌گیری انسانی</strong> عمل می‌کند: سوال پشت سوال، تا رسیدن به جواب نهایی. جنگل تصادفی هم دقیقاً همین کار را انجام می‌دهد — اما با صدها درخت موازی، تا خطای تک‌درخت را جبران کند و دقت را به حداکثر برساند.</p>
+<p><img src="../../../Images/Random-Forest.png" width="auto" height="auto" alt/></p>
+<p>در ادامه، ابتدا منطق سادهٔ درخت تصمیم را با یک مثال کاربردی (تشخیص ریزش مشتری در بانک) توضیح می‌دهیم، سپس نشان می‌دهیم چگونه جنگل تصادفی با ترکیب ده‌ها یا صدها درخت، مدلی می‌سازد که نه تنها دقیق‌تر است، بلکه در برابر داده‌های پرت و نویزدار هم مقاوم‌تر عمل می‌کند. همچنین به مقایسهٔ این دو مدل با مدل‌های قبلی می‌پردازیم و مشخص می‌کنیم چه زمانی باید از درخت/جنگل استفاده کرد.</p>
+<h3 id="درخت-تصمیم-decision-tree-چیست">درخت تصمیم (Decision Tree) چیست؟<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#درخت-تصمیم-decision-tree-چیست" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>درخت تصمیم مانند یک فلوچارت یا بازی «۲۰ سؤالی» عمل می‌کند. از ریشه (کل داده‌ها) شروع می‌کند و در هر گره، با پرسیدن یک سوال ساده بر اساس یک ویژگی (مثلاً «آیا سن بیشتر از ۳۰ است؟»)، داده‌ها را به دو شاخه «بله» و «خیر» تقسیم می‌کند. این کار آنقدر تکرار می‌شود تا به برگ‌ها برسیم که پاسخ نهایی (مثلاً «خرید می‌کند» یا «نمی‌خرد») است. مزیت بزرگ آن این است که کاملاً قابل مشاهده و تفسیر است و می‌توان کل مسیر تصمیم را مثل یک داستان دنبال کرد.</p>
+<h4 id="مثال-کاربردی-تشخیص-ریزش-مشتری-در-بانک">مثال کاربردی: تشخیص ریزش مشتری در بانک<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مثال-کاربردی-تشخیص-ریزش-مشتری-در-بانک" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>بانکی می‌خواهد مشتریانی که قصد دارند حساب خود را ببندند را شناسایی کند. درخت تصمیم با بررسی تاریخچه مشتریان قبلی، الگوها را یاد می‌گیرد:<br/>
+۱. <strong>سوال اول (ریشه):</strong> آیا موجودی حساب کمتر از ۵۰۰ هزار تومان است؟</p>
+<ul>
+<li>
+<p><strong>بله:</strong> به شاخه چپ برو ← <strong>سوال دوم:</strong> آیا در ماه اخیر تماس با پشتیبانی داشته است؟</p>
+<ul>
+<li>
+<p><strong>بله:</strong> پیش‌بینی = «احتمال ریزش بالا» (برگ)</p>
+</li>
+<li>
+<p><strong>خیر:</strong> پیش‌بینی = «احتمال ریزش متوسط» (برگ)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>خیر:</strong> به شاخه راست برو ← <strong>سوال دوم:</strong> آیا تعداد تراکنش‌های ماهانه کمتر از ۳ است؟</p>
+<ul>
+<li>
+<p><strong>بله:</strong> پیش‌بینی = «احتمال ریزش بالا» (برگ)</p>
+</li>
+<li>
+<p><strong>خیر:</strong> پیش‌بینی = «مشتری وفادار» (برگ)<br/>
+اینجا مدل بدون فرمول پیچیده، با قوانین اگر-آنگاه تصمیم می‌گیرد.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="مراحل-الگوریتم-درخت-تصمیم">مراحل الگوریتم درخت تصمیم<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مراحل-الگوریتم-درخت-تصمیم" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>ایجاد مدل درخت تصمیم با استفاده از داده های آموزشی در فرایند زیر خلاصه شده است:<br/>
+<strong>۱. جمع‌آوری داده‌های آموزشی</strong><br/>
+گام اول مانند سایر روشها جمع آوری داده‌های آموزشی است. بانک ابتدا تاریخچهٔ صدها یا هزاران مشتری قبلی را جمع‌آوری می‌کند که هر کدام برچسب دارند:</p>
+<ul>
+<li>
+<p>«حساب بسته شده»</p>
+</li>
+<li>
+<p>«حساب فعال»</p>
+</li>
+</ul>
+<p>همراه با ویژگی‌هایی مثل: موجودی، تعداد تراکنش، تماس با پشتیبانی، مدت عضویت و غیره.<br/>
+<strong>۲. انتخاب بهترین سوال برای شروع (ریشهٔ درخت)</strong><br/>
+الگوریتم تمام ویژگی‌ها را بررسی می‌کند و می‌پرسد:</p>
+<blockquote>
+<p>«کدام سوال را اگر اول بپرسم، بیشترین تفکیک بین مشتریان ریزشی و وفادار ایجاد می‌شود؟»</p>
+</blockquote>
+<p>مثلاً متوجه می‌شود که پرسیدن «آیا موجودی کمتر از ۵۰ هزار تومان است؟» بهتر از سایر سوالات دو گروه را از هم جدا می‌کند → پس این می‌شود <strong>سوال اول (ریشه)</strong>.<br/>
+<strong>۳. تقسیم داده‌ها بر اساس پاسخ</strong><br/>
+مشتریان به دو شاخه تقسیم می‌شوند:</p>
+<ul>
+<li>
+<p>شاخهٔ چپ: کسانی که موجودی‌شان کمتر از ۵۰ هزار تومان است</p>
+</li>
+<li>
+<p>شاخهٔ راست: کسانی که موجودی‌شان بالای ۵۰ هزار تومان است</p>
+</li>
+</ul>
+<p>حالا الگوریتم داخل هر شاخه دوباره همین کار را تکرار می‌کند: «داخل این گروه، کدام سوال بعدی بهترین تفکیک را ایجاد می‌کند؟»<br/>
+<strong>۴. تکرار تا رسیدن به برگ‌ها (نتیجه نهایی)</strong><br/>
+این فرآیند ادامه می‌یابد تا جایی که:</p>
+<ul>
+<li>
+<p>یا همهٔ مشتریان یک شاخه هم‌نوع باشند (همه ریزشی یا همه وفادار)</p>
+</li>
+<li>
+<p>یا به حداکثر عمق مجاز درخت برسیم (برای جلوگیری از پیچیدگی بیش از حد)</p>
+</li>
+</ul>
+<p>هر نقطهٔ پایانی یک <strong>برگ</strong> است که پیش‌بینی نهایی را نشان می‌دهد: «ریزش بالا»، «ریزش متوسط»، «وفادار».<br/>
+<strong>۵. استفاده از درخت برای مشتریان جدید</strong><br/>
+وقتی مشتری جدیدی وارد سیستم می‌شود، مدل فقط کافی است سوالات درخت را یکی‌یکی بپرسد و طبق مسیر پاسخ‌ها، به یک برگ برسد و پیش‌بینی کند.<br/>
+مثال:</p>
+<ul>
+<li>
+<p>موجودی = ۳۰۰ هزار → بله → تماس با پشتیبانی = دارد → پیش‌بینی: <strong>«ریزش بالا»</strong><br/>
+درخت تصمیم یکی از مدلهای محبوب است چراکه:</p>
+</li>
+<li>
+<p><strong>قابل فهم است</strong>: حتی افراد غیرفنی نیز می‌توانند منطق آن را دنبال کنند.</p>
+</li>
+<li>
+<p><strong>به نرمال‌سازی نیازی ندارد</strong>: برخلاف <strong>SVM</strong> یا رگرسیون، نیازی به تبدیل مقیاس داده‌ها ندارد.</p>
+</li>
+<li>
+<p><strong>در پیش‌بینی نتیجه سریع است:</strong>: فقط چند شرط if-else را اجرا می‌کند.</p>
+</li>
+<li>
+<p><strong>برای داده‌های ترکیبی قابل استفاده است</strong>: هم عددی، هم دسته‌ای (مثل جنسیت، شهر، نوع شغل).</p>
+</li>
+</ul>
+<p>یک درخت تصمیم تنها، هرچند ساده و قابل فهم است، اما یک ضعف بزرگ دارد: ممکن است <strong>بیش‌برازش</strong> (Overfitting) کند. <strong>بیش‌برازش</strong> به چه معنی است؟ یعنی مدل آن‌قدر دقیق جزئیات داده‌های آموزشی را حفظ می‌کند که مثل دانش‌آموزی است که فقط جواب سوالات امتحان سال قبل را حفظ کرده، اما مفهوم را نفهمیده است. وقتی سوال جدیدی (دادهٔ جدید) می‌آید، گیج می‌شود و اشتباه پاسخ می‌دهد. راه‌حل این مشکل چیست؟ استفاده از <strong>جنگل تصادفی</strong> — که صدها درخت می‌سازد و نتیجهٔ نهایی را با رأی‌گیری تعیین می‌کند.</p>
+<p><strong>به همان مثال واقعی درحوزه بانک توجه کنید:</strong><br/>
+فرض کنید در داده‌های آموزشی، بطور تصادفی همهٔ مشتریانی که «نامشان با حرف <strong>م</strong> شروع می‌شد» و «موجودی‌شان زیر ۵۰۰ هزار تومان بود»، حسابشان را بسته بودند.<br/>
+درخت تصمیمِ تک‌درختی ممکن است قانونی عجیب مثل این بسازد:</p>
+<blockquote>
+<p><em>«اگر نام با ‘</em><strong><em>م</em></strong><em>’ شروع شد و موجودی &lt; ۵۰۰ هزار بود → ریزش بالا»</em></p>
+</blockquote>
+<p>این قانون برای داده‌های قدیمی درست کار کرده است، اما برای مشتری جدیدی به نام «<strong>مریم</strong>» با موجودی کمتر از ۵۰۰ هزار تومان، پیش‌بینی غلط می‌شود—چون نام او ربطی به رفتار مالی‌اش ندارد! این همان <strong>بیش‌برازش</strong> است: یادگیری نویز به جای الگو.</p>
+<p><strong>چنانکه گفتیم راه‌حل استفاده از جنگل تصادفی (Random Forest) است:</strong> جنگل تصادفی نمی‌گذارد یک درختِ مغرور، همهٔ تصمیم‌ها را بتنهایی بگیرد. بلکه صدها یا حتی هزاران درخت کوچک می‌سازد و از آن‌ها <strong>رأی‌گیری</strong> می‌کند.</p>
+<p><strong>مراحل ساخت جنگل تصادفی</strong><br/>
+برای ساخت مدل جنگل تصادفی گامهای ذیل طی می‌شود:<br/>
+<strong>۱. ساخت درخت‌های متنوع</strong>:<br/>
+الگوریتم صدها درخت می‌سازد، اما هر درخت را با شرایط کمی متفاوت آموزش می‌دهد:</p>
+<ul>
+<li>
+<p>هر درخت فقط روی <strong>بخشی تصادفی</strong> از داده‌های آموزشی تمرکز می‌کند (نه همهٔ داده‌ها).</p>
+</li>
+<li>
+<p>هر درخت فقط به <strong>بخشی تصادفی</strong> از ویژگی‌ها نگاه می‌کند (مثلاً یکی فقط به موجودی و تراکنش توجه می‌کند، دیگری به تماس با پشتیبانی و مدت عضویت).</p>
+</li>
+</ul>
+<p><strong>۲. پیش‌بینی مستقل هر درخت</strong>:<br/>
+وقتی مشتری جدیدی می‌آید، هر درخت جداگانه پیش‌بینی می‌کند:</p>
+<ul>
+<li>
+<p>درخت ۱: «ریزش بالا»</p>
+</li>
+<li>
+<p>درخت ۲: «وفادار»</p>
+</li>
+<li>
+<p>درخت ۳: «ریزش بالا»</p>
+</li>
+<li>
+<p>…</p>
+</li>
+<li>
+<p>درخت ۱۰۰: «ریزش متوسط»</p>
+</li>
+</ul>
+<p><strong>۳. رأی‌گیری نهایی</strong>:<br/>
+نتیجهٔ نهایی آن چیزی است که <strong>اکثر درخت‌ها</strong> گفته‌اند. اگر ۷۰ تا از ۱۰۰ درخت گفتند «ریزش بالا»، مدل نهایی هم همین را اعلام می‌کند.</p>
+<p>با توجه به مثال مطرح شده در مورد مشکل بیش برازش ممکن است این پرسش در ذهن خواننده شکل گرفته باشد که اگر بجای استفاده از جنگل تصادفی ویژگیها را بصورت دستی محدود کنیم یعنی ویژگیهایی که در نتیجه نهایی و ارزیابی نهایی مؤثر نیستند را حذف کنیم -به عنوان مثال نام و نام خانوادگی مشتری را از لیست ویژگیها در داده های آموزشی خارج کنیم- آیا مشکل بیش برازش حل نمی شود؟<br/>
+این پرسش بسیار هوشمندانه و دقیقی است! و پاسخ کوتاه آن این است که: <strong>بله، تا حد زیادی کمک می‌کند، اما مشکل را به‌طور کامل حل نمی‌کند.</strong> در ادامه به تفاوت بسیار مهم این دو روش با ذکر همان مثال بانک می‌پردازیم:</p>
+<h4 id="حذف-دستی-ویژگیهای-بیربط-feature-selection">حذف دستی ویژگی‌های بی‌ربط (Feature Selection)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#حذف-دستی-ویژگیهای-بیربط-feature-selection" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>اگر شما «نام»، «نام خانوادگی» یا «شماره ملی» را از داده‌ها حذف کنید، قطعاً جلوی آن خطای فاحش (یادگیری نام با حرف ‘م’) را می‌گیرید. این کار <strong>بسیار ضروری</strong> است و اولین قدم در هر پروژهٔ هوش مصنوعی محسوب می‌شود.</p>
+<p><strong>اما چرا کافی نیست؟</strong><br/>
+چون «بیش‌برازش» (Overfitting) فقط ناشی از ویژگی‌های آشکارا بی‌ربط نیست؛ بلکه اغلب ناشی از <strong>یادگیری الگوهای تصادفی و پیچیده در ویژگی‌های به‌ظاهر مرتبط</strong> است.</p>
+<p><strong>به یک مثال واقعی‌تر از بیش‌برازش بدون ویژگی‌های بی‌ربط توجه کنید:</strong><br/>
+فرض کنید نام و نام خانوادگی را حذف کرده‌اید و فقط ویژگی‌های مالی را نگه داشته‌اید:</p>
+<ul>
+<li>
+<p>موجودی</p>
+</li>
+<li>
+<p>تعداد تراکنش</p>
+</li>
+<li>
+<p>میانگین زمان بین تراکنش‌ها</p>
+</li>
+</ul>
+<p>در داده‌های آموزشی، ممکن است بطور تصادفی تمام مشتریانی که «دقیقاً ۳ روز قبل از تعطیلات نوروز» حسابشان را بسته‌اند، دارای «میانگین زمان بین تراکنش = ۴.۵ ساعت» بوده‌اند.<br/>
+یک درخت تصمیمِ تک‌درختی ممکن است قانونی مثل این بسازد:</p>
+<blockquote>
+<p><em>«اگر میانگین زمان بین تراکنش دقیقاً ۴.۵ ساعت بود → ریزش بالا»</em></p>
+</blockquote>
+<p>البته این قانون برای داده‌های قدیمی درست است، اما یک <strong>تصادف آماری</strong> است، نه یک الگوی واقعی. اگر مشتری جدیدی با همین مشخصات بیاید ولی ربطی به نوروز نداشته باشد، مدل اشتباه پیش‌بینی می‌کند. حذف نام خانوادگی جلوی این نوع بیش‌برازش را نمی‌گیرد، چون ویژگی «زمان بین تراکنش» کاملاً معتبر و مرتبط به نظر می‌رسد.</p>
+<h4 id="جنگل-تصادفی-چگونه-مشکل-را-حل-میکند">جنگل تصادفی چگونه مشکل را حل می‌کند؟<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#جنگل-تصادفی-چگونه-مشکل-را-حل-میکند" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>جنگل تصادفی (Random Forest) علاوه بر اینکه از صدها درخت رأی‌گیری می‌کند، دو مکانیزم داخلی دارد که مستقیماً با بیش‌برازش مبارزه می‌کنند، حتی اگر تمام ویژگی‌ها مرتبط باشند:</p>
+<p>۱. <strong>نمونه‌برداری تصادفی از داده‌ها (Bagging):</strong> هر درخت فقط بخشی از مشتریان را می‌بیند. بنابراین، آن تصادف خاص (مشتریان نوروزی با زمان ۴.۵ ساعت) در همهٔ درخت‌ها تکرار نمی‌شود. برخی درخت‌ها این الگو را می‌بینند، برخی نه. در رأی‌گیری نهایی، اثر آن خنثی می‌شود.</p>
+<p>۲. <strong>انتخاب تصادفی ویژگی‌ها در هر گره:</strong> حتی اگر ویژگی «زمان بین تراکنش» مهم باشد، در هر شاخه‌سازی، الگوریتم ممکن است اصلاً به آن نگاه نکند و از ویژگی دیگری استفاده کند. این باعث می‌شود درخت‌ها متنوع شوند و روی یک ویژگی خاص وسواس پیدا نکنند.</p>
+<p>و البته بهترین استراتژی <strong>ترکیب هر دو روش است!</strong><br/>
+ابتدا با دانش تخصصی یا تحلیل داده، ویژگی‌های آشکارا بی‌ربط (مثل نام، کد پستی غیرمرتبط، ID یکتا) را <strong>حذف دستی</strong> می‌کنیم. این کار کیفیت داده را بالا می‌برد و سرعت آموزش را افزایش می‌دهد.<br/>
+سپس از <strong>جنگل تصادفی</strong> استفاده می‌کنیم تا الگوهای پیچیده و غیرخطی را یاد بگیرد و در عین حال، در برابر بیش‌برازش ناشی از تصادفات آماری در ویژگی‌های باقی‌مانده مقاوم باشد.</p>
+<h4 id="مثال--شناسایی-ریسک-انصراف-دانشجویان">مثال : شناسایی ریسک انصراف دانشجویان<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مثال--شناسایی-ریسک-انصراف-دانشجویان" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>در ادامه به بررسی چگونگی استفاده از <strong>درخت تصمیم</strong> به منظور شناسایی ریسک انصراف دانشجویان می‌پردازیم. هدف از این مدل‌سازی، پیش‌بینی زودهنگام دانشجویانی است که در معرض خطر ترک تحصیل قرار دارند، تا دانشگاه بتواند پیش از آنکه دیر شود، مداخلات حمایتی لازم (مانند مشاوره تحصیلی، کمک‌هزینه مالی یا برنامه‌های انگیزشی) را ارائه دهد.</p>
+<p><strong>هر دانشجو: یک نقطه در فضای چندبعدی</strong><br/>
+در این مدل، هر دانشجو دیگر فقط یک نام در لیست نیست، بلکه یک <strong>نقطه در فضای چندبعدی</strong> است. هر ویژگی (متغیر) یک «بعد» از این فضا را تشکیل می‌دهد و ترکیب تمام این ابعاد، «پروفایل دیجیتال» دانشجو را می‌سازد. برای مثال، ممکن است از ویژگی‌های زیر استفاده کنیم:</p>
+<ul>
+<li>
+<p><strong>عملکرد تحصیلی</strong>: میانگین نمرات ترم‌های قبلی، میانگین نمرهٔ تکالیف و پروژه‌ها، تعداد دروس ردشده یا مشروطی.</p>
+</li>
+<li>
+<p><strong>رفتار آموزشی</strong>: درصد حضور در کلاس‌ها، میزان مشارکت در فعالیت‌های علمی یا فرهنگی دانشگاه.</p>
+</li>
+<li>
+<p><strong>وضعیت مالی</strong>: دریافت بورسیه یا وام، میزان بدهی در شهریه، تأخیر در پرداخت، دفعات درخواست استمهال در پرداخت بدهی.</p>
+</li>
+<li>
+<p><strong>شرایط شخصی و اجتماعی</strong>: فاصلهٔ جغرافیایی محل سکونت از دانشگاه، سابقهٔ مشاورهٔ روانشناختی.</p>
+</li>
+<li>
+<p><strong>ردپای دیجیتال</strong>: داده‌های رفتاری از سیستم‌های یادگیری آنلاین (مانند زمان ورود به پلتفرم، تعداد بازدید از جزوات، آخرین زمان فعالیت در سامانه).</p>
+</li>
+</ul>
+<p><strong>چگونه درخت تصمیم از این داده‌ها یاد می‌گیرد؟</strong><br/>
+الگوریتم درخت تصمیم با بررسی هزاران دانشجوی قبلی (که سرنوشت آن‌ها مشخص است: فارغ‌التحصیل شده‌اند یا انصراف داده‌اند)، به دنبال <strong>الگوهای پنهان</strong> می‌گردد. او سوالاتی را طراحی می‌کند که بیشترین تفکیک را بین دانشجویان موفق و در معرض خطر ایجاد کند.</p>
+<p><strong>به نمونه زیر از ساختار درختی که آموخته شده است توجه کنید:</strong><br/>
+فرض کنید مدل پس از آموزش، درختی با قوانین زیر ساخته است:</p>
+<p>۱. <strong>سوال ریشه (مهم‌ترین عامل):</strong> آیا دانشجو بیش از ۳ ماه تأخیر در پرداخت شهریه دارد؟</p>
+<ul>
+<li>
+<p><strong>بله:</strong> به شاخه «ریسک بالا» می‌رود.</p>
+</li>
+<li>
+<p><strong>خیر:</strong> به سوال بعدی می‌رود.</p>
+</li>
+</ul>
+<p>۲. <strong>سوال دوم:</strong> آیا میانگین نمرات زیر ۱۲ است؟</p>
+<ul>
+<li>
+<p><strong>بله:</strong> به سوال سوم می‌رود.</p>
+</li>
+<li>
+<p><strong>خیر:</strong> پیش‌بینی = «ریسک پایین» (دانشجو احتمالاً ادامه می‌دهد).</p>
+</li>
+</ul>
+<p>۳. <strong>سوال سوم:</strong> آیا در ۳۰ روز گذشته هیچ فعالیتی در سامانه آنلاین نداشته است؟</p>
+<ul>
+<li>
+<p><strong>بله:</strong> پیش‌بینی = <strong>«ریسک بسیار بالا - نیاز به مداخله فوری»</strong></p>
+</li>
+<li>
+<p><strong>خیر:</strong> پیش‌بینی = «ریسک متوسط - نیاز به پیگیری»</p>
+</li>
+</ul>
+<p><strong>مسیر یک دانشجوی فرضی در درخت</strong><br/>
+حالا اگر دانشجوی جدیدی به نام «سارا» وارد سیستم شود با این مشخصات:</p>
+<ul>
+<li>
+<p>تأخیر در شهریه: ندارد (۰ ماه)</p>
+</li>
+<li>
+<p>میانگین نمرات: ۱۱</p>
+</li>
+<li>
+<p>فعالیت آنلاین: ۴۵ روز پیش</p>
+</li>
+</ul>
+<p>مدل مسیر زیر را طی می‌کند:<br/>
+۱. تأخیر شهریه؟ → <strong>خیر</strong> (عبور از ریسک مالی فوری)<br/>
+۲. نمرات زیر ۱۲؟ → <strong>بله</strong> (هشدار تحصیلی)<br/>
+۳. فعالیت آنلاین در ۳۰ روز اخیر؟ → <strong>خیر</strong> (هشدار رفتاری)</p>
+<p><strong>نتیجه نهایی درخت:</strong> سارا در دسته <strong>«ریسک بسیار بالا»</strong> قرار می‌گیرد و سیستم به طور خودکار به مشاور دانشگاه هشدار می‌دهد که با او تماس بگیرد.</p>
+<p><strong>چرا درخت تصمیم می‌تواند برای دانشگاه‌ها گزینه‌ای ایده‌آل باشد؟</strong><br/>
+برخلاف مدل‌های «جعبه سیاه» مانند شبکه‌های عصبی پیچیده، درخت تصمیم <strong>کاملاً شفاف و قابل تفسیر</strong> است. وقتی سیستم هشداری صادر می‌کند، مشاور دانشگاه دقیقاً می‌داند <strong>چرا</strong> این هشدار صادر شده است (مثلاً: «چون هم نمراتش افت کرده و هم دیگر وارد سامانه نمی‌شود»). این شفافیت به دانشگاه اجازه می‌دهد تا <strong>مداخله هدفمند</strong> انجام دهد:</p>
+<ul>
+<li>
+<p>اگر مشکل مالی است → ارجاع به صندوق رفاه.</p>
+</li>
+<li>
+<p>اگر مشکل تحصیلی است → معرفی به کلاس‌های تقویتی.</p>
+</li>
+<li>
+<p>اگر مشکل انگیزشی است → جلسات مشاوره روانشناسی.</p>
+</li>
+</ul>
+<p>در بخش بعدی این سلسله مقالات به بررسی الگوریتم K-means می‌پردازیم.</p>
+<blockquote>
+<p><strong>سایر بخشهای این سلسله مقالات را از دست ندهید:</strong><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم-جنگل تصادفی)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></p>
+</blockquote></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>نمای گراف</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="backlinks desktop-only"><h3>ارجاعات</h3><ul id="list-2" class="overflow"><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)</a></li><li class="overflow-end"></li></ul></div></div><footer class><ul></ul></footer></div></div><footer class="Globalfooter"><div class="Globalfooter-root" dir="rtl"><div class="Globalfooter-links-grid"><div class="Globalfooter-links-grid-columns"><div class="Globalfooter-column"><h3>دوره ها</h3><ul><li><a href="Courses/زبانهای-برنامه-نویسی/">برنامه نویسی</a></li><li><a href="Courses/هوش مصنوعی/">هوش مصنوعی</a></li></ul></div><div class="Globalfooter-column"><h3>خدمات</h3><ul><li><a href="#">پشتیبانی فنی</a></li></ul></div><div class="Globalfooter-column"><h3>کتابها</h3><ul><li><a href="http://www.igai.ir">هوش مصنوعی خلاق</a></li></ul></div><div class="Globalfooter-column"><h3>درباره</h3><ul><li><a href="/about">هوراژن</a></li></ul></div></div></div><div class="Globalfooter-logo-row"><div class="Globalfooter-logo-row-content"><div class="logo-description"><div class="logo"><img src="/Images/logo.jpg" alt="لوگو"/></div><p class="description justify">دانش نامه آموزشی هوراژن سعی دارد در جهت نشر علوم و فناوریهای نوین تلاش کرده و آنرا با سهولت و سادگی در اختیار علاقمندان کسب دانش و مهارت قرار دهد.</p></div><div class="social-icons"><a href="https://facebook.com/..." aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+      1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.4v7z"></path></svg></a><a href="https://twitter.com/..." aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.3 2H21l-6.6 7.5L22 22h-6.9l-4.3-5.7L5.8 22H3l7.1-8.1L2 2h7l3.9 5.1L18.3 2z"></path></svg></a><a href="https://instagram.com/..." aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5
+      .6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.4 1.1.5 2.3
+      .1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3
+      -.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.4-2.3.5
+      -1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5
+      -.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.4-1.1-.5-2.3
+      -.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3
+      .2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.4 2.3-.5
+      1.3-.1 1.7-.1 4.9-.1zm0 3.4a6.4 6.4 0 1 0 0 12.8
+      6.4 6.4 0 0 0 0-12.8zm0 10.6a4.2 4.2 0 1 1 0-8.4
+      4.2 4.2 0 0 1 0 8.4zm6.7-10.9a1.5 1.5 0 1 1-3
+      0 1.5 1.5 0 0 1 3 0z"></path></svg></a><a href="https://linkedin.com/..." aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.9h4v12H3zM9.5 8.9h3.8v1.6h.1
+      c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6
+      c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7h-4z"></path></svg></a></div></div></div><div class="Globalfooter-copyright"><p>تمامی حقوق متعلق است به هوراژن. طراحی و توسعه : ح.بحری<span>©</span><span>1404</span></p></div></div></footer></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../../postscript.js" type="module" data-persist="true"></script></html>

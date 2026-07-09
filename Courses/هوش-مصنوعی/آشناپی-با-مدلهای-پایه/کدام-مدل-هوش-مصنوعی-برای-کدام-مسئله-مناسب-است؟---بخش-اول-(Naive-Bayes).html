@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><title>کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)خرد راستین و اندیشه نوآفرین</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="هوراژن "/><meta property="og:title" content="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)خرد راستین و اندیشه نوآفرین"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)خرد راستین و اندیشه نوآفرین"/><meta name="twitter:description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="og:description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="og:image:alt" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="twitter:domain" content="hooragen.ir"/><meta property="og:url" content="https://hooragen.ir/Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)"/><meta property="twitter:url" content="https://hooragen.ir/Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxob3NlaW5cXE9uZURyaXZlXFxQcm9qZWN0c1xcU3RhdGljIFNpdGVzXFxUZXN0XFxxdWFydHpcXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://hooragen.ir/index.xml"/><meta property="og:image" content="https://hooragen.ir/static/Naive Bayes.png"/><meta property="og:image:url" content="https://hooragen.ir/static/Naive Bayes.png"/><meta name="twitter:image" content="https://hooragen.ir/static/Naive Bayes.png"/><meta property="og:image:type" content="image/.png"/></head><body data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)"><header class="global-header"><div class="global-container"><h1>هوراژن <span class="page-title-suffix">خرد راستین و اندیشه نوآفرین</span></h1></div></header><nav class="global-nav" role="navigation" aria-label="Main Navigation"><div class="global-nav-inner"><div class="nav-brand"><a href="/">هوراژن</a></div><input id="nav-toggle" type="checkbox" class="nav-toggle"/><label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label><ul class="nav-links"><li><a href="/" data-nav="true">صفحه اصلی</a></li><li><a href="/Courses" data-nav="true">دوره ها</a></li><li><a href="/Articles" data-nav="true">مقالات</a></li><li><a href="/Books" data-nav="true">کتاب‌ها</a></li><li><a href="/about" data-nav="true">درباره</a></li></ul></div></nav><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title desktop-only"><a href="../../..">هوراژن </a></h2><div class="flex-component desktop-only" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search desktop-only"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>جستجو</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="مطلبی را جستجو کنید" placeholder="مطلبی را جستجو کنید"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="حالت شب"><title>حالت شب</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="حالت روز"><title>حالت روز</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="حالت خواندن"><title>حالت خواندن</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer desktop-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>{if(a.isFolder&amp;&amp;b.isFolder)return a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;});if(a.isFolder)return-1;if(b.isFolder)return 1;let da=a.data?.date?.getTime()??0;return(b.data?.date?.getTime()??0)-da}&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-35"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>مرورگر</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-35" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">خانه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/">دوره ها</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/هوش-مصنوعی/">هوش مصنوعی</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/">آشنائی با مدلهای پایه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟   بخش اول (Naive Bayes)</a></div></nav><h1 class="article-title">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</h1><p class="article-subtitle">بررسی مدل هوش مصنوعی Naive Bayes و کاربردهای آن در حل مسائل به زبان ساده و ذکر مثالهای شهودی</p><p show-comma="true" class="content-meta">نوشته شده در: <time datetime="2026-07-09T07:26:32.355Z">۱۸ تیر ۱۴۰۵</time><span>زمان تقریبی مطالعه: ۱۷ دقیقه</span></p></div></div><article class="popover-hint"><img src="/Images/Naive Bayes.png" alt="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)" class="article-cover"/><blockquote>
+<p><strong>سایر بخشهای این سلسله مقالات را از دست ندهید:</strong><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم-جنگل تصادفی)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></p>
+</blockquote>
+<p>برنامه‌های کاربردی در حوزه هوش مصنوعی مبتنی بر مدل‌ها و الگوریتم‌های شناخته‌شده‌ای هستند که عمدتاً مسائلی در حوزه‌های دسته‌بندی، پیش‌بینی و تشخیص الگو را هدف قرار می‌دهند. این مدل‌ها با پردازش حجم عظیمی از داده‌ها، توانایی استخراج روابط پیچیده و ارائه بینش‌های دقیق را دارند که پایه‌و‌اساس بسیاری از فناوری‌های نوین امروزی محسوب می‌شوند. از سیستم‌های توصیه‌گر گرفته تا ابزارهای تشخیص ناهنجاری، همگی بر شانه‌های این الگوریتم‌های ریاضیاتی استوارند که با بهینه‌سازی مداوم، دقت و کارایی خود را در مواجهه با چالش‌های دنیای واقعی افزایش می‌دهند.<br/>
+با این حال، تنوع و تخصصی‌شدن نیازهای صنعتی و اجتماعی منجر به ظهور نسل جدیدی از مدل‌های هوش مصنوعی شده است که فراتر از وظایف سنتی عمل می‌کنند. امروزه ما با طیف وسیعی از معماری‌ها روبرو هستیم؛ از مدل‌های زبانی بزرگ که درک و تولید متن را متحول کرده‌اند، تا شبکه‌های مولد متخاصم که قادر به خلق آثار هنری و طراحی‌های مهندسی هستند. درک این تفاوت‌ها و شناخت ویژگی‌های منحصر‌به‌فرد هر مدل، کلید اصلی انتخاب ابزار مناسب برای حل مسائل خاص است و مرز میان یک پروژه موفق و یک شکست پرهزینه را تعیین می‌کند.<br/>
+هر چند مدل‌های نوین مانند مدل‌های زبانی بزرگ در حل بسیاری از مسائل کارآمد نشان داده‌اند، اما در برخی موارد مدل‌های کلاسیک نیز همچنان از کارایی مناسبی برخوردار بوده و از نظر هزینه-فایده و توان محاسباتی مورد نیاز به مدل‌های زبانی بزرگ برتری دارند. برای مثال، در مسائلی با داده‌های ساختاریافته و محدود، الگوریتم‌هایی نظیر رگرسیون لجستیک، ماشین بردار پشتیبان یا درخت‌های تصمیم نه‌تنها با سرعت بسیار بالاتر و مصرف انرژی ناچیز آموزش می‌بینند، بلکه تفسیرپذیری و شفافیت تصمیم‌گیری آن‌ها نیز در حوزه‌های حساس مانند پزشکی و مالی، مزیتی انکارناپذیر نسبت به جعبه‌سیاهِ مدل‌های عصبی عمیق محسوب می‌شود.<br/>
+بنابراین، انتخاب میان مدل‌های کلاسیک و نوین نباید صرفاً بر اساس جدید بودن فناوری صورت گیرد، بلکه باید حاصل ارزیابی دقیقی از ماهیت مسئله، حجم و کیفیت داده‌ها، بودجه محاسباتی و الزامات عملیاتی باشد. رویکرد هوشمندانه در مهندسی هوش مصنوعی، بهره‌گیری از ترکیب بهینه این دو نسل است؛ جایی که مدل‌های سبک و چابک بار اصلی پردازش‌های روزمره و بلادرنگ را بر دوش می‌کشند و مدل‌های بزرگ تنها برای وظایف پیچیده و خلاقانه که واقعاً به توانمندی‌های منحصربه‌فردشان نیاز است، فراخوانده می‌شوند تا تعادلی پایدار میان عملکرد، هزینه و پایداری ایجاد گردد.<br/>
+یک مثال کاربردی در دنیای واقعی که این برتری را نشان می‌دهد را با هم مرور می‌کنیم: سامانه تشخیص تقلب در تراکنش‌های بانکی بلادرنگ. در حالی که یک مدل زبانی بزرگ برای تحلیل هر تراکنش به صدها میلی‌ثانیه زمان و زیرساخت ابری پرهزینه نیاز دارد، یک مدل کلاسیک مانند «<strong>جنگل تصادفی</strong>» یا «<strong>گرادیانت بوستینگ</strong>» می‌تواند همان تراکنش را در کمتر از ۵ میلی‌ثانیه و مستقیماً روی سرورهای لبه‌ای بانک پردازش کند. این تفاوت زمانی ظاهراً ناچیز، وقتی در مقیاس میلیون‌ها تراکنش روزانه ضرب شود، به معنای صرفه‌جویی میلیون‌ها هزار تومان در ماه هزینه زیرساخت و جلوگیری از مسدودشدن تجربه کاربری مشتریان است، بدون آنکه دقت تشخیص کاهش یابد.<br/>
+نکته کلیدی اینجاست که داده‌های تراکنش بانکی ذاتاً ساختاریافته و عددی هستند و الگوهای تقلب در آن‌ها طی سال‌ها به‌خوبی شناخته و برچسب‌گذاری شده‌اند؛ دقیقاً همان شرایطی که مدل‌های کلاسیک در آن می‌درخشند. استفاده از یک مدل زبانی بزرگ در این سناریو، نه‌تنها هزینه و پیچیدگی غیرضروری تحمیل می‌کند، بلکه به دلیل ماهیت احتمالاتی و <strong>عدم قطعیت</strong> خروجی‌هایش، ریسک خطاهای غیرقابل پیش‌بینی را نیز افزایش می‌دهد؛ مثل اینست که بخواهید پشه‌ای را با آتش سنگین یک توپخانه هدف بگیرید. این مثال به‌وضوح نشان می‌دهد که در مهندسی هوش مصنوعی عملی، «بهترین» مدل لزوماً بزرگ‌ترین یا جدیدترین نیست، بلکه مدلی است که با کمترین منابع، بیشترین ارزش تجاری و قابل‌اعتمادترین عملکرد را ارائه دهد.<br/>
+در این مقاله کوتاه قصد دارم به معرفی برخی از مهم‌ترین مدل‌های کلاسیک هوش مصنوعی به زبانی ساده با تکیه بر سناریوها و کاربردهای عملی و واقعی بپردازم. هدف این نیست که شما را درگیر فرمول‌های ریاضی پیچیده یا تاریخچه آکادمیک این الگوریتم‌ها کنم، بلکه می‌خواهم نشان دهم هر کدام از این ابزارها دقیقاً برای حل چه نوع مسئله‌ای ساخته شده‌اند و چگونه می‌توانند در پروژه‌های واقعی، از مدیریت موجودی انبار تا پیش‌بینی ریزش مشتریان، نقش ایفا کنند.<br/>
+با این رویکرد کاربردی، خواننده نه‌تنها با نام و تعریف مدل‌ها آشنا می‌شود، بلکه یاد می‌گیرد که هنگام مواجهه با یک چالش جدید، چگونه ذهنیت مهندسی خود را فعال کرده و به جای پرسیدن «کدام مدل جدیدتر است؟»، بپرسد «کدام مدل با داده‌ها و محدودیت‌های من سازگارتر است؟». این تغییر زاویه دید، مرز میان یک علاقه‌مند به هوش مصنوعی و یک توسعه‌دهنده مؤثر است که می‌تواند راه‌حل‌های پایدار، مقرون‌به‌صرفه و قابل اتکا ارائه دهد.</p>
+<hr/>
+<p>در ابتدا مروری می‌کنیم بر چند مسئله کاربردی واقعی که حل آن‌ها با استفاده از مدل‌های هوش مصنوعی کلاسیک مقرون‌به‌صرفه‌تر است. این مسائل معمولاً سه ویژگی مشترک دارند: داده‌های ورودی آن‌ها ساختاریافته و عددی است، رابطه بین متغیرها نسبتاً پایدار و قابل تعریف است و هزینه خطا یا تأخیر در تصمیم‌گیری مستقیماً بر سودآوری یا تجربه کاربر اثر می‌گذارد. برای نمونه، پیش‌بینی تقاضای فصلی محصولات در یک فروشگاه زنجیره‌ای، امتیازدهی اعتباری متقاضیان وام خرد، یا دسته‌بندی خودکار تیکت‌های پشتیبانی مشتریان بر اساس موضوع و اولویت، همگی مسائلی هستند که دهه‌هاست با موفقیت توسط الگوریتم‌های کلاسیک حل می‌شوند و جایگزینی آن‌ها با مدل‌های سنگین نه تنها مزیتی ایجاد نمی‌کند، بلکه چرخه توسعه و نگهداری را بی‌دلیل پیچیده می‌سازد.<br/>
+بررسی این سناریوها به ما کمک می‌کند تا پیش از ورود به معرفی مدل‌ها، یک «نقشه ذهنی» از قلمرو مناسب هر ابزار ترسیم کنیم. وقتی بدانیم چه نوع مسائلی ذاتاً با رویکرد کلاسیک سازگارند، دیگر وسوسه نمی‌شویم که برای هر چالش جدیدی به سراغ راه‌حل‌های پرزرق‌وبرق برویم. این شناخت زمینه‌ای، پایه‌ای محکم برای بخش بعدی مقاله فراهم می‌آورد که در آن به تشریح مشخصات فنی و نقاط قوت هر مدل خواهیم پرداخت؛ چرا که بدون درک درست «مسئله»، حتی دقیق‌ترین توضیح درباره «مدل» نیز در عمل بی‌حاصل خواهد بود.</p>
+<h3 id="مدلها-و-الگوریتمهای-پرکاربرد">مدل‌ها و الگوریتمهای پرکاربرد<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مدلها-و-الگوریتمهای-پرکاربرد" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>برخی از پرکاربردترین مدل‌های کلاسیک هوش مصنوعی عبارتند از: <strong>الگوریتم Naive Bayes برای دسته‌بندی سریع متن و داده‌های گسسته بر اساس احتمالات ساده‌شده</strong>، رگرسیون خطی و لجستیک برای پیش‌بینی مقادیر پیوسته و دسته‌بندی دوتایی، درخت تصمیم و جنگل تصادفی برای مسائل با قوانین شرطی شفاف و تفسیرپذیری بالا، ماشین بردار پشتیبان (SVM) برای مرزبندی دقیق در داده‌های با ابعاد متوسط، الگوریتم K-نزدیکترین همسایه (KNN) برای دسته‌بندی مبتنی بر شباهت محلی، خوشه‌بندی K-Means برای بخش‌بندی مشتریان یا شناسایی الگوهای پنهان بدون برچسب و <strong>تحلیل مؤلفه‌های اصلی (PCA) برای کاهش ابعاد داده و حذف نویز بدون از دست دادن اطلاعات مهم</strong>. هر یک از این مدل‌ها نه به عنوان جایگزین یکدیگر، بلکه به عنوان ابزارهایی مکمل در جعبه‌ابزار مهندس هوش مصنوعی عمل می‌کنند که انتخاب میان آن‌ها بیش از آنکه به «قدرت» مدل بستگی داشته باشد، به «تناسب» آن با ساختار داده و الزامات کسب‌وکار گره خورده است.</p>
+<p>در ادامه مقاله، هر یک از این مدل‌ها را نه با تعاریف انتزاعی، بلکه از دریچه همان سناریوهای روزمره‌ای که پیش‌تر برشمردیم بررسی خواهیم کرد. هدف این است که پس از مطالعه هر بخش، خواننده بتواند با دیدن یک مسئله جدید، بلافاصله حدس بزند کدام الگوریتم کلاسیک مناسب‌تر است و چرا؛ مهارتی که مرز بین دانش نظری و توانمندی عملی در دنیای هوش مصنوعی کاربردی را ترسیم می‌کند.</p>
+<h3 id="الگوریتم-naive-bayes">الگوریتم Naive Bayes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#الگوریتم-naive-bayes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>با الگوریتم Naive Bayes شروع می‌کنیم؛ مدلی که علی‌رغم سادگی ریاضی و فرض خوش‌بینانه «استقلال ویژگی‌ها»، همچنان یکی از سریع‌ترین و کارآمدترین ابزارها برای دسته‌بندی متنی و فیلتر کردن محتواست. این الگوریتم بر پایه قضیه بیز استوار است و به جای یادگیری روابط پیچیده میان کلمات، تنها احتمال تکرار هر واژه در هر دسته را محاسبه می‌کند؛ فرآیندی که حتی روی سخت‌افزارهای ضعیف و در کسری از ثانیه انجام می‌شود. به همین دلیل، Naive Bayes هنوز هم خط اول دفاعی در تشخیص ایمیل‌های ناخواسته یا همان اسپم‌، تحلیل احساسات نظرات کاربران و دسته‌بندی خودکار اخبار است؛ جایی که سرعت پردازش و نیاز ناچیز به داده آموزشی، بر دقت مطلق اولویت دارد.</p>
+<p>قدرت واقعی این مدل نه در پیچیدگی، بلکه در «کفایت عملی» آن نهفته است. در بسیاری از سناریوهای واقعی، رسیدن به دقت ۹۰ درصد با هزینه محاسباتی نزدیک به صفر، ارزشمندتر از دستیابی به دقت ۹۵ درصد با مصرف منابعی صد برابر بیشتر است. Naive Bayes به ما می‌آموزد که در مهندسی هوش مصنوعی، گاهی <strong>بهترین راه‌حل، ساده‌ترین راه‌حل</strong> است؛ مشروط بر اینکه محدودیت‌های مدل را بشناسیم و آن را دقیقاً در قلمرویی به کار ببریم که فرضیات بنیادینش با ماهیت داده‌ها همخوانی دارند.</p>
+<h4 id="الگوریتم-چه-مشکلی-را-حل-میکند">الگوریتم چه مشکلی را حل می‌کند؟<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#الگوریتم-چه-مشکلی-را-حل-میکند" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>فرض کنید می‌خواهیم <strong>صرفاً</strong> بر اساس <strong>قد</strong> و <strong>وزن</strong> یک فرد، جنسیت او را حدس بزنیم (زن است یا مرد) و هیچ دادهٔ دیگری نداریم. ما قبلاً اطلاعات ۱۰۰ نفر را گردآوری کردیم که قد و وزن و جنسیت‌شان مشخص است(داده‌های آموزشی برچسب جنسیت خورده بر اساس مقدار ویژگیها که همان قد و زن است). حالا یک فرد (داده) جدید -که جنسیت او برای ما مجهول است- می‌آید با قد ۱۷۵ سانتی‌متر و وزن ۷۰ کیلوگرم. می‌خواهیم بگوییم زن است یا مرد؟</p>
+<h4 id="مرحله-۱-محاسبه-شانس-اولیه-احتمال-پیشین">مرحله ۱: محاسبه شانس اولیه (احتمال پیشین)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۱-محاسبه-شانس-اولیه-احتمال-پیشین" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>قبل از اینکه هیچ ویژگی‌ای از افراد جدید را ببینیم، از روی داده‌هایی که داریم (داده های آموزشی که گردآوری کردیم) می‌بینیم چند درصد کل افراد در مجموعه داده ها زن و چند درصد مرد هستند.<br/>
+<strong>مثال عددی</strong>:</p>
+<ul>
+<li>
+<p>از ۱۰۰ نفر: ۶۰ نفر مرد و ۴۰ نفر زن</p>
+</li>
+<li>
+<p>شانس اولیه مرد بودن = ۶۰٪</p>
+</li>
+<li>
+<p>شانس اولیه زن بودن = ۴۰٪<br/>
+<strong>مثل این می‌ماند که</strong>: اگر از شما بپرسم بدون هیچ اطلاعات دیگری، جنسیت این فرد جدید چیست؟ شما می‌گویید “مرد، و استدلال می کنید: چون مردها در جامعه ما بیشتر هستند.”</p>
+</li>
+</ul>
+<h4 id="مرحله-۲-یادگیری-الگوی-هر-گروه-محاسبه-پارامترها">مرحله ۲: یادگیری الگوی هر گروه (محاسبه پارامترها)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۲-یادگیری-الگوی-هر-گروه-محاسبه-پارامترها" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>برای هر گروه (مردها و زنها) نگاه می‌کنیم که قد و وزن آنها معمولاً در چه محدوده‌ای است.<br/>
+<strong>مثال عددی</strong>:</p>
+<ul>
+<li>
+<p><strong>مردها</strong>: میانگین قد = ۱۷۸ سانتی‌متر، میانگین وزن = ۸۰ کیلوگرم (و میزان پراکندگی هم محاسبه میشود)</p>
+</li>
+<li>
+<p><strong>زنها</strong>: میانگین قد = ۱۶۵ سانتی‌متر، میانگین وزن = ۶۰ کیلوگرم<br/>
+<strong>مثل این می‌ماند که</strong>: در ذهن خودتان یک “الگوی کلی” از مردها و زنها بسازید. مثلاً ‌بگویید “مردها معمولاً بلندتر و سنگین‌تر هستند”.</p>
+</li>
+</ul>
+<h4 id="مرحله-۳-تطبیق-فرد-جدید-با-هر-گروه-محاسبه-شباهت">مرحله ۳: تطبیق فرد جدید با هر گروه (محاسبه شباهت)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۳-تطبیق-فرد-جدید-با-هر-گروه-محاسبه-شباهت" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>می‌بینیم قد و وزن فرد جدید - که جنسیتش مجهول است- چقدر با الگوی مردها جور درمی‌آید و چقدر با الگوی زنها.<br/>
+<strong>مثال عددی</strong> (فرد جدید: قد ۱۷۵، وزن ۷۰):<br/>
+<strong>مقایسه با الگوی مردها</strong>:</p>
+<ul>
+<li>
+<p>قد فرد (۱۷۵) به میانگین مردها (۱۷۸) نزدیک است ← نمره خوب</p>
+</li>
+<li>
+<p>وزن فرد (۷۰) به میانگین مردها (۸۰) نسبتاً نزدیک است ← نمره متوسط</p>
+</li>
+<li>
+<p><strong>نمره نهایی شباهت به مردها</strong> = (نمره قد) × (نمره وزن) = ۰.۸ × ۰.۷ = <strong>۰.۵۶</strong><br/>
+<strong>مقایسه با الگوی زنها</strong>:</p>
+</li>
+<li>
+<p>قد فرد (۱۷۵) از میانگین زنها (۱۶۵) دور است ← نمره بد (۰.۲)</p>
+</li>
+<li>
+<p>وزن فرد (۷۰) از میانگین زنها (۶۰) دور است ← نمره بد (۰.۱)</p>
+</li>
+<li>
+<p><strong>نمره نهایی شباهت به زنها</strong> = ۰.۲ × ۰.۱ = <strong>۰.۰۲</strong></p>
+<blockquote>
+<p><strong>توجه</strong>: این نمره‌ها بین ۰ تا ۱ هستند. هر چه به ۱ نزدیک‌تر باشد، شباهت بیشتر است.</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="مرحله-۴-ترکیب-شانس-اولیه-با-شباهتها-و-تصمیمگیری-قانون-بیز">مرحله ۴: ترکیب شانس اولیه با شباهت‌ها و تصمیم‌گیری (قانون بیز)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۴-ترکیب-شانس-اولیه-با-شباهتها-و-تصمیمگیری-قانون-بیز" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>برای این فرد جدید شانس اولیه هر گروه (مرحله ۱) را در نمره شباهت فرد به آن گروه (مرحله ۳) ضرب می‌کنیم. هر گروه که عدد نهایی بزرگتری داشت، برنده می‌شود.<br/>
+<strong>محاسبات مثال</strong>:<br/>
+نمره نهایی برای <strong>مرد</strong> بودن:</p>
+<ul>
+<li>
+<p>شانس اولیه مرد = ۰.۶</p>
+</li>
+<li>
+<p>شباهت به مردها = ۰.۵۶</p>
+</li>
+<li>
+<p><strong>نتیجه نهایی</strong> = ۰.۶ × ۰.۵۶ = <strong>۰.۳۳۶</strong> (حدود ۳۴٪)<br/>
+نمره نهایی برای <strong>زن</strong> بودن:</p>
+</li>
+<li>
+<p>شانس اولیه زن = ۰.۴</p>
+</li>
+<li>
+<p>شباهت به زنها = ۰.۰۲</p>
+</li>
+<li>
+<p><strong>نتیجه نهایی</strong> = ۰.۴ × ۰.۰۲ = <strong>۰.۰۰۸</strong> (کمتر از ۱٪)<br/>
+<strong>تصمیم نهایی</strong>: چون ۰.۳۳۶ از ۰.۰۰۸ بزرگتر است، می‌گوییم این فرد تنها بر اساس دو ویژگی وزن و قدی که از او می دانیم <strong>مرد</strong> است.</p>
+</li>
+</ul>
+<h4 id="جمعبندی-چهار-مرحله-به-زبان-ساده">جمع‌بندی چهار مرحله به زبان ساده<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#جمعبندی-چهار-مرحله-به-زبان-ساده" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>مرحله نام فنی زبان ساده ۱ احتمال پیشین “افراد هر گروه چند درصد از کل هستند؟” ۲ تخمین پارامترها “الگوی معمول هر گروه چیست؟ (میانگین و پراکندگی)” ۳ تابع شباهت “فرد جدید چقدر به الگوی هر گروه شبیه است؟” ۴ قانون بیز “شانس اولیه × شباهت = شانس نهایی” و برنده مشخص می‌شود</p>
+<blockquote>
+<p><strong>نکته طلایی (همان “ساده‌لوحانه” یا Naive بودن)</strong><br/>
+الگوریتم فرض می‌کند که <strong>ویژگی‌ها به هم ربط ندارند</strong>. یعنی قد و وزن را مستقل از هم بررسی می‌کند، در حالی که در واقعیت قد و وزن به هم مرتبط هستند (معمولاً افراد بلند سنگین‌ترند).<br/>
+<strong>این فرض “ساده‌لوحانه” (Naive) است</strong>، اما همانطور که دیدیم، در عمل بسیار خوب کار می‌کند!</p>
+</blockquote>
+<h4 id="یک-مثال-کاربردی-دیگر">یک مثال کاربردی دیگر<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#یک-مثال-کاربردی-دیگر" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>فرض کنید می‌خواهیم یک فیلتر ساده برای تشخیص پیامک‌های تبلیغاتی از پیامک‌های شخصی بسازیم. الگوریتم Naive Bayes به جای خواندن و فهمیدن معنای جمله، مانند یک حسابدار دقیق عمل می‌کند: او فقط کلمات کلیدی را می‌شمارد. اگر در هزاران پیامک تبلیغاتی قبلی(داده های آموزشی برچسب خورده)، کلمات «تخفیف»، «فوری» و «لینک» بارها تکرار شده باشند اما در پیامک‌های شخصی تقریباً دیده نشده باشند، مدل یاد می‌گیرد که حضور این کلمات نشانه قوی تبلیغاتی بودن است. وقتی پیامک جدیدی با متن «تخفیف فوری ویژه اعضای باشگاه» می‌رسد، الگوریتم احتمال تبلیغاتی بودن آن را بر اساس فراوانی این کلمات محاسبه کرده و بدون نیاز به پردازش سنگین زبانی، آن را در پوشه اسپم قرار می‌دهد.<br/>
+زیبایی این مثال در شفافیت تصمیم‌گیری است؛ برخلاف مدل‌های پیچیده که دلیل دسته‌بندی را پنهان می‌کنند، اینجا دقیقاً می‌دانیم چرا پیام مسدود شد: چون ترکیب احتمالات کلمات موجود در آن، بیشتر شبیه به الگوی پیام‌های تبلیغاتی بود تا شخصی. این ویژگی باعث می‌شود رفع خطا هم ساده شود؛ اگر پیامکی اشتباهاً مسدود شد، کافیست کلمه خاصی را به عنوان «نشانه امن» به سیستم معرفی کنیم.</p>
+<blockquote>
+<p>عبارت «نشانه امن» خودش یک اصطلاح رسمی در الگوریتم <strong>Naive Bayes</strong> نیست، اما <strong>مفهوم آن کاملاً با منطق این الگوریتم سازگار است</strong> و در عمل—به‌ویژه در سیستم‌های واقعی مانند فیلتر اسپم—به شکل‌های مختلف پیاده‌سازی می‌شود.<br/>
+در Naive Bayes، هر کلمه (یا ویژگی) بر اساس <strong>فرکانس تجربی</strong> در داده‌های آموزشی وزن می‌گیرد. اگر کلمه‌ای مانند «فاکتور» یا «آقای کاظمی» تقریباً <strong>فقط در پیامک‌های غیراسپم</strong> دیده شده باشد، احتمال شرطی آن در دسته «شخصی» بسیار بالا و در دسته «تبلیغاتی» نزدیک به صفر خواهد بود. در نتیجه، حضور آن کلمه در یک پیامک جدید، احتمال «شخصی بودن» را به شدت افزایش می‌دهد—دقیقاً همان نقشی که «نشانه امن» ایفا می‌کند.<br/>
+در پیاده‌سازی‌های عملی (مثل فیلترهای ایمیل)، گاهی از <strong>قوانین جانبی</strong> (rule-based overrides) همراه با Naive Bayes استفاده می‌شود: مثلاً اگر کلمه‌ای در لیست «همیشه امن» باشد، پیام بدون محاسبه احتمال، مستقیماً به پوشهٔ اصلی هدایت می‌شود. این رویکرد ترکیبی، ضعف احتمالی Naive Bayes در مواجهه با داده‌های کم‌فرکانس را جبران می‌کند.</p>
+</blockquote>
+<p>برای درک عمیق‌تر، همان مثال پیامک را با اعداد واقعی دنبال می‌کنیم. فرض کنید در مجموعه داده آموزشی خود ۱۰۰ پیامک داریم که ۳۰ تای آن تبلیغاتی و ۷۰ تای آن شخصی است. <strong>احتمال پیشین</strong> (Prior) صرفاً بازتاب همین نسبت پایه است: احتمال تبلیغاتی بودن یک پیامک جدید قبل از دیدن متن آن ۰.۳ و شخصی بودن آن ۰.۷ است. این عدد، نقطه شروع و «پیش‌فرض» مدل است که با مشاهده شواهد جدید (کلمات متن) به‌روزرسانی خواهد شد.<br/>
+بنابراین بدون دیدن محتوای پیامک جدید، فقط از روی آمار گذشته فکر می‌کنید:<br/>
+«از هر ۱۰۰ پیامک، ۳۰ تا تبلیغ بوده. پس شانس اینکه پیامک بعدی هم تبلیغ باشد، ۳۰٪ است.»<br/>
+در مرحله <strong>تخمین پارامترها</strong>، مدل فراوانی کلمات را در هر دسته محاسبه می‌کند. مثلاً اگر کلمه «تخفیف» در کلِ ۳۰ پیامک تبلیغاتی ۱۵ بار و در ۷۰ پیامک شخصی تنها ۲ بار آمده باشد، احتمال شرطی مشاهده «تخفیف» در صورت تبلیغاتی بودن پیام برابر با ۱۵/۳۰ = ۰.۵ بوده یعنی ۵۰٪ پیامک‌های تبلیغاتی این کلمه را دارند و در صورت شخصی بودن برابر با ۲/۷۰ ≈ ۰.۰۲۹ خواهد بود، یعنی فقط ۲.۹٪ پیامک‌های شخصی این کلمه را دارند. این اعداد به ما می‌گویند: «اگر کلمه <em>تخفیف</em> دیدید، احتمالاً پیام تبلیغ است.».<br/>
+سپس <strong>تابع شباهت</strong> (Likelihood) وارد عمل می‌شود که در واقع حاصل‌ضرب احتمالات شرطی تمام کلمات موجود در پیامک جدید است. برای پیامک «تخفیف فوری ویژه اعضای باشگاه»، احتمال «تخفیف» همان است که محاسبه شد حال اگر احتمال «فوری» در دسته تبلیغاتی ۰.۴ و در شخصی ۰.۰۱ باشد، شباهت تبلیغاتی بودن برابر با ۰.۵ × ۰.۴ = ۰.۲ و شباهت شخصی بودن برابر با ۰.۰۲۹ × ۰.۰۱ ≈ ۰.۰۰۰۲۹ خواهد بود. این اعداد نشان می‌دهند پیام جدید خیلی بیشتر به الگوی تبلیغاتی شبیه است. توجه کنید که این مقادیر هنوز احتمال نهایی نیستند، بلکه فقط نشان‌دهنده میزان سازگاری متن با هر دسته‌اند.<br/>
+در نهایت، <strong>قانون بیز</strong> این شواهد را با احتمال پیشین ترکیب کرده و احتمال پسین را تولید می‌کند. با ضرب شباهت در احتمال پیشین و نرمال‌سازی نتیجه، احتمال تبلیغاتی بودن پیامک «تخفیف فوری» برابر با (۰.۲ × ۰.۳) / [(۰.۲ × ۰.۳) + (۰.۰۰۰۲۹ × ۰.۷)] ≈ ۰.۹۹۷ به دست می‌آید. امتیاز تبلیغ <strong>حدود ۹۹.۷٪</strong> از کل امتیازها را تشکیل می‌دهد.<br/>
+پس نتیجه می‌گیریم: «این پیامک با اطمینان بسیار بالا تبلیغاتی است.»<br/>
+کل این محاسبات با چهار عمل اصلی ریاضی انجام شده و هیچ نیازی به ماتریس‌های عظیم یا پردازنده‌های گرافیکی ندارد؛همین امر Naive Bayes را برای کاربردهای بلادرنگ و با منابع اندک بی‌رقیب می‌سازد.</p>
+<h4 id="مثال-کاربردی-در-حوزه-بانکداری">مثال کاربردی در حوزه بانکداری<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مثال-کاربردی-در-حوزه-بانکداری" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>پیش‌بینی اینکه آیا یک مشتری جدید، وام خود را بازپرداخت خواهد کرد یا خیر (یعنی تشخیص «خوب» یا «بد» بودن اعتبار مشتری).</strong><br/>
+<strong>مرحله ۱: محاسبه شانس اولیه (احتمال پیشین)</strong><br/>
+از داده‌های تاریخی بانک می‌دانیم که از هر ۱۰۰۰ مشتری که وام گرفته‌اند، ۸۵۰ نفر آن را به‌موقع بازپرداخت کرده‌اند و ۱۵۰ نفر دچار سوءاستفاده یا تأخیر طولانی شده‌اند.</p>
+<ul>
+<li>
+<p>احتمال پیشین «خوش حسابی» = ۸۵۰ / ۱۰۰۰ = <strong>۰.۸۵</strong></p>
+</li>
+<li>
+<p>احتمال پیشین «بدحسابی» = ۱۵۰ / ۱۰۰۰ = <strong>۰.۱۵</strong><br/>
+این یعنی بدون دیدن هیچ اطلاعاتی از مشتری جدید، بانک به‌طور کلی فکر می‌کند ۸۵٪ شانس دارد وام او بازپرداخت شود.</p>
+</li>
+</ul>
+<p><strong>مرحله ۲: یادگیری الگوی هر گروه (تخمین پارامترها)</strong><br/>
+دو ویژگی کلیدی را در نظر می‌گیریم:</p>
+<ul>
+<li>
+<p><strong>درآمد ماهانه</strong> (میلیون تومان)</p>
+</li>
+<li>
+<p><strong>سابقه اعتباری</strong> (تعداد ماه‌هایی که قبلاً وام داشته و به‌موقع پرداخت کرده)<br/>
+با بررسی مشتریان قبلی:</p>
+</li>
+<li>
+<p><strong>مشتریان خوش حساب</strong>:</p>
+<ul>
+<li>
+<p>میانگین درآمد = ۳۰ میلیون، انحراف معیار = ۳</p>
+</li>
+<li>
+<p>میانگین سابقه = ۲۴ ماه، انحراف معیار = ۸</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>مشتریان بدحساب</strong>:</p>
+<ul>
+<li>
+<p>میانگین درآمد = ۱۵ میلیون، انحراف معیار = ۴</p>
+</li>
+<li>
+<p>میانگین سابقه = ۶ ماه، انحراف معیار = ۵<br/>
+مشاهده می‌شود که مشتریان معتبر معمولاً درآمد بالاتر و سابقه طولانی‌تری دارند.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>مرحله ۳: تطبیق مشتری جدید با هر گروه (تابع شباهت)</strong></p>
+<p>یک مشتری جدید درخواست وام می‌دهد با:</p>
+<ul>
+<li>
+<p>درآمد = ۱۷ میلیون تومان</p>
+</li>
+<li>
+<p>سابقه اعتباری = ۱۰ ماه<br/>
+محاسبه احتمال شرطی هر ویژگی (با فرض توزیع نرمال):<br/>
+<strong>در گروه خوش‌حساب:</strong></p>
+</li>
+<li>
+<p>احتمال درآمد ۱۷ میلیون ≈ بسیار دور از میانگین ۳۰ → ≈ ۰.۰۰۰۱</p>
+</li>
+<li>
+<p>احتمال سابقه ۱۰ ماه ≈ نسبتاً دور از میانگین ۲۴ → ≈ ۰.۰۸</p>
+</li>
+<li>
+<p>نتیجه نهایی بررسی شباهت به “خوش حساب” ≈ ۰.۰۰۰۱ × ۰.۰۸ = ۰.۰۰۰۰۰۸<br/>
+<strong>در گروه بدحساب:</strong></p>
+</li>
+<li>
+<p>احتمال درآمد ۱۷ میلیون ≈ نزدیک به میانگین ۱۵ → ≈ ۰.۳۵</p>
+</li>
+<li>
+<p>احتمال سابقه ۱۰ ماه ≈ نسبتاً نزدیک به میانگین ۶ → ≈ ۰.۲۹</p>
+</li>
+<li>
+<p>نتیجه نهایی بررسی شباهت به “بد حساب” ≈ ۰.۳۵ × ۰.۲۹ = ۰.۱۰۱۵</p>
+</li>
+</ul>
+<p><strong>مرحله ۴: تصمیم‌گیری نهایی (قانون بیز)</strong></p>
+<p>امتیاز نهایی هر گروه:</p>
+<ul>
+<li>
+<p><strong>امتیاز “خوش حساب”</strong> = ۰.۸۵ × ۰.۰۰۰۰۰۸ ≈ <strong>۰.۰۰۰۰۰۶۸</strong></p>
+</li>
+<li>
+<p><strong>امتیاز “بد حساب”</strong> = ۰.۱۵ × ۰.۱۰۱۵ ≈ <strong>۰.۰۱۵۲</strong><br/>
+نسبت امتیاز “بدحساب” به “خوش حساب” ≈ <strong>۲,۲۴۰ برابر</strong> است.<br/>
+<strong>تصمیم نهایی</strong>: با وجود اینکه اکثر مشتریان تاریخی بانک خوش‌حساب هستند، داده‌های این مشتری جدید (درآمد ۱۷ میلیون و سابقه ۱۰ ماه) بسیار شبیه به الگوی مشتریان بدحساب و کاملاً دور از الگوی خوش‌حساب‌هاست. بنابراین، سیستم با اطمینان بالا پیش‌بینی می‌کند که این مشتری <strong>بدحساب</strong> است و پیشنهاد می‌کند وام به او <strong>تعلق نگیرد</strong>—مگر آنکه شرایط امنیتی اضافه (مانند ضامن معتبر یا وثیقه) فراهم شود.</p>
+</li>
+</ul>
+<hr/>
+<p>باید بدانیم که بسیاری از بانک‌های کوچک و متوسط هنوز از مدل‌هایی شبیه Naive Bayes (یا ترکیب آن با قوانین ساده) برای امتیازدهی اعتباری استفاده می‌کنند، چون:</p>
+<ul>
+<li>
+<p>روی سرورهای داخلی و بدون اینترنت قابل اجرا است (مهم برای امنیت داده‌های مالی)،</p>
+</li>
+<li>
+<p>تصمیماتشان قابل تفسیر است (مثلاً «وام رد شد چون سابقه کمتر از ۶ ماه بود»)،</p>
+</li>
+<li>
+<p>و هزینه توسعه و نگهداری آن‌ها بسیار پایین است.<br/>
+و این دقیقاً همان «تعادل هوشمندانه» است که در این مقاله‌ مطرح شد: همه‌جا نباید از مدل‌های عظیم استفاده کرد، بلکه بهتر است از <strong>مناسب‌ترین ابزار</strong> برای <strong>مسئله واقعی</strong> بهره برد.</p>
+</li>
+</ul>
+<p>در سایر بخشهای این مقاله به بررسی دیگر مدلهای کلاسیک خواهم پرداخت.</p>
+<blockquote>
+<p><strong>سایر بخشهای این سلسله مقالات را از دست ندهید:</strong><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم-جنگل تصادفی)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></p>
+</blockquote></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>نمای گراف</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-18" aria-expanded="true"><h3>فهرست</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#مدلها-و-الگوریتمهای-پرکاربرد" data-for="مدلها-و-الگوریتمهای-پرکاربرد">مدل‌ها و الگوریتمهای پرکاربرد</a></li><li class="depth-0"><a href="#الگوریتم-naive-bayes" data-for="الگوریتم-naive-bayes">الگوریتم Naive Bayes</a></li><li class="overflow-end"></li></ul></div><div class="backlinks desktop-only"><h3>ارجاعات</h3><ul id="list-2" class="overflow"><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)</a></li><li class="overflow-end"></li></ul></div></div><footer class><ul></ul></footer></div></div><footer class="Globalfooter"><div class="Globalfooter-root" dir="rtl"><div class="Globalfooter-links-grid"><div class="Globalfooter-links-grid-columns"><div class="Globalfooter-column"><h3>دوره ها</h3><ul><li><a href="Courses/زبانهای-برنامه-نویسی/">برنامه نویسی</a></li><li><a href="Courses/هوش مصنوعی/">هوش مصنوعی</a></li></ul></div><div class="Globalfooter-column"><h3>خدمات</h3><ul><li><a href="#">پشتیبانی فنی</a></li></ul></div><div class="Globalfooter-column"><h3>کتابها</h3><ul><li><a href="http://www.igai.ir">هوش مصنوعی خلاق</a></li></ul></div><div class="Globalfooter-column"><h3>درباره</h3><ul><li><a href="/about">هوراژن</a></li></ul></div></div></div><div class="Globalfooter-logo-row"><div class="Globalfooter-logo-row-content"><div class="logo-description"><div class="logo"><img src="/Images/logo.jpg" alt="لوگو"/></div><p class="description justify">دانش نامه آموزشی هوراژن سعی دارد در جهت نشر علوم و فناوریهای نوین تلاش کرده و آنرا با سهولت و سادگی در اختیار علاقمندان کسب دانش و مهارت قرار دهد.</p></div><div class="social-icons"><a href="https://facebook.com/..." aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+      1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.4v7z"></path></svg></a><a href="https://twitter.com/..." aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.3 2H21l-6.6 7.5L22 22h-6.9l-4.3-5.7L5.8 22H3l7.1-8.1L2 2h7l3.9 5.1L18.3 2z"></path></svg></a><a href="https://instagram.com/..." aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5
+      .6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.4 1.1.5 2.3
+      .1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3
+      -.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.4-2.3.5
+      -1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5
+      -.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.4-1.1-.5-2.3
+      -.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3
+      .2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.4 2.3-.5
+      1.3-.1 1.7-.1 4.9-.1zm0 3.4a6.4 6.4 0 1 0 0 12.8
+      6.4 6.4 0 0 0 0-12.8zm0 10.6a4.2 4.2 0 1 1 0-8.4
+      4.2 4.2 0 0 1 0 8.4zm6.7-10.9a1.5 1.5 0 1 1-3
+      0 1.5 1.5 0 0 1 3 0z"></path></svg></a><a href="https://linkedin.com/..." aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.9h4v12H3zM9.5 8.9h3.8v1.6h.1
+      c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6
+      c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7h-4z"></path></svg></a></div></div></div><div class="Globalfooter-copyright"><p>تمامی حقوق متعلق است به هوراژن. طراحی و توسعه : ح.بحری<span>©</span><span>1404</span></p></div></div></footer></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../../postscript.js" type="module" data-persist="true"></script></html>

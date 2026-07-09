@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><title>کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)خرد راستین و اندیشه نوآفرین</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="هوراژن "/><meta property="og:title" content="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)خرد راستین و اندیشه نوآفرین"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)خرد راستین و اندیشه نوآفرین"/><meta name="twitter:description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="og:description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="og:image:alt" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta property="twitter:domain" content="hooragen.ir"/><meta property="og:url" content="https://hooragen.ir/Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)"/><meta property="twitter:url" content="https://hooragen.ir/Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="سایر بخشهای این سلسله مقالات را از دست ندهید: کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM) کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهار..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxob3NlaW5cXE9uZURyaXZlXFxQcm9qZWN0c1xcU3RhdGljIFNpdGVzXFxUZXN0XFxxdWFydHpcXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://hooragen.ir/index.xml"/><meta property="og:image" content="https://hooragen.ir/static/SVM.png"/><meta property="og:image:url" content="https://hooragen.ir/static/SVM.png"/><meta name="twitter:image" content="https://hooragen.ir/static/SVM.png"/><meta property="og:image:type" content="image/.png"/></head><body data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)"><header class="global-header"><div class="global-container"><h1>هوراژن <span class="page-title-suffix">خرد راستین و اندیشه نوآفرین</span></h1></div></header><nav class="global-nav" role="navigation" aria-label="Main Navigation"><div class="global-nav-inner"><div class="nav-brand"><a href="/">هوراژن</a></div><input id="nav-toggle" type="checkbox" class="nav-toggle"/><label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label><ul class="nav-links"><li><a href="/" data-nav="true">صفحه اصلی</a></li><li><a href="/Courses" data-nav="true">دوره ها</a></li><li><a href="/Articles" data-nav="true">مقالات</a></li><li><a href="/Books" data-nav="true">کتاب‌ها</a></li><li><a href="/about" data-nav="true">درباره</a></li></ul></div></nav><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title desktop-only"><a href="../../..">هوراژن </a></h2><div class="flex-component desktop-only" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search desktop-only"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>جستجو</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="مطلبی را جستجو کنید" placeholder="مطلبی را جستجو کنید"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="حالت شب"><title>حالت شب</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="حالت روز"><title>حالت روز</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="حالت خواندن"><title>حالت خواندن</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer desktop-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>{if(a.isFolder&amp;&amp;b.isFolder)return a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;});if(a.isFolder)return-1;if(b.isFolder)return 1;let da=a.data?.date?.getTime()??0;return(b.data?.date?.getTime()??0)-da}&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-38"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>مرورگر</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-38" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">خانه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/">دوره ها</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/هوش-مصنوعی/">هوش مصنوعی</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/">آشنائی با مدلهای پایه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a></div></nav><h1 class="article-title">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</h1><p class="article-subtitle">بررسی مدل هوش مصنوعی SVM و کاربردهای آن در حل مسائل به زبان ساده و ذکر مثالهای شهودی</p><p show-comma="true" class="content-meta">نوشته شده در: <time datetime="2026-07-09T07:35:00.135Z">۱۸ تیر ۱۴۰۵</time><span>زمان تقریبی مطالعه: ۱۴ دقیقه</span></p></div></div><article class="popover-hint"><img src="/Images/SVM.png" alt="کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)" class="article-cover"/><blockquote>
+<p><strong>سایر بخشهای این سلسله مقالات را از دست ندهید:</strong><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم-جنگل تصادفی)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></p>
+</blockquote>
+<p>در بخش سوم این مقاله به بررسی یکی از قدرتمندترین و در عین حال زیباترین مدل‌های کلاسیک یادگیری ماشین—یعنی <strong>ماشین بردار پشتیبان</strong> (Support Vector Machine یا SVM)—می‌پردازیم. هرچند تصور ما از SVM معمولاً مدلی است با خطوط جداکننده هوشمند - حتی در فضاهای پیچیده‌ای با بسیاری از ویژگی‌ها - که دو یا چند دسته را از هم جدا می‌کنند، اما هدف ما در اینجا ورود به جزئیات و پیچیدگیهای ریاضی نیست، بلکه درک <strong>منطق عملیاتی</strong> آن و شناسایی <strong>سناریوهای واقعی</strong> است که طی آن‌ها <strong>SVM</strong> عملکردی برتر از سایر مدل‌های کلاسیک دارد.<br/>
+خواهیم دید که SVM چگونه با یافتن «بهترین مرز» بین دو یا چند دسته، نه تنها دقت بالایی در داده‌های آموزشی دارد، بلکه توانایی بسیار عالی در <strong>تعمیم‌دهی به داده‌های جدید</strong> نیز از خود نشان می‌دهد—مخصوصاً وقتی تعداد نمونه‌ها محدود است ولی تعداد ویژگی‌ها نسبتاً زیاد (مثلاً در تشخیص چهره یا طبقه‌بندی متن). همچنین با مفهوم <strong>هسته‌ها</strong> (Kernels) آشنا می‌شویم: ترفند هوشمندانه‌ای که به SVM اجازه می‌دهد حتی الگوهای غیرخطی پیچیده را بدون افزایش محاسبات سنگین، تشخیص دهد.
+<img src="../../../Images/SVM.png" width="auto" height="auto" alt/>
+با ذکر مثال‌هایی از حوزه‌هایی مانند <strong>پزشکی</strong> (تشخیص سرطان از تصاویر پاتولوژی)، <strong>بازاریابی</strong> (طبقه‌بندی مشتریان بر اساس رفتار خرید)، و <strong>تحصیلات دانشگاهی</strong> (پیش‌بینی ریسک ترک تحصیل دانشجویان)نشان خواهیم داد که چرا <strong>SVM</strong> هنوز پس از دهه‌ها، در بسیاری از سیستم‌های صنعتیِ حساس و دقیق، گزینهٔ اول مهندسان هوش مصنوعی محسوب می‌شود—نه به خاطر جدید بودن، بلکه به خاطر <strong>ثبات، دقت و کارایی آن در شرایط واقعی</strong>.</p>
+<h3 id="مبانی-و-مراحل-svm">مبانی و مراحل SVM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مبانی-و-مراحل-svm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>ابتدا مبانی و مراحل دسته‌بندی با استفاده از SVM را بررسی می‌کنیم—نه با فرمول و نمودار پیچیده، بلکه با یک مثال واقعی از دنیای پزشکی: <strong>تشخیص سرطان از تصاویر پاتولوژی</strong>.<br/>
+فرض کنید یک پزشک یا سیستم هوشمند باید از میان هزاران سلول زیر میکروسکوپ، تشخیص دهد کدام‌ها سالم و کدام‌ها سرطانی هستند. هر سلول با ویژگی‌هایی مثل اندازهٔ هسته، شکل غشای سلولی و بافت اطراف توصیف می‌شود—ویژگی‌هایی که در قالب اعداد قابل اندازه‌گیری‌اند.<br/>
+در اینجا، SVM وارد عمل می‌شود: به جای اینکه فقط یک خط ساده بکشد، سعی می‌کند <strong>هوشمندانه‌ترین مرز ممکن</strong> را بین دو گروه «سرطانی» و «غیرسرطانی» پیدا کند—مرزی که نه تنها داده‌های آموزشی را خوب جدا می‌کند، بلکه برای سلول‌های جدید هم بهترین حدس را بزند.<br/>
+هدف ما در این بخش این است که نشان دهیم SVM چگونه در چنین موقعیت‌های حساسی—جایی که اشتباه یک مدل می‌تواند پیامدهای جانی داشته باشد—با دقت بالا و پایداری مناسب، به عنوان یک ابزار قابل اعتماد عمل می‌کند.<br/>
+حل چنین مسئله‌ای با استفاده از الگوریتم SVM‌ شامل مراحل ذیل است:</p>
+<h4 id="۱جمعآوری-و-برچسبگذاری-دادهها">۱. <strong>جمع‌آوری و برچسب‌گذاری داده‌ها</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#۱جمعآوری-و-برچسبگذاری-دادهها" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>داده‌های ورودی (مثلاً تصاویر سلول‌ها) جمع‌آوری می‌شوند و هر کدام دستی یا توسط متخصصان پزشکی <strong>برچسب</strong> می‌خورند: «سرطانی» یا «سالم». بدون این برچسب‌ها، SVM نمی‌تواند یاد بگیرد.</p>
+<h4 id="۲استخراج-ویژگیها">۲. <strong>استخراج ویژگی‌ها</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#۲استخراج-ویژگیها" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>هر تصویر به مجموعه‌ای از <strong>اعداد قابل اندازه‌گیری</strong> تبدیل می‌شود—مثلاً اندازهٔ هسته، نامنظمی شکل سلول، چگالی رنگ‌آمیزی و غیره. این اعداد، «ویژگی‌ها» هستند که SVM بر اساس آن‌ها تصمیم می‌گیرد.</p>
+<h4 id="۳نرمالسازی-دادهها">۳. <strong>نرمال‌سازی داده‌ها</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#۳نرمالسازی-دادهها" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>مقادیر ویژگی‌ها به یک بازهٔ مشترک (مثلاً بین ۰ تا ۱) تبدیل می‌شوند تا ویژگی‌هایی با مقیاس بزرگ (مثل مساحت سلول بر حسب میکرومتر مربع) روی ویژگی‌های کوچک‌مقیاس (مثل نسبت عرض به طول) تأثیر ناعادلانه نگذارند.</p>
+<h4 id="۴انتخاب-هسته-kernel">۴. <strong>انتخاب هسته (Kernel)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#۴انتخاب-هسته-kernel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>‏SVM باید تصمیم بگیرد که مرز جداکننده چقدر پیچیده باشد:</p>
+<ul>
+<li>
+<p>اگر الگوی داده‌ها ساده است، از <strong>هسته خطی</strong> استفاده می‌شود (مرز یک خط صاف است).</p>
+</li>
+<li>
+<p>اگر الگوها پیچیده‌اند (مثل سلول‌های سرطانی که در فضای ویژگی‌ها به هم تنیده‌اند)، از <strong>هسته غیرخطی</strong> مثل <strong>RBF</strong> استفاده می‌شود تا مرز منعطف‌تری ساخته شود. در انتهای این مقاله به بیشتر در مورد RBF خواهم نوشت.</p>
+</li>
+</ul>
+<h4 id="۵آموزش-مدل-یادگیری-مرز-بهینه">۵. <strong>آموزش مدل (یادگیری مرز بهینه)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#۵آموزش-مدل-یادگیری-مرز-بهینه" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>‏SVM دنبال آن است که <strong>عرض حاشیه</strong> (فاصله بین مرز و نزدیک‌ترین نقاط دو دسته) را <strong>بیشینه</strong> کند. این کار باعث می‌شود مدل نه فقط داده‌های آموزشی را درست دسته‌بندی کند، بلکه برای داده‌های جدید هم خطای کمتری داشته باشد. به عبارت بهتر هم باید مرز مشخصی پیدا کنیم و هم این مرز به قدر کافی از دو طرف حاشیه امن- فاصلهٔ کافی تا نزدیک‌ترین نمونه‌ها، تا مدل در برابر نویز یا تغییرات کوچک در داده‌های جدید <strong>حساس نباشد</strong>-داشته باشد. این دقیقاً همان چیزی است که <strong>تعمیم‌پذیری</strong> SVM را بالا می‌برد—یعنی اینطور نباشد که فقط روی داده‌های دیده‌شده خوب عمل کند، بلکه روی داده‌های جدید هم قابل اعتماد باشد.</p>
+<h4 id="۶ارزیابی-و-پیشبینی">۶. <strong>ارزیابی و پیش‌بینی</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#۶ارزیابی-و-پیشبینی" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>مدل روی داده‌هایی که قبلاً ندیده (داده‌های آزمون) تست می‌شود تا دقت واقعی‌اش سنجیده شود. سپس، برای هر سلول جدید، تشخیص می‌دهد و تصمیم می‌گیرد که: «این سلول با اطمینان بالا، سرطانی است» یا «سالم به نظر می‌رسد».</p>
+<p>این مراحل نشان می‌دهند که <strong>SVM</strong> فقط یک «فرمول هوشمند» نیست، بلکه یک <strong>فرآیند ساختاریافته</strong> است که با دقت و منطق، در مسائل حساس دنیای واقعی به کار گرفته می‌شود.</p>
+<p>حال مسئله دیگری را به عنوان مثال در نظر گرفته و با مقادیر عددی مشخص مراحل گفته شده را تشریح می کنیم. مثال دوم در حوزه بازاریابی و در موضوع طبقه‌بندی مشتریان بر اساس رفتار خرید آنان است.</p>
+<h4 id="مثال-طبقهبندی-مشتریان-بر-اساس-رفتار-خرید-آنان">مثال: طبقه‌بندی مشتریان بر اساس رفتار خرید آنان<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مثال-طبقهبندی-مشتریان-بر-اساس-رفتار-خرید-آنان" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>فرض کنید یک فروشگاه آنلاین می‌خواهد مشتریان را به دو دسته تقسیم کند:</p>
+<ul>
+<li>
+<p><strong>وفادار</strong></p>
+</li>
+<li>
+<p><strong>غیروفادار</strong></p>
+</li>
+</ul>
+<p>متخصصان بازاریابی بر اساس بررسی رفتار بلندمدت ۱۰۰۰ مشتری، دستی هر کدام از آنها را برچسب «وفادار» یا «غیروفادار» زده‌اند—نه فقط بر اساس تعداد خرید، بلکه با در نظر گرفتن بازگشت کالا، تعامل با ایمیل‌ها، مدت عضویت و غیره.»</p>
+<p>حالا ما <strong>یک مجموعه دادهٔ برچسب‌خورده</strong> داریم که برچسب‌ها <strong>هوش انسانی + تجربه</strong> را منعکس می‌کنند—ولی قاعدهٔ ساده‌ای برای آن‌ها وجود ندارد.<br/>
+هدف <strong>SVM</strong> این است که <strong>الگوی پنهان</strong> در این برچسب‌ها را یاد بگیرد و برای مشتریان جدید پیش‌بینی کند.<br/>
+ما در اینجا و به منظور حفظ سادگی، فقط از <strong>دو ویژگی</strong> استفاده می‌کنیم:<br/>
+۱. <strong>میانگین هزینه هر خرید</strong> (به میلیون تومان)<br/>
+۲. <strong>تعداد خرید در ۳ ماه گذشته</strong></p>
+<p><strong>مرحله ۱: جمع‌آوری و برچسب‌گذاری داده‌ها</strong></p>
+<p>داده‌های ۶ مشتری قدیمی در دسترس است:</p>
+<p><img src="https://files.virgool.io/upload/users/17213/posts/brch7c2x8azm/epehiqu9bpxd.png" alt="داده‌های نمونه برای آموزش مدل"/></p>
+<p>داده‌های نمونه برای آموزش مدل</p>
+<p><strong>مرحله ۲: استخراج ویژگی‌ها</strong></p>
+<p>ویژگی‌ها همان ستون‌های دوم و سوم هستند—هر مشتری یک نقطه در فضای دو بعدی است:</p>
+<ul>
+<li>
+<p>A = (2.5, 8)</p>
+</li>
+<li>
+<p>D = (1.2, 2)<br/>
+و غیره.</p>
+</li>
+</ul>
+<p><strong>مرحله ۳: نرمال‌سازی</strong></p>
+<p>مقادیر را به بازهٔ [0, 1] تبدیل می‌کنیم (با روش Min-Max):</p>
+<ul>
+<li>
+<p>بیشترین هزینه = 3.0، کمترین = 0.9 → محدوده = 2.1</p>
+</li>
+<li>
+<p>بیشترین تعداد خرید = 8، کمترین = 1 → محدوده = 7</p>
+</li>
+</ul>
+<p>مشتری <strong>A</strong> پس از نرمال‌سازی:</p>
+<ul>
+<li>
+<p>هزینه: (2.5 − 0.9) / 2.1 ≈ <strong>0.76</strong></p>
+</li>
+<li>
+<p>تعداد: (8 − 1) / 7 = 1.0</p>
+</li>
+</ul>
+<p><code>→ A = (0.76, 1.0)</code></p>
+<p>همین کار برای بقیه ردیفهای جدول هم انجام می‌شود.</p>
+<h4 id="مرحله-۴-انتخاب-هسته">مرحله ۴: انتخاب هسته<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۴-انتخاب-هسته" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>داده‌ها در نمودار به‌وضوح با یک خط صاف قابل جدا کردن هستند (مشتریان وفادار هم هزینه بالاتر دارند، هم تعداد خرید بیشتر). پس از <strong>هسته خطی</strong> استفاده می‌کنیم.</p>
+<h4 id="مرحله-۵-آموزش-مدل-یادگیری-مرز-بهینه">مرحله ۵: آموزش مدل (یادگیری مرز بهینه)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۵-آموزش-مدل-یادگیری-مرز-بهینه" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>‏SVM سعی می‌کند خطی را پیدا ‌کند که:</p>
+<ul>
+<li>
+<p>دو گروه را کاملاً از هم جدا کند</p>
+</li>
+<li>
+<p><strong>عرض حاشیه</strong> (فاصله تا نزدیک‌ترین نقاط) را بیشینه کند</p>
+</li>
+</ul>
+<p>این خط در فضای دو بعدی به شکل کلی زیر است:</p>
+<p><img src="https://files.virgool.io/upload/users/17213/posts/brch7c2x8azm/hewnazkto3qj.png" alt="معادله خط SVM"/></p>
+<p>معادله خط SVM</p>
+<p>که در آن:</p>
+<ul>
+<li>
+<p>‏x_1​ = هزینه نرمال‌شده</p>
+</li>
+<li>
+<p>‏x_2​ = تعداد خرید نرمال‌شده</p>
+</li>
+<li>
+<p>‏w_1,w_2​ = وزن‌هایی که جهت عمود بر خط را تعیین می‌کنند</p>
+</li>
+<li>
+<p>‏b = عرض از مبدأ (bias)</p>
+</li>
+</ul>
+<p>در مثال ما فرض کنید پس از محاسبه، معادلهٔ مرز بهینه به این شکل است:</p>
+<blockquote>
+<p><strong>0.6 × (هزینه نرمال‌شده) + 0.8 × (تعداد نرمال‌شده) − 1.0 = 0</strong></p>
+</blockquote>
+<p>این خط، دو مشتری «مرزی» (مثلاً B و F) را به عنوان <strong>بردارهای پشتیبان</strong> انتخاب می‌کند—یعنی تنها این دو نقطه تعیین‌کنندهٔ مرز هستند. اما این اعداد و ضرایب چگونه بدست آمده اند.<br/>
+الگوریتم SVM این سه عدد را با حل یک <strong>مسئلهٔ بهینه‌سازی</strong> پیدا می‌کند که هدف آن <strong>بیشینه کردن حاشیه</strong> است—با این محدودیت که همهٔ نقاط دستهٔ «وفادار» در یک سمت خط و همهٔ «غیروفادارها» در سمت دیگر باشند.<br/>
+در عمل، این کار با روش‌های ریاضی پیشرفته (مثل روش لاگرانژ و حل دوگان مسئله) انجام می‌شود، اما نکتهٔ کلیدی این است:</p>
+<blockquote>
+<p><strong>فقط مشتریانی که خیلی نزدیک به مرز بین «وفادار» و «غیروفادار» هستند—که به آن‌ها «بردارهای پشتیبان» می‌گوییم—روی شکل نهایی آن خط تأثیر می‌گذارند.</strong></p>
+</blockquote>
+<p>برای فهم بهتر می‌خواهم کمی ساده‌تر توضیح دهم. خط مرزی مثل یک <strong>طناب کش‌دار</strong> بین دو گروه است. تصور کنید دو تیم («وفادارها» و «غیروفادارها») در دو سمت یک زمین ایستاده‌اند. می‌خواهیم <strong>طنابی</strong> بین آن‌ها بکشیم تا هیچ‌کس از یک سمت به سمت دیگر نرود. اما در عین‌حال نمی‌خواهیم طناب را بچسبانیم به اولین نفری که می‌بینیم—بلکه می‌خواهیم <strong>بیشترین فاصله ممکن</strong> بین طناب و هر دو تیم باشد، تا فضا برای حرکت داخل هر تیم باقی بماند.<br/>
+حالا، وقتی طناب را می‌کشیم، <strong>فقط دو نفر</strong> واقعاً روی شکل نهایی طناب تأثیر می‌گذارند:</p>
+<ul>
+<li>
+<p>نزدیک‌ترین نفر از تیم چپ</p>
+</li>
+<li>
+<p>نزدیک‌ترین نفر از تیم راست</p>
+</li>
+</ul>
+<p>بقیهٔ افراد، هرچقدر دورتر باشند، <strong>هیچ تأثیری</strong> روی جای طناب ندارند.<br/>
+اگر آن دو نفر جابه‌جا شوند، طناب هم جابه‌جا می‌شود. اگر بقیه حرکت کنند ولی این دو ثابت بمانند، طناب <strong>همان‌جا می‌ماند</strong>.<br/>
+اما در SVM:</p>
+<ul>
+<li>
+<p><strong>«طناب»</strong> = همان خط جداکنندهٔ SVM</p>
+</li>
+<li>
+<p><strong>«آن دو نفر نزدیک»</strong> = همان <strong>بردارهای پشتیبان</strong> (مثل مشتری B و F در مثال)</p>
+</li>
+<li>
+<p><strong>«فاصلهٔ بیشینه»</strong> = همان <strong>حاشیهٔ بزرگی</strong> است‌که <strong>SVM</strong> به دنبال آن است</p>
+</li>
+</ul>
+<p>وقتی <strong>SVM</strong> آموزش می‌بیند، فقط به این دو (یا چند) نقطهٔ <strong>مرزی</strong> نگاه می‌کند و از بقیه نقاط صرف‌نظر می‌کند.<br/>
+پس معادلهٔ خط نهایی—یعنی ضرایب w1,w2,bw1​,w2​,b—<strong>کاملاً توسط این نقاط مرزی تعیین می‌شود</strong>.</p>
+<p>در مثال ما، فرض کنیم مشتریان <strong>B = (0.43, 0.71)</strong> و <strong>F = (0.29, 0.29)</strong> (پس از نرمال‌سازی) به عنوان بردارهای پشتیبان انتخاب شده‌اند—یعنی نزدیک‌ترین نقاط به مرز.<br/>
+‏SVM خطی را پیدا می‌کند که:</p>
+<ul>
+<li>
+<p>از وسط فاصلهٔ بین B و F عبور کند</p>
+</li>
+<li>
+<p>بر خط واصل آن دو <strong>عمود</strong> باشد</p>
+</li>
+</ul>
+<p>اگر این محاسبات را انجام دهیم (یا از یک کتابخانهٔ هوش مصنوعی مثل scikit-learn استفاده کنیم)، ممکن است دقیقاً به ضرایبی نزدیک به <strong>w₁ = 0.6</strong>, <strong>w₂ = 0.8</strong>, <strong>b = −1.0</strong> برسیم—چون این ترکیب، خطی می‌سازد که:</p>
+<ul>
+<li>
+<p>از میان حاشیه عبور می‌کند</p>
+</li>
+<li>
+<p>طول بردار وزن sqrt{0.8^2 + 0.6^2} = 1 است (یعنی نرمالایز شده)</p>
+</li>
+<li>
+<p>نقاط B و F دقیقاً روی لبه‌های حاشیه قرار می‌گیرند</p>
+</li>
+</ul>
+<p>البته باید توجه داشت که <strong>نیازی نیست این معادله را دستی محاسبه کنید</strong>. وقتی از <strong>SVM</strong> استفاده می‌کنید، کافی است داده‌ها را به آن بدهید—الگوریتم به‌طور خودکار بهترین w_1,w_2,b را پیدا می‌کند.<br/>
+آنچه مهم است <strong>درک این نکته است که</strong>:</p>
+<ul>
+<li>
+<p>‏SVM فقط به نقاط «مرزی» توجه می‌کند</p>
+</li>
+<li>
+<p>هدفش نه صرفاً جدا کردن داده‌ها، بلکه <strong>ایجاد حاشیهٔ ایمن</strong> بین آن‌هاست. این همان چیزی است که به SVM کمک می‌کند در داده‌های جدید هم خوب عمل کند (تعمیم‌پذیری بالا)</p>
+</li>
+</ul>
+<p>پس معادلهٔ بالا فقط یک <strong>نمایش عددی</strong> از همان «هوش جداکنندگی» است که SVM در داده‌ها پیدا کرده است.</p>
+<h4 id="مرحله-۶-پیشبینی-برای-مشتری-جدید">مرحله ۶: پیش‌بینی برای مشتری جدید<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مرحله-۶-پیشبینی-برای-مشتری-جدید" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>یک مشتری جدید می‌آید:</p>
+<ul>
+<li>
+<p>میانگین هزینه = 2.0 میلیون</p>
+</li>
+<li>
+<p>تعداد خرید = 5</p>
+</li>
+</ul>
+<p>پس از نرمال‌سازی:</p>
+<ul>
+<li>
+<p>هزینه = (2.0 − 0.9)/2.1 ≈ 0.52</p>
+</li>
+<li>
+<p>تعداد = (5 − 1)/7 ≈ 0.57</p>
+</li>
+</ul>
+<p>امتیاز SVM = 0.6×0.52 + 0.8×0.57 − 1.0 ≈ 0.312 + 0.456 − 1.0 = <strong>−0.232</strong><br/>
+چون نتیجه <strong>منفی</strong> است، مدل تصمیم می‌گیرد: این مشتری را <strong>غیروفادار</strong> بداند—هرچند نزدیک به مرز است و شاید با یک تخفیف ویژه بتوان او را وفادار کرد!</p>
+<h4 id="نقش-rbfدر-الگوریتم-svm">نقش RBF‌در الگوریتم SVM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#نقش-rbfدر-الگوریتم-svm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>مشکل اصلی این‌است که داده‌ها همیشه با یک خط صاف قابل جدا کردن نیستند.</strong> تصور کنید در مثال مشتریان، برخی از افراد که با <strong>هزینهٔ خیلی بالا ولی تعداد بسیار کم خرید می‌کنند</strong> (مثل خریدهای لوکس فصلی) و برخی دیگر که با <strong>هزینهٔ پایین ولی مکرر خرید می‌کنند</strong> (مثل خرید روزمره) هر دو «وفادار» باشند. در این حالت، داده‌ها در نمودار دو بعدی <strong>به شکل دایره‌ای یا خوشه‌های پراکنده</strong> ظاهر می‌شوند—نه دو گروه خطیِ تمیز.<br/>
+در چنین شرایطی، <strong>SVM با هستهٔ خطی شکست می‌خورد</strong>، چون هیچ خط مستقیمی نمی‌تواند این الگوی پیچیده را جدا کند.<br/>
+<strong>راه‌حل چیست؟ ترفند هوشمندانهٔ RBF:</strong><br/>
+هستهٔ RBF یک <strong>تبدیل غیرخطی</strong> است که به SVM اجازه می‌دهد <strong>مرزهای منحنی و انعطاف‌پذیر</strong> بسازد—بدون اینکه واقعاً داده‌ها را به فضای با ابعاد بالاتر (که طبعاْ محاسباتی سنگین دارد) منتقل کند.<br/>
+<strong>منطق سادهٔ RBF چیست؟</strong><br/>
+به جای اینکه بپرسیم <strong>«آیا این مشتری در سمت «وفادارها» قرار دارد یا در سمت «غیروفادارها»؟»</strong>، RBF می‌پرسد:</p>
+<blockquote>
+<p>«آیا این نقطه <strong>نزدیک</strong> به نقاطی از دستهٔ A است یا به نقاط دستهٔ B؟»<br/>
+این «نزدیکی» با یک تابع نمایی محاسبه می‌شود که هرچه فاصله بیشتر باشد، شباهت به سرعت کاهش می‌یابد.</p>
+</blockquote>
+<p><strong>یک مثال بصری ساده:</strong><br/>
+فرض کنید داده‌های شما مثل یک <strong>هدف تیراندازی</strong> باشند:</p>
+<ul>
+<li>
+<p>مرکز (دایرهٔ داخلی): مشتریان وفادار</p>
+</li>
+<li>
+<p>حلقهٔ بیرونی: مشتریان غیروفادار</p>
+</li>
+</ul>
+<p>هیچ خط مستقیمی نمی‌تواند این دو حلقه را جدا کند.<br/>
+اما <strong>RBF می‌تواند یک مرز دایره‌ای</strong> بسازد—چون به جای خط، از <strong>فاصلهٔ هر نقطه تا مرکز خوشه‌ها</strong> استفاده می‌کند.-<br/>
+<strong>چرا RBF محبوب است؟</strong> زیرا برای داده‌های <strong>غیرخطی و پیچیده</strong> عالی عمل می‌کند. فقط یک پارامتر مهم دارد (<strong>γ</strong> یا gamma) که کنترل می‌کند «ناحیهٔ تأثیر» هر نقطه چقدر باشد. در عمل، در بسیاری از مسائل واقعی (مثل تشخیص چهره، تشخیص تقلب، طبقه‌بندی متن) <strong>بهترین نتیجه</strong> را می‌دهد.<br/>
+نکتهٔ کلیدی در این روش این‌است که <strong>RBF</strong> به <strong>SVM قدرت تشخیص الگوهای پیچیده</strong> را می‌دهد، بدون اینکه مجبور شویم بصورت دستی ویژگی‌های جدید بسازیم. این همان چیزی است که <strong>SVM</strong> را از یک «جداکنندهٔ خطی ساده» به یک <strong>ابزار قدرتمند برای دنیای واقعی</strong> تبدیل می‌کند.</p>
+<h4 id="مفهوم-hyperplane-در-svm">مفهوم Hyperplane در SVM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#مفهوم-hyperplane-در-svm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>در مسائل واقعی که SVM در آن‌ها به کار می‌رود، <strong>خیلی‌وقت‌ها فضای داده‌ها بیش از دو بعد دارد</strong>. بطوری‌که ممکن است هر نمونه ده‌ها یا حتی هزاران ویژگی داشته باشد—مثلاً در تشخیص چهره، هر پیکسل یک ویژگی است، یا در طبقه‌بندی متن، هر کلمه یک بعد محسوب می‌شود.<br/>
+در چنین فضاهای چندبعدی، دیگر نمی‌توان از «خط» صحبت کرد. به جای آن، از اصطلاح <strong>«هایپرپلین» (Hyperplane)</strong> استفاده می‌شود.</p>
+<p><strong>ساده‌ترین تعریف هایپرپلین چیست؟</strong><br/>
+هایپرپلین <strong>مرز جداکننده‌ای است که در یک فضای <em>n</em> بعدی، ابعاد را به دو قسمت تقسیم می‌کند—و خودش همیشه یک بعد کمتر از فضای اصلی است</strong>.</p>
+<ul>
+<li>
+<p>در فضای <strong>۲ بعدی</strong> (مثل یک صفحه کاغذ): هایپرپلین = یک <strong>خط</strong> (۱ بعدی)</p>
+</li>
+<li>
+<p>در فضای <strong>۳ بعدی</strong> (مثل یک اتاق): هایپرپلین = یک <strong>صفحهٔ مسطح</strong> (۲ بعدی)</p>
+</li>
+<li>
+<p>در فضای <strong>۱۰۰۰ بعدی</strong>: هایپرپلین = یک ساختار <strong>۹۹۹ بعدی</strong> است که دو گروه داده را از هم جدا می‌کند!<br/>
+یک مثال ساده که داده های آن در فضای n بعدی قرار دارند پیش‌بینی ریسک ترک تحصیل دانشجویان (Student Dropout Risk Prediction) است.</p>
+</li>
+</ul>
+<p><strong>مثال از داده‌های n بعدی : پیش‌بینی ریسک ترک تحصیل دانشجویان</strong><br/>
+در یک محیط دانشگاهی، هدف این است که با استفاده از داده‌های موجود، دانشجویانی را که <strong>احتمال ترک تحصیل</strong> دارند، زودهنگام شناسایی کنی بلکه تا تیم‌های مشاوره و آموزش بتوانند <strong>مداخلات هدفمند</strong> (مثل جلسات حمایتی، کمک‌های مالی یا برنامه‌ریزی تحصیلی) را در زمان مناسب انجام دهند.<br/>
+برای این کار، از <strong>SVM</strong> به عنوان یک ابزار هوشمند دسته‌بندی استفاده می‌کنیم. داده‌های تاریخی دانشجویان—که شامل رفتارها، عملکرد و شرایط زندگی آن‌هاست—ورودی‌های این مدل هستند.</p>
+<p><strong>۱. داده‌ها (ورودی‌ها): فضای چندبعدی دانشجو</strong><br/>
+هر دانشجو در این مدل، یک <strong>نقطه در فضای چندبعدی</strong> است. هر ویژگی (متغیر) یک «بعد» از این فضا را تشکیل می‌دهد. برای مثال، ممکن است از ویژگی‌های زیر استفاده کنیم:</p>
+<ul>
+<li>
+<p>میانگین نمرات ترم‌های قبلی</p>
+</li>
+<li>
+<p>درصد حضور در کلاس‌ها</p>
+</li>
+<li>
+<p>میانگین نمرهٔ تکالیف و پروژه‌ها</p>
+</li>
+<li>
+<p>تعداد دروس ردشده</p>
+</li>
+<li>
+<p>میزان مشارکت در فعالیت‌های علمی یا فرهنگی دانشگاه</p>
+</li>
+<li>
+<p>وضعیت مالی (مثلاً دریافت بورسیه یا وام ، بدهی در شهریه ، تأخیر در پرداخت و دفعات درخواست استمهال در پرداخت بدهی و …)</p>
+</li>
+<li>
+<p>فاصلهٔ جغرافیایی محل سکونت از دانشگاه</p>
+</li>
+<li>
+<p>سابقهٔ مشاورهٔ روانشناختی</p>
+</li>
+<li>
+<p>حتی داده‌های رفتاری از سیستم‌های یادگیری آنلاین (مثل زمان ورود به پلتفرم، تعداد بازدید از جزوات)</p>
+</li>
+</ul>
+<p>اگر ۱۰ ویژگی داشته باشیم، هر دانشجو یک نقطه در <strong>فضای ۱۰ بعدی</strong> است. اگر ۵۰ ویژگی داشته باشیم، فضای ما <strong>۵۰ بعدی</strong> خواهد بود—و این البته در دنیای داده‌های واقعی کاملاً طبیعی است.</p>
+<p><strong>۲. دسته‌بندی (خروجی): یادگیری مرز هوشمند</strong><br/>
+‏<strong>SVM</strong> از داده‌های تاریخی—که برچسب‌خورده‌اند (مثلاً «انصرف از تحصیل»، «اخراج» یا «شاغل به تحصیل»)—یاد می‌گیرد که چگونه یک <strong>هایپرپلین</strong> (مرز جداکننده در فضای <em>n</em> بعدی) بین دو گروه بسازد:</p>
+<ul>
+<li>
+<p><strong>گروه ۱</strong>: دانشجویانی که <strong>شاغل به تحصیل هستند</strong> (ریسک پایین)</p>
+</li>
+<li>
+<p><strong>گروه ۲</strong>: دانشجویانی که <strong>تحصیل را ترک کرده‌اند</strong> (ریسک بالا)</p>
+</li>
+</ul>
+<p>هدف SVM فقط جدا کردن این دو گروه نیست، بلکه یافتن <strong>بهترین مرز ممکن</strong> است—یعنی مرزی که بیشترین فاصله را با نزدیک‌ترین دانشجویانِ هر گروه داشته باشد. این «حاشیهٔ ایمن» باعث می‌شود مدل در برابر نویز (مثلاً یک دانشجوی خوب که یک ترم بد داشته) مقاوم باشد.</p>
+<p><strong>۳. نتیجهٔ عملی</strong><br/>
+وقتی دانشجوی جدیدی وارد سیستم می‌شود، مدل تمام ویژگی‌های او را جمع‌آوری کرده و موقعیتش را در این فضای چندبعدی تعیین می‌کند. اگر این نقطه در سمت «ریسک بالا» و نزدیک به مرز باشد، سیستم هشدار می‌دهد:</p>
+<blockquote>
+<p>«این دانشجو شبیه به کسانی است که قبلاً ترک تحصیل کرده‌اند. پیشنهاد می‌شود تیم مشاوره با او تماس بگیرد.»</p>
+</blockquote>
+<p>در ادامه این مباحث و در بخش بعدی به بررسی الگوریتم درخت تصمیم گیری و جنگل تصادفی می‌پردازیم.</p>
+<blockquote>
+<p><strong>سایر بخشهای این سلسله مقالات را از دست ندهید:</strong><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a><br/>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم-جنگل تصادفی)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a>
+<a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal alias" data-slug="Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></p>
+</blockquote></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>نمای گراف</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="backlinks desktop-only"><h3>ارجاعات</h3><ul id="list-2" class="overflow"><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-اول-(Naive-Bayes)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش اول (Naive Bayes)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-دوم-(رگرسیون)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش دوم (رگرسیون)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟---بخش-پنجم(K-means)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ - بخش پنجم(K-means)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-سوم(SVM)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش سوم(SVM)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-ششم-و-آخر(KNN)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟ بخش ششم و آخر(KNN)</a></li><li><a href="../../../Courses/هوش-مصنوعی/آشناپی-با-مدلهای-پایه/کدام-مدل-هوش-مصنوعی-برای-کدام-مسئله-مناسب-است؟-بخش-چهارم-(درخت-تصمیم-جنگل-تصادفی)" class="internal">کدام مدل هوش مصنوعی برای کدام مسئله مناسب است؟-بخش چهارم (درخت تصمیم/جنگل تصادفی)</a></li><li class="overflow-end"></li></ul></div></div><footer class><ul></ul></footer></div></div><footer class="Globalfooter"><div class="Globalfooter-root" dir="rtl"><div class="Globalfooter-links-grid"><div class="Globalfooter-links-grid-columns"><div class="Globalfooter-column"><h3>دوره ها</h3><ul><li><a href="Courses/زبانهای-برنامه-نویسی/">برنامه نویسی</a></li><li><a href="Courses/هوش مصنوعی/">هوش مصنوعی</a></li></ul></div><div class="Globalfooter-column"><h3>خدمات</h3><ul><li><a href="#">پشتیبانی فنی</a></li></ul></div><div class="Globalfooter-column"><h3>کتابها</h3><ul><li><a href="http://www.igai.ir">هوش مصنوعی خلاق</a></li></ul></div><div class="Globalfooter-column"><h3>درباره</h3><ul><li><a href="/about">هوراژن</a></li></ul></div></div></div><div class="Globalfooter-logo-row"><div class="Globalfooter-logo-row-content"><div class="logo-description"><div class="logo"><img src="/Images/logo.jpg" alt="لوگو"/></div><p class="description justify">دانش نامه آموزشی هوراژن سعی دارد در جهت نشر علوم و فناوریهای نوین تلاش کرده و آنرا با سهولت و سادگی در اختیار علاقمندان کسب دانش و مهارت قرار دهد.</p></div><div class="social-icons"><a href="https://facebook.com/..." aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+      1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.4v7z"></path></svg></a><a href="https://twitter.com/..." aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.3 2H21l-6.6 7.5L22 22h-6.9l-4.3-5.7L5.8 22H3l7.1-8.1L2 2h7l3.9 5.1L18.3 2z"></path></svg></a><a href="https://instagram.com/..." aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5
+      .6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.4 1.1.5 2.3
+      .1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3
+      -.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.4-2.3.5
+      -1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5
+      -.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.4-1.1-.5-2.3
+      -.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3
+      .2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.4 2.3-.5
+      1.3-.1 1.7-.1 4.9-.1zm0 3.4a6.4 6.4 0 1 0 0 12.8
+      6.4 6.4 0 0 0 0-12.8zm0 10.6a4.2 4.2 0 1 1 0-8.4
+      4.2 4.2 0 0 1 0 8.4zm6.7-10.9a1.5 1.5 0 1 1-3
+      0 1.5 1.5 0 0 1 3 0z"></path></svg></a><a href="https://linkedin.com/..." aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.9h4v12H3zM9.5 8.9h3.8v1.6h.1
+      c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6
+      c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7h-4z"></path></svg></a></div></div></div><div class="Globalfooter-copyright"><p>تمامی حقوق متعلق است به هوراژن. طراحی و توسعه : ح.بحری<span>©</span><span>1404</span></p></div></div></footer></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../../postscript.js" type="module" data-persist="true"></script></html>
