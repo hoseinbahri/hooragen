@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><title>وایب کدینگ ( vibe coding ) - تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانندخرد راستین و اندیشه نوآفرین</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="هوراژن "/><meta property="og:title" content="وایب کدینگ ( vibe coding ) - تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانندخرد راستین و اندیشه نوآفرین"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="وایب کدینگ ( vibe coding ) - تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانندخرد راستین و اندیشه نوآفرین"/><meta name="twitter:description" content="این روزها هوش مصنوعی از نگاه بسیاری از متخصصین و حتی مردم عادی دیگر یک امکان نیست بلکه یک ضرورت انکارناپذیر است."/><meta property="og:description" content="این روزها هوش مصنوعی از نگاه بسیاری از متخصصین و حتی مردم عادی دیگر یک امکان نیست بلکه یک ضرورت انکارناپذیر است."/><meta property="og:image:alt" content="این روزها هوش مصنوعی از نگاه بسیاری از متخصصین و حتی مردم عادی دیگر یک امکان نیست بلکه یک ضرورت انکارناپذیر است."/><meta property="twitter:domain" content="hooragen.ir"/><meta property="og:url" content="https://hooragen.ir/Articles/هوش-مصنوعی/وایب-کدینگ-(-vibe-coding-)---تجربه-عملی-برنامه-نویسی-برای-آنانکه-از-کدنویسی-چیزی-نمی-دانند"/><meta property="twitter:url" content="https://hooragen.ir/Articles/هوش-مصنوعی/وایب-کدینگ-(-vibe-coding-)---تجربه-عملی-برنامه-نویسی-برای-آنانکه-از-کدنویسی-چیزی-نمی-دانند"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="این روزها هوش مصنوعی از نگاه بسیاری از متخصصین و حتی مردم عادی دیگر یک امکان نیست بلکه یک ضرورت انکارناپذیر است."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxob3NlaW5cXE9uZURyaXZlXFxQcm9qZWN0c1xcU3RhdGljIFNpdGVzXFxUZXN0XFxxdWFydHpcXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://hooragen.ir/index.xml"/><meta property="og:image" content="https://hooragen.ir/static/Vibe-codding.jpg"/><meta property="og:image:url" content="https://hooragen.ir/static/Vibe-codding.jpg"/><meta name="twitter:image" content="https://hooragen.ir/static/Vibe-codding.jpg"/><meta property="og:image:type" content="image/.jpg"/></head><body data-slug="Articles/هوش-مصنوعی/وایب-کدینگ-(-vibe-coding-)---تجربه-عملی-برنامه-نویسی-برای-آنانکه-از-کدنویسی-چیزی-نمی-دانند"><header class="global-header"><div class="global-container"><h1>هوراژن <span class="page-title-suffix">خرد راستین و اندیشه نوآفرین</span></h1></div></header><nav class="global-nav" role="navigation" aria-label="Main Navigation"><div class="global-nav-inner"><div class="nav-brand"><a href="/">هوراژن</a></div><input id="nav-toggle" type="checkbox" class="nav-toggle"/><label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label><ul class="nav-links"><li><a href="/" data-nav="true">صفحه اصلی</a></li><li><a href="/Courses" data-nav="true">دوره ها</a></li><li><a href="/Articles" data-nav="true">مقالات</a></li><li><a href="/Books" data-nav="true">کتاب‌ها</a></li><li><a href="/about" data-nav="true">درباره</a></li></ul></div></nav><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title desktop-only"><a href="../..">هوراژن </a></h2><div class="flex-component desktop-only" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search desktop-only"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>جستجو</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="مطلبی را جستجو کنید" placeholder="مطلبی را جستجو کنید"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="حالت شب"><title>حالت شب</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="حالت روز"><title>حالت روز</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="حالت خواندن"><title>حالت خواندن</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer desktop-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>{if(a.isFolder&amp;&amp;b.isFolder)return a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;});if(a.isFolder)return-1;if(b.isFolder)return 1;let da=a.data?.date?.getTime()??0;return(b.data?.date?.getTime()??0)-da}&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>مرورگر</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-0" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">خانه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Articles/">مقالات</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Articles/هوش-مصنوعی/">هوش مصنوعی</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>وایب کدینگ ( vibe coding )   تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانند</a></div></nav><h1 class="article-title">وایب کدینگ ( vibe coding ) - تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانند</h1><p class="article-subtitle">در این مقاله به بررسی یک پدیده جدید در دینای برنامه نویسی می پردازیم. «وایب کدینگ» (Vibe Coding) کد نویسی مبتنی بر هوش مصنوعی.</p><p show-comma="true" class="content-meta">نوشته شده در: <time datetime="2026-07-10T14:55:53.288Z">۱۹ تیر ۱۴۰۵</time><span>زمان تقریبی مطالعه: ۱۷ دقیقه</span></p></div></div><article class="popover-hint justify"><img src="/Images/Vibe-codding.jpg" alt="وایب کدینگ ( vibe coding ) - تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانند" class="article-cover"/><p>این روزها هوش مصنوعی از نگاه بسیاری از متخصصین و حتی مردم عادی دیگر یک امکان نیست بلکه یک ضرورت انکارناپذیر است. کاربردهای وسیع هوش مصنوعی و بویژه آخرین دستآوردهای آن ( هوش مصنوعی خلاق ) در حوزه های پیچیده مانند پزشکی یا مالی و فرآیندهای خلاقانه و فنی مانند برنامه نویسی هر روز بیشتر می شود.</p>
+<h4 id="آن-روزها">آن روزها<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#آن-روزها" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>اولین برنامه هوش مصنوعی را آرتور ساموئل در سال ۱۹۵۱ نوشت که یک بازی سادۀ چکرز بود. در سال ۱۹۵۶ زبان لیسپ ابداع شد که تا سالها ابزار اصلی در حوزه کد نویسی هوش مصنوعی بود. در دهه های ۱۹۶۰ و ۱۹۷۰، سیستمهای مبتنی بر قاعده (rule-based) برای کمک به برنامه نویسی توسعه داده شدند. اما نقطه عطف واقعی در این مسیر، ظهور مدلهای زبانی بزرگ (LLM) در دهه ۲۰۲۰ بود. ابزارهایی مانند GitHub Copilot (در سال ۲۰۲۱) بر پایه مدلهایی مانند Codex، توانستند با درک زمینه کد و با تکیه بر توضیحات به زبان طبیعی، به صورت گسترده به فرایند کدنویسی کمک کرده و کدنویسی هوشمند را در دسترس عموم قرار دهند.<br/>
+بخاطر بیاورید که پیش از ظهور ابزارهای مبتنی بر هوش مصنوعی مانند GitHub Copilot، مجموعه ای از امکانات پایه در محیطهای توسعه یکپارچه (IDE) و ویرایشگرهای کد در دسترس برنامه نویسان قرار داشت. این ابزارهای سنتی عمدتاً بر پایه قوانین از پیش تعریفشده و تجزیه و تحلیل نحوی کد (Syntax) کار میکردند، مواردی مانند تکمیل خودکار کد (Code Autocomplete)، ریزکدها (Code Snippets)، برجسته کردن خطاهای نحوی (Syntax Error Highlighting) و پیشنهاد کد مبتنی بر نوع داده (Type-Aware Suggestions).</p>
+<p>این ابزارها مفید بودند، اما بر دانسته های خود از کد موجود در پروژه یا قطعات کدی که کاربر به صورت دستی از پیش تعریف کرده بود، محدود میشدند و نمی توانستند <em>هدف</em> برنامه نویس را درک کرده یا کد کاملاً جدید بر اساس توضیحات کلامی خلق کنند. ظهور GitHub Copilot این فضا را دگرگون کرد. این ابزار صرفاً یک «دستیار هوشمند» نبود بلکه یک «برنامه نویس همکار» (AI pair programmer) محسوب می شد. امکانات این ابزار عبارتند بودند از تولید کد بر اساس توضیح کلامی، تکمیل هوشمند و پیشبینی کد، ادغام کامل با IDEهای محبوب، پشتیبانی از طیف گسترده ای از زبانها، امکانات پیشرفته مانند عامل کدنویسی (Coding Agent) که خودمختار محسوب شده و حتی قادر است یک مسئله ( issue ) یا خواسته جدید مطرح شده در گیت هاب را دریافت کرده و به طور مستقل تغییرات لازم را در کد اعمال کند.</p>
+<p>در سال ۲۰۲۵ این مسیر تکاملی به اوج خود رسید و این پدیده جدید نامی تازه هم پیدا کرد، «وایب کدینگ» (Vibe Coding). آندری کارپاتی، دانشمند برجسته هوش مصنوعی، برای اولین بار در فوریه ۲۰۲۵ این اصطلاح را مطرح کرد. در این شیوه، تمرکز صرفاً بر «کمک به کدنویسی» نیست بلکه هدف اصلی، سرعت بخشیدن به فرآیند توسعه و امکانپذیر کردن ساخت نرم افزار برای افرادی است که لزوماً متخصص کدنویسی نیستند. در وایب کدینگ، برنامه نویس به جای نوشتن خط به خط کد، یک «حس» یا «وایب» کلی از آنچه میخواهد را به هوش مصنوعی منتقل میکند. این کار معمولاً از طریق یک چت بات یا یک محیط تعاملی صورت می پذیرد. ابتدا یک درخواست کلی مطرح شده، آنگاه مدل کدی را تولید کرده و در ادامه برنامه نویس با ارائه بازخورد یا درخواستهای بیشتر، فرآیند را چنان هدایت میکند که نتیجه مطلوب حاصل گردد. ابزارهای مهم و مؤثر دیگری هم در این عرصه عرضه شده اند، مانند Cursor ، Codeium و Trae AI که این مورد اخیر یک محیط توسعه یکپارچه مبتنی بر هوش مصنوعی با قابلیتهای متعدد است.</p>
+<p>اما من قصد دارم در این نوشتار کوتاه یک تجربه عملی را با شما به اشتراک بگذارم. در این تجربه سعی کردم از ابزارهای سنتی فاصله زیادی نگیرم و همچنان فضا برای ظهور خلاقیتهای فردی که از جذابیتهای برنامه نویسی است را حفظ کنم. بنابراین بجای استفاده از ابزارهای یکپارچه جدید مانند Trae AI یا پلاگینهای توسعه یافته برای محیط های سنتی مانند GitHub Copilot در VS صرفاً از ابزارهای پایه و البته چت بات های رایگان و در دسترس مانند Qwen و Deepseek بهره بردم.</p>
+<p>اغلب نویسندگان و مشاهیر دنیای برنامه نویسی توصیه کرده اند که یادگیری را با اجرای یک پروژه ساده همراه کنید، پروژه های ساده ای مانند پیاده سازی یک ماشین حساب، لیست کارها یا یک بازی ساده. بیایید با پیاده سازی یک ماشین حساب ادامه دهیم.</p>
+<h4 id="آغاز-و-پایان">آغاز و پایان<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#آغاز-و-پایان" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>در گام اول یک برنامه کاربردی تحت وب را به کمک زبان HTML و CSS و جاوا اسکریپت پیاده سازی می کنیم. برای این منظور از چت بات Qwen با پرامت زیر استفاده کردم. مدل Qwen3-Max یا Qwen3-coder مناسب اند( البته در زمان نوشتن این متن یعنی پائیز ۱۴۰۴ ). بهتر است مد را در حالت Web Dev بگذارید تا خروجی کد هم بصورت تعاملی و آنلاین قابل رؤیت باشد.</p>
+<blockquote>
+<p>یک ماشین حساب با چهار عمل اصلی را در نظر بگیر و یک نمایشگر.</p>
+<p>کلیدهای اعداد و عملگرها همانند کلیدهای استاندارد ماشین حساب عمل می کنند. کلید نقطه هم ممیز اعشار را مدیریت می کند. کلید مساوی حاصل آخرین عملیات را نشان می دهد. فشردن هر کلید عملگر بصورت ضمنی به معنای اجرای عملیات قبلی وآماده شدن برای عملیات جدید است.</p>
+<p>برنامه را به زبان جاوا اسکریپت بنویس.</p>
+<p>هر عدد دریافت شده از ورودی نباید بیشتر از 9 کارکتر باشد. خطاهایی مانند تقسیم بر صفر را مدیریت کن.</p>
+</blockquote>
+<p>این دستور خروجی مانند کد زیر تولید می کند که بلافاصله پیش نمایش آن در صفحه ظاهر میشود:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="HTML" data-theme="github-light github-dark"><code data-language="HTML" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>&lt;!DOCTYPE html></span></span>
+<span data-line><span>&lt;html lang=&quot;fa&quot; dir=&quot;rtl&quot;></span></span>
+<span data-line><span>&lt;head></span></span>
+<span data-line><span>    &lt;meta charset=&quot;UTF-8&quot;></span></span>
+<span data-line><span>    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;></span></span>
+<span data-line><span>    &lt;title>ماشین حساب&lt;/title></span></span>
+<span data-line><span>    &lt;style></span></span>
+<span data-line><span>        * {</span></span>
+<span data-line><span>            margin: 0;</span></span>
+<span data-line><span>            padding: 0;</span></span>
+<span data-line><span>            box-sizing: border-box;</span></span>
+<span data-line><span>            font-family: 'Vazirmatn', Tahoma, sans-serif;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        body {</span></span>
+<span data-line><span>            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</span></span>
+<span data-line><span>            min-height: 100vh;</span></span>
+<span data-line><span>            display: flex;</span></span>
+<span data-line><span>            justify-content: center;</span></span>
+<span data-line><span>            align-items: center;</span></span>
+<span data-line><span>            padding: 20px;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .calculator {</span></span>
+<span data-line><span>            background: #2c3e50;</span></span>
+<span data-line><span>            border-radius: 20px;</span></span>
+<span data-line><span>            padding: 25px;</span></span>
+<span data-line><span>            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);</span></span>
+<span data-line><span>            width: 320px;</span></span>
+<span data-line><span>            max-width: 100%;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .display {</span></span>
+<span data-line><span>            background: #34495e;</span></span>
+<span data-line><span>            color: white;</span></span>
+<span data-line><span>            font-size: 2.5rem;</span></span>
+<span data-line><span>            text-align: left;</span></span>
+<span data-line><span>            padding: 20px;</span></span>
+<span data-line><span>            border-radius: 15px;</span></span>
+<span data-line><span>            margin-bottom: 20px;</span></span>
+<span data-line><span>            min-height: 80px;</span></span>
+<span data-line><span>            overflow: hidden;</span></span>
+<span data-line><span>            word-wrap: break-word;</span></span>
+<span data-line><span>            direction: ltr;</span></span>
+<span data-line><span>            text-align: right;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .buttons {</span></span>
+<span data-line><span>            display: grid;</span></span>
+<span data-line><span>            grid-template-columns: repeat(4, 1fr);</span></span>
+<span data-line><span>            gap: 12px;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        button {</span></span>
+<span data-line><span>            border: none;</span></span>
+<span data-line><span>            border-radius: 12px;</span></span>
+<span data-line><span>            padding: 20px 0;</span></span>
+<span data-line><span>            font-size: 1.3rem;</span></span>
+<span data-line><span>            font-weight: bold;</span></span>
+<span data-line><span>            cursor: pointer;</span></span>
+<span data-line><span>            transition: all 0.2s ease;</span></span>
+<span data-line><span>            outline: none;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        button:hover {</span></span>
+<span data-line><span>            transform: translateY(-2px);</span></span>
+<span data-line><span>            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        button:active {</span></span>
+<span data-line><span>            transform: translateY(0);</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .number {</span></span>
+<span data-line><span>            background: #3498db;</span></span>
+<span data-line><span>            color: white;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .operator {</span></span>
+<span data-line><span>            background: #e74c3c;</span></span>
+<span data-line><span>            color: white;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .equals {</span></span>
+<span data-line><span>            background: #2ecc71;</span></span>
+<span data-line><span>            color: white;</span></span>
+<span data-line><span>            grid-column: span 2;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .decimal {</span></span>
+<span data-line><span>            background: #f39c12;</span></span>
+<span data-line><span>            color: white;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        .clear {</span></span>
+<span data-line><span>            background: #95a5a6;</span></span>
+<span data-line><span>            color: white;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        @media (max-width: 360px) {</span></span>
+<span data-line><span>            .calculator {</span></span>
+<span data-line><span>                padding: 15px;</span></span>
+<span data-line><span>                width: 280px;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            .display {</span></span>
+<span data-line><span>                font-size: 2rem;</span></span>
+<span data-line><span>                padding: 15px;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            button {</span></span>
+<span data-line><span>                padding: 15px 0;</span></span>
+<span data-line><span>                font-size: 1.1rem;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>    &lt;/style></span></span>
+<span data-line><span>&lt;/head></span></span>
+<span data-line><span>&lt;body></span></span>
+<span data-line><span>    &lt;div class=&quot;calculator&quot;></span></span>
+<span data-line><span>        &lt;div class=&quot;display&quot; id=&quot;display&quot;>0&lt;/div></span></span>
+<span data-line><span>        &lt;div class=&quot;buttons&quot;></span></span>
+<span data-line><span>            &lt;button class=&quot;clear&quot; =&quot;clearDisplay()&quot;>C&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;operator&quot; =&quot;deleteLast()&quot;>⌫&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;operator&quot; =&quot;inputOperator('/')&quot;>÷&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;operator&quot; =&quot;inputOperator('*')&quot;>×&lt;/button></span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('7')&quot;>7&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('8')&quot;>8&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('9')&quot;>9&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;operator&quot; =&quot;inputOperator('-')&quot;>−&lt;/button></span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('4')&quot;>4&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('5')&quot;>5&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('6')&quot;>6&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;operator&quot; =&quot;inputOperator('+')&quot;>+&lt;/button></span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('1')&quot;>1&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('2')&quot;>2&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('3')&quot;>3&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;decimal&quot; =&quot;inputDecimal()&quot;>.&lt;/button></span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            &lt;button class=&quot;number&quot; =&quot;inputNumber('0')&quot;>0&lt;/button></span></span>
+<span data-line><span>            &lt;button class=&quot;equals&quot; =&quot;calculate()&quot;>=&lt;/button></span></span>
+<span data-line><span>        &lt;/div></span></span>
+<span data-line><span>    &lt;/div></span></span>
+<span data-line> </span>
+<span data-line><span>    </span></span>
+<span data-line><span>        let currentInput = '0';</span></span>
+<span data-line><span>        let previousInput = '';</span></span>
+<span data-line><span>        let operator = '';</span></span>
+<span data-line><span>        let shouldResetInput = false;</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        const display = document.getElementById('display');</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function updateDisplay() {</span></span>
+<span data-line><span>            // Ensure the display doesn't exceed 9 characters</span></span>
+<span data-line><span>            let displayText = currentInput;</span></span>
+<span data-line><span>            if (displayText.length > 9) {</span></span>
+<span data-line><span>                // Try to format as scientific notation if too long</span></span>
+<span data-line><span>                if (displayText.includes('e') || displayText.includes('E')) {</span></span>
+<span data-line><span>                    displayText = parseFloat(displayText).toExponential(2);</span></span>
+<span data-line><span>                } else {</span></span>
+<span data-line><span>                    try {</span></span>
+<span data-line><span>                        const num = parseFloat(displayText);</span></span>
+<span data-line><span>                        if (!isNaN(num)) {</span></span>
+<span data-line><span>                            displayText = num.toExponential(2);</span></span>
+<span data-line><span>                        }</span></span>
+<span data-line><span>                    } catch (e) {</span></span>
+<span data-line><span>                        displayText = displayText.substring(0, 9);</span></span>
+<span data-line><span>                    }</span></span>
+<span data-line><span>                }</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            display.textContent = displayText;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function inputNumber(number) {</span></span>
+<span data-line><span>            if (shouldResetInput) {</span></span>
+<span data-line><span>                currentInput = '0';</span></span>
+<span data-line><span>                shouldResetInput = false;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            if (currentInput === '0' &amp;&amp; number !== '.') {</span></span>
+<span data-line><span>                currentInput = number;</span></span>
+<span data-line><span>            } else if (currentInput.length &lt; 9) {</span></span>
+<span data-line><span>                currentInput += number;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            updateDisplay();</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function inputDecimal() {</span></span>
+<span data-line><span>            if (shouldResetInput) {</span></span>
+<span data-line><span>                currentInput = '0';</span></span>
+<span data-line><span>                shouldResetInput = false;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            if (!currentInput.includes('.') &amp;&amp; currentInput.length &lt; 9) {</span></span>
+<span data-line><span>                currentInput += '.';</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            updateDisplay();</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function inputOperator(op) {</span></span>
+<span data-line><span>            if (operator &amp;&amp; !shouldResetInput) {</span></span>
+<span data-line><span>                calculate();</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            previousInput = currentInput;</span></span>
+<span data-line><span>            operator = op;</span></span>
+<span data-line><span>            shouldResetInput = true;</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function calculate() {</span></span>
+<span data-line><span>            if (operator === '' || shouldResetInput) return;</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            let result;</span></span>
+<span data-line><span>            const prev = parseFloat(previousInput);</span></span>
+<span data-line><span>            const current = parseFloat(currentInput);</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            if (isNaN(prev) || isNaN(current)) return;</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            switch (operator) {</span></span>
+<span data-line><span>                case '+':</span></span>
+<span data-line><span>                    result = prev + current;</span></span>
+<span data-line><span>                    break;</span></span>
+<span data-line><span>                case '-':</span></span>
+<span data-line><span>                    result = prev - current;</span></span>
+<span data-line><span>                    break;</span></span>
+<span data-line><span>                case '*':</span></span>
+<span data-line><span>                    result = prev * current;</span></span>
+<span data-line><span>                    break;</span></span>
+<span data-line><span>                case '/':</span></span>
+<span data-line><span>                    if (current === 0) {</span></span>
+<span data-line><span>                        result = 'Error';</span></span>
+<span data-line><span>                    } else {</span></span>
+<span data-line><span>                        result = prev / current;</span></span>
+<span data-line><span>                    }</span></span>
+<span data-line><span>                    break;</span></span>
+<span data-line><span>                default:</span></span>
+<span data-line><span>                    return;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            if (result !== 'Error') {</span></span>
+<span data-line><span>                // Format result to fit within 9 characters</span></span>
+<span data-line><span>                let resultStr = result.toString();</span></span>
+<span data-line><span>                if (resultStr.length > 9) {</span></span>
+<span data-line><span>                    // Try to round to fit</span></span>
+<span data-line><span>                    if (Math.abs(result) >= 1e9 || (Math.abs(result) &lt; 1e-4 &amp;&amp; result !== 0)) {</span></span>
+<span data-line><span>                        resultStr = result.toExponential(2);</span></span>
+<span data-line><span>                    } else {</span></span>
+<span data-line><span>                        // Round to fit within 9 characters</span></span>
+<span data-line><span>                        const decimalPlaces = Math.max(0, 8 - Math.floor(Math.log10(Math.abs(result))));</span></span>
+<span data-line><span>                        resultStr = result.toFixed(decimalPlaces);</span></span>
+<span data-line><span>                        if (resultStr.length > 9) {</span></span>
+<span data-line><span>                            resultStr = result.toExponential(2);</span></span>
+<span data-line><span>                        }</span></span>
+<span data-line><span>                    }</span></span>
+<span data-line><span>                }</span></span>
+<span data-line><span>                currentInput = resultStr;</span></span>
+<span data-line><span>            } else {</span></span>
+<span data-line><span>                currentInput = result;</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            operator = '';</span></span>
+<span data-line><span>            previousInput = '';</span></span>
+<span data-line><span>            shouldResetInput = true;</span></span>
+<span data-line><span>            updateDisplay();</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function clearDisplay() {</span></span>
+<span data-line><span>            currentInput = '0';</span></span>
+<span data-line><span>            previousInput = '';</span></span>
+<span data-line><span>            operator = '';</span></span>
+<span data-line><span>            shouldResetInput = false;</span></span>
+<span data-line><span>            updateDisplay();</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        function deleteLast() {</span></span>
+<span data-line><span>            if (shouldResetInput) return;</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            if (currentInput.length === 1 || (currentInput.length === 2 &amp;&amp; currentInput.startsWith('-'))) {</span></span>
+<span data-line><span>                currentInput = '0';</span></span>
+<span data-line><span>            } else {</span></span>
+<span data-line><span>                currentInput = currentInput.slice(0, -1);</span></span>
+<span data-line><span>            }</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            updateDisplay();</span></span>
+<span data-line><span>        }</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        // Initialize display</span></span>
+<span data-line><span>        updateDisplay();</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>&lt;/body></span></span>
+<span data-line><span>&lt;/html></span></span></code></pre></figure>
+<p>ممکن است تجربه شما کمی متفاوت باشد که اصلاً جای نگرانی نیست. می توانید برای بهبود خروجی با تغییر دستورات یا افزودن دستور اصلاحی به چت اقدام کنید. در نهایت کد را در قالب یک فایل با پسوند html ذخیره کرده و آنرا در یک مرورگر مانند کروم اجرا می کنیم. شاید تصویر زیر چیزی باشد که خواهید دید.</p>
+<p><img src="../../Images/Vibe-Codding.jpg" width="auto" height="auto" alt/></p>
+<p>این تجربه را می توان با سایر چت بات هایی که از توسعه کد پشتیبانی می کنند هم تکرار کرد. اما بیایید کمی بازی را جذاب تر کنیم. اگر کمی در کدنویسی به زبان جاوا اسکریپت تجربه داشته باشید متوجه می شوید که کد حاصل را می توان حرفه ای تر و کارآمدتر کرد اینکار را هم می توان به هوش مصنوعی سپرد، بنابراین پرامت زیر را می نویسیم.</p>
+<blockquote>
+<p>کد را بازنویسی کن و برای نوشتن handler هر یک از کلیدها از متد dataset attributes استفاده کن. به عنوان مثال :
+<code>&lt;button class=&quot;clear&quot; data-action=&quot;clear&quot;>C&lt;/button></code></p>
+</blockquote>
+<p>یا ساده تر می توانید تنها به حس یا اصطلاحاً وایب اشاره کنید و کار را به هوش مصنوعی بسپارید.</p>
+<blockquote>
+<p>کد نوشته شده به زبان جاوا اسکریپت را با توجه به آخرین متدهای پیشرفته، بازنویسی ، بهینه و کوتاه کن.</p>
+</blockquote>
+<p>نتیجه کار را می توانید در کادر زیر ببینید در این کد معماری شئ گرا برای توسعه بکارگرفته شده و کلاسی از اشیاء با عنوان ماشین حساب توسعه داده شده است که قابلیت استفاده مجدد و بسط آنرا افزایش می دهد.</p>
+<pre><code>        class Calculator {
+            constructor() {
+                this.currentInput = '0';
+                this.previousInput = '';
+                this.operator = '';
+                this.shouldResetInput = false;
+                this.display = document.getElementById('display');
+                this.init();
+            }
+            
+            init() {
+                document.querySelector('.buttons').addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'BUTTON') return;
+                    const { action, value } = e.target.dataset;
+                    this.handleAction(action, value);
+                });
+                this.updateDisplay();
+            }
+            
+            handleAction(action, value) {
+                const handlers = {
+                    number: () => this.inputNumber(value),
+                    decimal: () => this.inputDecimal(),
+                    operator: () => this.inputOperator(value),
+                    equals: () => this.calculate(),
+                    clear: () => this.clear(),
+                    delete: () => this.deleteLast()
+                };
+                handlers[action]?.();
+            }
+            
+            inputNumber(num) {
+                if (this.shouldResetInput) {
+                    this.currentInput = '0';
+                    this.shouldResetInput = false;
+                }
+                if (this.currentInput === '0' &amp;&amp; num !== '.') {
+                    this.currentInput = num;
+                } else if (this.currentInput.length &lt; 9) {
+                    this.currentInput += num;
+                }
+                this.updateDisplay();
+            }
+            
+            inputDecimal() {
+                if (this.shouldResetInput) {
+                    this.currentInput = '0';
+                    this.shouldResetInput = false;
+                }
+                if (!this.currentInput.includes('.') &amp;&amp; this.currentInput.length &lt; 9) {
+                    this.currentInput += '.';
+                }
+                this.updateDisplay();
+            }
+            
+            inputOperator(op) {
+                if (this.operator &amp;&amp; !this.shouldResetInput) this.calculate();
+                this.previousInput = this.currentInput;
+                this.operator = op;
+                this.shouldResetInput = true;
+            }
+            
+            calculate() {
+                if (!this.operator || this.shouldResetInput) return;
+                
+                const prev = parseFloat(this.previousInput);
+                const current = parseFloat(this.currentInput);
+                if (isNaN(prev) || isNaN(current)) return;
+                
+                const operations = {
+                    '+': prev + current,
+                    '-': prev - current,
+                    '*': prev * current,
+                    '/': current === 0 ? 'Error' : prev / current
+                };
+                
+                let result = operations[this.operator];
+                if (result !== 'Error') {
+                    result = this.formatResult(result);
+                }
+                
+                this.currentInput = result.toString();
+                this.operator = '';
+                this.previousInput = '';
+                this.shouldResetInput = true;
+                this.updateDisplay();
+            }
+            
+            formatResult(result) {
+                let resultStr = result.toString();
+                if (resultStr.length &lt;= 9) return result;
+                
+                if (Math.abs(result) >= 1e9 || (Math.abs(result) &lt; 1e-4 &amp;&amp; result !== 0)) {
+                    return result.toExponential(2);
+                }
+                
+                const decimalPlaces = Math.max(0, 8 - Math.floor(Math.log10(Math.abs(result))));
+                resultStr = result.toFixed(decimalPlaces);
+                return resultStr.length > 9 ? result.toExponential(2) : parseFloat(resultStr);
+            }
+            
+            clear() {
+                this.currentInput = '0';
+                this.previousInput = '';
+                this.operator = '';
+                this.shouldResetInput = false;
+                this.updateDisplay();
+            }
+            
+            deleteLast() {
+                if (this.shouldResetInput) return;
+                if (this.currentInput.length &lt;= 1 || (this.currentInput.length === 2 &amp;&amp; this.currentInput.startsWith('-'))) {
+                    this.currentInput = '0';
+                } else {
+                    this.currentInput = this.currentInput.slice(0, -1);
+                }
+                this.updateDisplay();
+            }
+            
+            updateDisplay() {
+                let displayText = this.currentInput;
+                if (displayText.length > 9 &amp;&amp; displayText !== 'Error') {
+                    displayText = this.formatResult(parseFloat(displayText));
+                }
+                this.display.textContent = displayText.toString();
+            }
+        }
+        
+        new Calculator();
+</code></pre>
+<p>من برای این تجربه Qwen را انتخاب کردم چون علاوه بر اینکه بصورت رایگان در دسترس قرار دارد در مد Web dev امکان پیش نمایش کد حاصل را نیز بلافاصله فراهم میکند. همچنین می توانید کد تولید شده را ذیل دامنه qwen.ai به اشتراک بگذارید. این تجربه ساده می تواند شروع یک جهش بزرگ برای علاقمندان به برنامه نویسی بویژه نوجوانان و جوانان باشد. فراموش نکنیم که خواندن کدهای نوشته شده و تحلیل آن یکی از بهترین روشهای یادگیری و تعمیق دانسته های برنامه نویسان است.</p>
+<p>اما همیشه مسئله به همین سادگی حل نمی شود. هر چقدر ساختار برنامه کاربردی نهایی پیچیده تر باشد شیوه طراحی پرامت نیز پیچیده تر می شود. بعلاوه چت باتها در اصلاح مکرر پاسخها هنوز محدودیتهای دارند بنابراین استفاده مستقیم از آنها گاهی اوقات کار را دشوار و نتیجه را دور از انتظار می کند. به همین دلیل ابزارهای اختصاصی برای این منظور توسعه داده شده است. بنابراین اگر قصد ساخت برنامه های کاربردی مفصل و پیچیده تری دارید بهتر است از ابزارهایی مانند Github Copilot یا Trea.ai استفاده کنید.</p>
+<h4 id="ساختار-یک-پرامت-حرفه-ای">ساختار یک پرامت حرفه ای<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ساختار-یک-پرامت-حرفه-ای" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>برای داشتن یک خروجی مطلوب باید دستوراتی واضح و دقیق دارای ساختار استاندارد طراحی کرد. این کار خود یک تخصص حرفه ای است و امروزه به مهندسی پرامت مشهور شده است. ساختار یک پرامت مناسب برای کد نویسی معمولاً با توصیف هدف کلی پروژه آغاز می‌شود (مثلاً «ساخت یک برنامه مدیریت وظایف با رابط کاربری تعاملی»)، سپس به جزئیات عملکردها، ساختار داده‌ها و تعاملات کاربر پرداخته می شود. در ادامه باید فناوری‌ها و فریم‌ورک‌های مورد استفاده (مانند React، Vue یا Node.js) به‌وضوح مشخص شوند تا مدل در همان مسیر فنی پیش برود. ذکر لحن مورد انتظار کد (مثلاً ماژولار، دارای کامنت، یا بهینه برای مرورگرهای مدرن) و تعیین نحوه خروجی (یک فایل واحد، پروژه پوشه‌بندی‌شده یا فقط بخش خاصی از کد) نیز ضروری است. در نهایت، افزودن محدودیت‌ها و معیارهای کنترل کیفیت مانند امنیت، سرعت بارگذاری یا قابلیت نگهداری. اگر به مبحث مهندسی پرامت و ساختار یک دستور حرفه ای علاقمندید مقالات بعدی را از دست ندهید.<br/>
+در اینجا و صرفاً جهت آشنایی خواننده با مقدمه موضوع به اختصار به اجزاء یک پرامت مناسب برای کد نویسی اشاره می کنم.<br/>
+<strong>تعریف نقش (Role):</strong> مشخص کردن دقیق تخصص و وظیفه مدل.<br/>
+<strong>توصیف کلی پروژه (Project Overview):</strong> هدف اصلی برنامه و معرفی کاربران نهایی. چه مشکلی قرار است حل ‌شود یا چه قابلیتهایی قرار است توسعه داده شود.<br/>
+<strong>جزئیات عملکردی (Functional Requirements):</strong> فهرست قابلیت‌ها و رفتارهای اصلی برنامه، تعاملات کاربر (ورود داده، کلیک، فیلتر، جست‌وجو و غیره)، نحوه نمایش و به‌روزرسانی داده‌ها در رابط کاربری.<br/>
+<strong>تکنولوژی‌ها و فریم‌ورک‌ها (Tech Stack):</strong> زبان‌ها و کتابخانه‌ها (JavaScript, HTML, CSS) فریم‌ورک‌های پیشنهادی (React, Vue, Node.js, Express و غیره)، وابستگی‌ها یا APIهای خارجی مورد نیاز.<br/>
+<strong>ساختار کد و سازمان پروژه (Code Structure):</strong> نحوه تقسیم‌بندی فایل‌ها و پوشه‌ها، معماری کلی (Component-Based, MVC, SPA و…)، استانداردهای کدنویسی (ماژولار، دارای کامنت، استفاده از ES6+).<br/>
+<strong>خروجی مورد انتظار (Expected Output):</strong> نوع خروجی (کد کامل پروژه، فقط بخش خاصی مثل UI یا API)، قالب تحویل خروجی (یک فایل، پوشه پروژه بصورت فشرده، یا بلوک کد)، سطح جزئیات مورد انتظار (کد خام یا همراه با توضیحات).<br/>
+<strong>محدودیت‌ها و معیارهای کیفیت (Constraints &amp; Quality Criteria):</strong> عملکرد و سرعت بارگذاری، امنیت و اعتبارسنجی داده‌ها، قابلیت نگهداری و توسعه در آینده.</p>
+<h4 id="ادامه-بازی">ادامه بازی<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ادامه-بازی" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>بد نیست یک مثال حرفه ای را هم با هم ببینیم. فرض کنید می خواهیم یک برنامه دسکتاپ برای مدیریت وظایف طراحی کنید. پرامت زیر می تواند یک نمونه مناسب باشد.</p>
+<blockquote>
+<p><strong>توصیف کلی پروژه (Project Overview):</strong></p>
+<p>می‌خواهم یک برنامه دسکتاپ مدیریت وظایف (ToDo List) برای سیستم‌عامل ویندوز بسازم.<br/>
+کاربر بتواند وظایف خود را اضافه، ویرایش و حذف کرده و کارهای انجام شده را بتواند علامت‌گذاری کند.<br/>
+رابط کاربری برنامه باید راست‌به‌چپ و کاملاً فارسی باشد.</p>
+<p><strong>جزئیات عملکردی (Functional Requirements):</strong></p>
+<p>افزودن، ویرایش، حذف و علامت‌گذاری وظایف</p>
+<p>نمایش لیست وظایف در یک جدول یا لیست گرافیکی</p>
+<p>امکان ذخیره خودکار داده‌ها (مثلاً در فایل JSON یا SQLite)</p>
+<p>قابلیت جست‌وجو یا فیلتر وظایف بر اساس وضعیت انجام‌شده</p>
+<p>پیغام‌های خطا و هشدار به زبان فارسی</p>
+<p><strong>تکنولوژی‌ها و فریم‌ورک‌ها (Tech Stack):</strong></p>
+<p>زبان برنامه‌نویسی: Python 3.x</p>
+<p>رابط کاربری: Tkinter یا PyQt5 / PySide6 (ترجیحاً با طراحی زیبا و مدرن)</p>
+<p>پایگاه داده: SQLite یا فایل JSON برای ذخیره وظایف</p>
+<p><strong>ساختار کد و سازمان پروژه (Code Structure):</strong></p>
+<p>پروژه باید ماژولار و پوشه‌بندی‌شده باشد.</p>
+<p><strong>خروجی مورد انتظار (Expected Output):</strong></p>
+<p>خروجی باید پروژه کامل و قابل اجرا باشد.</p>
+<p>در پایان، راهنمای ساخت فایل exe مستقل با pyInstaller ارائه شود.</p>
+<p>فایل نهایی بتواند بدون نیاز به پایتون در ویندوز اجرا گردد.</p>
+<p><strong>محدودیت‌ها و معیارهای کیفیت (Constraints &amp; Quality Criteria):</strong></p>
+<p>رابط کاربری فارسی، راست‌به‌چپ (RTL) و با فونت خوانا</p>
+<p>طراحی گرافیکی زیبا و مدرن (استفاده از رنگ‌های هماهنگ و دکمه‌های مینیمال)</p>
+<p>عملکرد سریع و روان</p>
+<p>کدنویسی خوانا با توضیحات و کامنت‌های فارسی یا انگلیسی</p>
+</blockquote>
+<p>تصویر زیر حاصل تجربه پرامت فوق با استفاده از ChatGPT است. برنامه را در حالیکه روی گزینه «افزودن وظایف جدید» کلیک شده و فرم آن باز شده است مشاهده می کنید.
+<img src="../../Images/Vibe-Codding-2.png" width="auto" height="auto" alt/></p>
+<p>صفحه اصلی برنامه مدیریت وظایف نوشته شده با پایتون ( فرم افزودن وظیفه جدید با شده است )</p>
+<h4 id="عیب-وایراد">عیب وایراد<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#عیب-وایراد" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>وایب کدینگ علی‌رغم جذابیت‌ها و توانایی‌های چشمگیرش، محدودیت‌هایی نیز دارد. برای نمونه، هرچند این رویکرد فرایند کدنویسی را به تجربه‌ای تعاملی، الهام‌بخش و خلاقانه تبدیل می‌کند، اما همچنان به ابزارهای هوش مصنوعی و مدل‌های زبانی وابسته است و ممکن است درک عمیقی از منطق تجاری یا ساختارهای پیچیده نرم‌افزار نداشته باشند. از طرف دیگر، کیفیت خروجی تا حد زیادی به وضوح و دقت دستورات کاربر بستگی دارد، و در صورت بیان مبهم یا نادرست، نتایج نیز ممکن است ناقص یا غیرکاربردی باشند. همچنین، وایب کدینگ هنوز جایگزین کاملی برای تجربه‌ی فنی یک برنامه‌نویس حرفه‌ای نیست و برای پروژه‌های بزرگ یا نیازمند بهینه‌سازی بالا، به دخالت انسانی نیاز دارد. به‌عبارتی، این روش در حال حاضر بیش از آنکه یک جایگزین کامل باشد، ابزاری کمکی و الهام‌بخش در مسیر توسعه نرم‌افزار به‌شمار می‌آید.</p>
+<p>در پروژه‌های پیچیده که شامل چندین ماژول و وابستگی‌های متقابل است، احتمال دارد مدل در هماهنگ نگه‌داشتن اجزای مختلف یا درک تغییرات پی‌درپی دچار ناهماهنگی شود. همچنین، در فرآیند اصلاحات مکرر و طولانی—وقتی کاربر بارها دستورات جدید برای ویرایش یا بهبود کد ارائه می‌کند—ممکن است کد تولیدشده تدریجاً از انسجام اولیه خود فاصله گرفته و به بازسازی کلی نیاز پیدا کند. بنابراین، هرچند وایب کدینگ ابزاری قدرتمند برای تسریع و ساده‌سازی تولید نرم‌افزار است، اما برای حفظ کیفیت و پایداری در پروژه‌های واقعی همچنان به نظارت و قضاوت انسانی نیاز دارد.</p>
+<h4 id="از-آینده-چه-خبر">از آینده چه خبر<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#از-آینده-چه-خبر" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>وایب کدینگ همانند سایر مباحث مرتبط با هوش مصنوعی خلاق به سرعت رو به رشد و تحول است. جدیدترین دستاوردهای این حوزه در سال‌های اخیر، شامل معماری‌های چندعاملی، استفاده از سامانه‌های تعاملی برای تفسیر اهداف عملکردی و سبک برنامه‌نویسی مورد نظر کاربر و به‌کارگیری حلقه‌های بازخورد تعاملی است. حلقه های بازخوردی که به وسیله آن خروجی کد به طور مستمر ارزیابی و اصلاح می‌شود. تحقیقات جدید، افزایش بهره‌وری و دموکراتیک‌ترکردن توسعه نرم‌افزار را به‌عنوان پیامدهای مثبت گزارش کرده‌اند، اما چالش‌هایی نظیر همسویی دقیق با اهداف کاربر، قابلیت بازتولید کد نوشته شده، رفع سوگیری مدل، تبیین‌پذیری کد، نگهداشت و امنیت آن همچنان باقی است. آینده این حوزه مشارکت هوشمند انسان و ماشین، طراحی ابزارهای شفاف و قابل اعتماد، و کاربرد این روش در پروژه‌های پیچیده‌تر با تاکید بر نظارت انسانی و رویکردهای مسئولانه است، همچنین در مباحثی مانند ارتقای قابلیت‌ همزمان‌سازی، تفسیر معنایی و حفظ انسجام کد پژوهشها همچنان ادامه دارد.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>نمای گراف</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><ul></ul></footer></div></div><footer class="Globalfooter"><div class="Globalfooter-root" dir="rtl"><div class="Globalfooter-links-grid"><div class="Globalfooter-links-grid-columns"><div class="Globalfooter-column"><h3>دوره ها</h3><ul><li><a href="Courses/زبانهای-برنامه-نویسی/">برنامه نویسی</a></li><li><a href="Courses/هوش مصنوعی/">هوش مصنوعی</a></li></ul></div><div class="Globalfooter-column"><h3>خدمات</h3><ul><li><a href="#">پشتیبانی فنی</a></li></ul></div><div class="Globalfooter-column"><h3>کتابها</h3><ul><li><a href="http://www.igai.ir">هوش مصنوعی خلاق</a></li></ul></div><div class="Globalfooter-column"><h3>درباره</h3><ul><li><a href="/about">هوراژن</a></li></ul></div></div></div><div class="Globalfooter-logo-row"><div class="Globalfooter-logo-row-content"><div class="logo-description"><div class="logo"><img src="/Images/logo.jpg" alt="لوگو"/></div><p class="description justify">دانش نامه آموزشی هوراژن سعی دارد در جهت نشر علوم و فناوریهای نوین تلاش کرده و آنرا با سهولت و سادگی در اختیار علاقمندان کسب دانش و مهارت قرار دهد.</p></div><div class="social-icons"><a href="https://facebook.com/..." aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+      1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.4v7z"></path></svg></a><a href="https://twitter.com/..." aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.3 2H21l-6.6 7.5L22 22h-6.9l-4.3-5.7L5.8 22H3l7.1-8.1L2 2h7l3.9 5.1L18.3 2z"></path></svg></a><a href="https://instagram.com/..." aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5
+      .6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.4 1.1.5 2.3
+      .1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3
+      -.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.4-2.3.5
+      -1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5
+      -.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.4-1.1-.5-2.3
+      -.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3
+      .2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.4 2.3-.5
+      1.3-.1 1.7-.1 4.9-.1zm0 3.4a6.4 6.4 0 1 0 0 12.8
+      6.4 6.4 0 0 0 0-12.8zm0 10.6a4.2 4.2 0 1 1 0-8.4
+      4.2 4.2 0 0 1 0 8.4zm6.7-10.9a1.5 1.5 0 1 1-3
+      0 1.5 1.5 0 0 1 3 0z"></path></svg></a><a href="https://linkedin.com/..." aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.9h4v12H3zM9.5 8.9h3.8v1.6h.1
+      c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6
+      c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7h-4z"></path></svg></a></div></div></div><div class="Globalfooter-copyright"><p>تمامی حقوق متعلق است به هوراژن. طراحی و توسعه : ح.بحری<span>©</span><span>1404</span></p></div></div></footer></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>
