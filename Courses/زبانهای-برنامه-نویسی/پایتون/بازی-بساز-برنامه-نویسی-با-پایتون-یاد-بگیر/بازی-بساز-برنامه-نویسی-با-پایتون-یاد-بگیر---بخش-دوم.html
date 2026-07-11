@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><title>بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دومخرد راستین و اندیشه نوآفرین</title><meta charset="utf-8"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="هوراژن "/><meta property="og:title" content="بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دومخرد راستین و اندیشه نوآفرین"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دومخرد راستین و اندیشه نوآفرین"/><meta name="twitter:description" content="سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان) در بخش اول این مقاله، یادگیری برنامه نویسی را با رویکردی عملی و پروژه‌محور آغاز کردیم."/><meta property="og:description" content="سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان) در بخش اول این مقاله، یادگیری برنامه نویسی را با رویکردی عملی و پروژه‌محور آغاز کردیم."/><meta property="og:image:alt" content="سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان) در بخش اول این مقاله، یادگیری برنامه نویسی را با رویکردی عملی و پروژه‌محور آغاز کردیم."/><meta property="twitter:domain" content="hooragen.ir"/><meta property="og:url" content="https://hooragen.ir/Courses/زبانهای-برنامه-نویسی/پایتون/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر---بخش-دوم"/><meta property="twitter:url" content="https://hooragen.ir/Courses/زبانهای-برنامه-نویسی/پایتون/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر---بخش-دوم"/><link rel="icon" href="../../../../static/icon.png"/><meta name="description" content="سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان) در بخش اول این مقاله، یادگیری برنامه نویسی را با رویکردی عملی و پروژه‌محور آغاز کردیم."/><meta name="generator" content="Quartz"/><link href="../../../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiRDpcXFNvdXJjZVxcU3RhdGljIFNpdGVzXFxxdWFydHpcXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://hooragen.ir/index.xml"/><meta property="og:image" content="https://hooragen.ir/static/SnakeGameScreenshot.png"/><meta property="og:image:url" content="https://hooragen.ir/static/SnakeGameScreenshot.png"/><meta name="twitter:image" content="https://hooragen.ir/static/SnakeGameScreenshot.png"/><meta property="og:image:type" content="image/.png"/></head><body data-slug="Courses/زبانهای-برنامه-نویسی/پایتون/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر---بخش-دوم"><header class="global-header"><div class="global-container"><h1>هوراژن <span class="page-title-suffix">خرد راستین و اندیشه نوآفرین</span></h1></div></header><nav class="global-nav" role="navigation" aria-label="Main Navigation"><div class="global-nav-inner"><div class="nav-brand"><a href="/">هوراژن</a></div><input id="nav-toggle" type="checkbox" class="nav-toggle"/><label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label><ul class="nav-links"><li><a href="/" data-nav="true">صفحه اصلی</a></li><li><a href="/Courses" data-nav="true">دوره ها</a></li><li><a href="/Articles" data-nav="true">مقالات</a></li><li><a href="/Books" data-nav="true">کتاب‌ها</a></li><li><a href="/about" data-nav="true">درباره</a></li></ul></div></nav><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title desktop-only"><a href="../../../..">هوراژن </a></h2><div class="flex-component desktop-only" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search desktop-only"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>جستجو</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="مطلبی را جستجو کنید" placeholder="مطلبی را جستجو کنید"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="حالت شب"><title>حالت شب</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="حالت روز"><title>حالت روز</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode desktop-only"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="حالت خواندن"><title>حالت خواندن</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer desktop-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>{if(a.isFolder&amp;&amp;b.isFolder)return a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;});if(a.isFolder)return-1;if(b.isFolder)return 1;let da=a.data?.date?.getTime()??0;return(b.data?.date?.getTime()??0)-da}&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-42"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>مرورگر</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-42" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../../">خانه</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../Courses/">دوره ها</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../Courses/زبانهای-برنامه-نویسی/">زبانهای برنامه نویسی</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../Courses/زبانهای-برنامه-نویسی/پایتون/">پایتون</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../Courses/زبانهای-برنامه-نویسی/پایتون/بازی-بساز-برنامه-نویسی-با-پایتون-یاد-بگیر/">بازی بساز برنامه نویسی با پایتون یاد بگیر</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>بازی بساز برنامه نویسی با پایتون یاد بگیر   بخش دوم</a></div></nav><h1 class="article-title">بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دوم</h1><p class="article-subtitle">در این بخش از مقاله، به شکلی عمیق‌تر به بررسی کد بازی و تشریح مفاهیم پیشرفته‌تر مرتبط با برنامه‌نویسی پایتون می‌پردازیم. ساختارهای تکرار، نحوه عملکرد لیست‌ها، مدیریت رویدادهای ورودی از صفحه کلید به تفصیل مورد بررسی قرار خواهند گرفت.</p><p show-comma="true" class="content-meta">نوشته شده در: <time datetime="2026-07-11T14:36:25.331Z">۲۰ تیر ۱۴۰۵</time><span>زمان تقریبی مطالعه: ۲۲ دقیقه</span></p></div></div><article class="popover-hint"><img src="/Images/SnakeGameScreenshot.png" alt="بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دوم" class="article-cover"/><blockquote>
+<p><strong>سایر بخشهای این مقاله:</strong><br/>
+<a href="https://vrgl.ir/dHOGq" class="external">بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><a href="https://vrgl.ir/PWnVJ" class="external">بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</blockquote>
+<p>در بخش اول این مقاله، یادگیری برنامه نویسی را با رویکردی عملی و پروژه‌محور آغاز کردیم. ضمن گام برداشتن در مسیر ساخت یک بازی کلاسیک و نوستالژیک، با تعدادی از مفاهیم بنیادین برنامه‌نویسی و ویژگی‌های شاخص زبان پایتون آشنا شدیم. مفاهیمی نظیر متغیرها و انواع داده‌ها، ساختارهای کنترلی نظیر شرط <code>if</code> و اصل توالی، عملگرها و چندریختی آن‌ها، توابع و اصل زیربرنامه، قلمرو داده‌ها و تفاوت متغیرهای محلی و سراسری، ساختارهای داده‌ای مانند لیست و تاپل، و اهمیت بسته‌های نرم‌افزاری در تسریع توسعه نرم افزار، همگی در خلال پیاده‌سازی بخش‌های مختلف بازی مورد بررسی قرار گرفتند.</p>
+<p>در این بخش از مقاله، به شکلی عمیق‌تر به بررسی کد بازی و تشریح مفاهیم پیشرفته‌تر مرتبط با برنامه‌نویسی پایتون می‌پردازیم. حلقه اصلی بازی و نحوه مدیریت جریان اجرا با استفاده از ساختارهای تکرار، نحوه عملکرد لیست‌ها و دستکاری پویای آن‌ها برای انیمیشن‌سازی حرکت مار، و مدیریت رویدادهای ورودی از صفحه کلید برای دریافت فرامین کاربر، از جمله مباحثی هستند که به تفصیل مورد بررسی قرار خواهند گرفت.</p>
+<h3 id="اصل-ماجرا">اصل ماجرا<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#اصل-ماجرا" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>اولین گام‌های عملی برای ساخت بازی با استفاده از یک بسته نرم‌افزاری قدرتمند برداشته می‌شود. پیش از هر چیز، باید مفهوم <strong>Package</strong> یا بسته را درک کنیم. بسته در برنامه‌نویسی، مجموعه‌ای سازمان‌یافته از ماژول‌ها و کتابخانه‌های از پیش‌نوشته‌شده است که ابزارها و توابع آماده‌ای را برای انجام وظایف خاص در اختیار برنامه‌نویس قرار می‌دهد. اهمیت بسته‌ها در آن است که برنامه‌نویس را از «اختراع دوباره چرخ» بی‌نیاز می‌سازند؛ به جای نوشتن کدهای پیچیده سطح پایین برای مدیریت گرافیک، صدا یا ورودی کاربر، می‌توان از راه‌حل‌های آزموده و بهینه‌شده موجود در بسته‌ها استفاده کرد.</p>
+<p><img src="../../../../Images/SnakeGameScreenshot.png" width="auto" height="auto" alt/>
+تصویری از لحظه توقف موقت بازی</p>
+<h4 id="موتور-بازی">موتور بازی<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#موتور-بازی" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>بسته مورد استفاده در این پروژه، <strong>Pygame</strong> نام دارد. Pygame یکی از محبوب‌ترین و قدیمی‌ترین کتابخانه‌های پایتون است که به طور خاص برای ساخت بازی‌های دو بعدی و برنامه‌های چندرسانه‌ای طراحی شده است. این بسته، لایه‌ای انتزاعی بر روی کتابخانه قدرتمند <strong>SDL</strong> ایجاد می‌کند و کار با گرافیک، صدا و مدیریت رویدادها را بسیار ساده می‌کند. در ادامه نحوه راه اندازی و استفاده از این بسته را خواهیم دید.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>import pygame</span></span>
+<span data-line> </span>
+<span data-line><span># راه‌اندازی pygame</span></span>
+<span data-line><span>pygame.init()</span></span>
+<span data-line> </span>
+<span data-line><span># ایجاد پنجره بازی</span></span>
+<span data-line><span>screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))</span></span>
+<span data-line><span>pygame.display.set_caption(&quot;🐍 Snake Game - Learnning Programming&quot;)</span></span>
+<span data-line><span>clock = pygame.time.Clock()</span></span></code></pre></figure>
+<p>برای استفاده از امکانات یک بسته یا کتابخانه در پایتون، ابتدا باید آن را به برنامه خود معرفی کنیم. این کار با دستور <code>import</code> انجام می‌شود. وقتی می‌نویسیم <code>import pygame</code>، در واقع به پایتون می‌گوییم که تمام کدها، توابع و کلاس‌های آماده‌ای که در بسته Pygame نوشته شده است را برای ما بارگذاری کند تا بتوانیم از آن‌ها استفاده کنیم.</p>
+<p>اهمیت این دستور در آن است که بدون آن، پایتون هیچ شناختی از Pygame و ابزارهایش ندارد و هرگاه بخواهیم از تابعی مانند <code>()pygame.init</code> استفاده کنیم، با خطا مواجه خواهیم شد. دستور <code>import</code> مانند کلیدی است که درِ جعبه ابزار را باز می‌کند و به ما اجازه می‌دهد به محتویات آن دسترسی داشته باشیم.</p>
+<p>معمولاً در ابتدای برنامه، تمام کتابخانه‌های مورد نیاز را با دستور <code>import</code> فراخوانی می‌کنیم. سپس برای استفاده از هر تابع یا کلاس موجود در آن بسته، نام بسته را به همراه یک نقطه و نام تابع مورد نظر می‌نویسیم؛ مانند <code>pygame.display.set_mode</code>.</p>
+<p>در خط شماره ۴ کد، دستور <code>()pygame.init</code> فراخوانی می‌شود. این تابع، موتور Pygame را راه‌اندازی کرده و تمام زیرسیستم‌های ضروری آن، مانند ماژول نمایشگر و ماژول مدیریت رویدادها را برای استفاده آماده می‌کند.</p>
+<p>تابع <code>pygame.display.set_mode</code> وظیفه ایجاد پنجره اصلی بازی را بر عهده دارد. این تابع یک سطح نمایش (Surface) می‌سازد و ابعاد آن را از طریق تاپل <code>(WINDOW_WIDTH, WINDOW_HEIGHT)</code> دریافت می‌کند. شیء بازگشتی که در متغیر <code>screen</code> ذخیره می‌شود، بوم نقاشی ما خواهد بود و تمام عناصر بصری بازی بر روی آن ترسیم می‌شوند. سپس، با <code>pygame.display.set_caption</code> عنوانی برای نوار بالای پنجره تعیین می‌کنیم.</p>
+<blockquote>
+<p>در پایتون، همه چیز <strong>شیء</strong> است. شیء را می‌توان به یک بسته کوچک و مستقل تشبیه کرد که هم داده‌ها (ویژگی‌ها) را در خود نگه می‌دارد و هم اعمالی که می‌توان روی آن داده‌ها انجام داد (متدها). حتی توابع نیز در پایتون شیء محسوب می‌شوند. می‌توان یک تابع را به یک متغیر نسبت داد، آن را به عنوان آرگومان به تابعی دیگر ارسال کرد یا حتی ویژگی‌هایی به آن اضافه نمود. این ویژگی که از مفاهیم «شیءگرایی محض» سرچشمه می‌گیرد، انعطاف‌پذیری فوق‌العاده‌ای به زبان بخشیده است.</p>
+<p>برای مثال، متغیر <code>screen</code> که با <code>pygame.display.set_mode</code> ساختیم، یک شیء است که اطلاعاتی مانند عرض و ارتفاع صفحه را در خود دارد و می‌توانیم متد <code>fill</code> را برای رنگ کردن پس‌زمینه روی آن صدا بزنیم.</p>
+<p>اهمیت اشیاء در سازمان‌دهی منطقی کد است. آن‌ها با بسته‌بندی مفاهیم پیچیده در یک واحد منسجم، برنامه‌نویسی را ساده‌تر، کد را خواناتر و مدیریت پروژه‌های بزرگ را ممکن می‌سازند. در بازی Snake هم تمام اجزا مانند پنجره، ساعت و حتی خود مار را می‌توان به عنوان اشیاء مستقل در نظر گرفت. پرداختن به مفاهیم مرتبط با برنامه نویسی شئ گرا خارج از مباحث این مقاله است و علاقمندان می توانند برای مطالعه بیشتر به منابع مرتبط رجوع کنند.</p>
+</blockquote>
+<p>در نهایت، <code>()pygame.time.Clock</code> یک شیء ساعت مجازی می‌سازد که کنترل دقیق نرخ فریم بازی را ممکن می‌کند. این شیء با متد <code>tick</code> خود تضمین می‌کند که حلقه اصلی بازی با سرعت ثابت و مشخصی (در این پروژه ۱۰ فریم بر ثانیه که البته با تغییر مقدار متغیر GAME_SPEED قابل تنظیم است) اجرا شود و سرعت حرکت مار در سیستم‌های مختلف، یکسان باقی بماند. بدین ترتیب، تنها با چند خط کد، زیربنای گرافیکی و زمان‌بندی بازی خود را با اتکا به قدرت یک بسته تخصصی پایه‌ریزی کرده‌ایم.</p>
+<h4 id="بازی-شروع-می-شود">بازی شروع می شود<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#بازی-شروع-می-شود" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>اینجا قلب تپنده پروژه است، یعنی موتور اصلی. قبل از آنکه وارد چرخه تکرارشونده بازی بشویم، لازم است وضعیت اولیه آن را به دقت مشخص کنیم. پس، در ابتدای تابع <code>game_loop</code>، مجموعه‌ای از متغیرها تعریف می‌شوند که هر کدام نقشی حیاتی در کنترل شرایط و روند بازی دارند.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span># ============================================</span></span>
+<span data-line><span># بخش 3: تابع اصلی بازی</span></span>
+<span data-line><span># ============================================</span></span>
+<span data-line> </span>
+<span data-line><span>def game_loop():</span></span>
+<span data-line><span>    &quot;&quot;&quot;حلقه اصلی بازی&quot;&quot;&quot;</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>    # وضعیت اولیه مار (وسط صفحه)</span></span>
+<span data-line><span>    snake_x = WINDOW_WIDTH // 2</span></span>
+<span data-line><span>    snake_y = WINDOW_HEIGHT // 2</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>    # جهت حرکت اولیه (بدون حرکت)</span></span>
+<span data-line><span>    change_x = 0</span></span>
+<span data-line><span>    change_y = 0</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>    # بدن مار (لیستی از مختصات)</span></span>
+<span data-line><span>    snake_body = [[snake_x, snake_y]]</span></span>
+<span data-line><span>    snake_length = 1</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>    # ایجاد اولین غذا</span></span>
+<span data-line><span>    food_position = generate_food(snake_body)</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>    # امتیاز بازیکن</span></span>
+<span data-line><span>    score = 0</span></span>
+<span data-line><span>    </span></span>
+<span data-line><span>    # وضعیت بازی</span></span>
+<span data-line><span>    game_over = False</span></span>
+<span data-line><span>    game_paused = False</span></span></code></pre></figure>
+<p>اولین گروه از این متغیرها، موقعیت اولیه مار را تعیین می‌کنند. <code>snake_x</code> و <code>snake_y</code> مختصات سر مار را در خود نگه می‌دارند. با استفاده از عملگر تقسیم صحیح <code>//</code>، عرض و ارتفاع پنجره را بر دو تقسیم کرده‌ایم تا مار دقیقاً از مرکز صفحه کار خود را شروع کند. این محاسبه ساده، نمونه‌ای از کاربرد عملگرهای ریاضی در حل مسائل عملی است.</p>
+<p>و اما بعد، <code>change_x</code> و <code>change_y</code> جهت و میزان حرکت مار در هر گام را مشخص می‌کنند. مقداردهی اولیه آن‌ها با صفر به این معناست که مار در لحظه شروع، ساکن است و تنها پس از فشاردادن یکی از کلیدهای جهت‌نما توسط کاربر شروع به حرکت می کند. این متغیرها در طول بازی و با دریافت ورودی از صفحه کلید، به‌روزرسانی می‌شوند.</p>
+<p>متغیر <code>snake_body</code> که از نوع لیست تعریف شده، یکی از کلیدی‌ترین <strong>ساختارهای داده‌ای</strong> بازی است. این <strong>لیست</strong>، مختصات تمام بخش‌های بدن مار را ذخیره می‌کند. در ابتدا، فقط یک عضو دارد: مختصات سر مار. متغیر <code>snake_length</code> هم طول فعلی مار را نشان می‌دهد و با خوردن هر طعمه افزایش می‌یابد.</p>
+<p>بعد، با فراخوانی تابع <code>generate_food</code> و ارسال <code>snake_body</code> به عنوان آرگومان، موقعیت اولین طعمه را به صورت تصادفی تولید می‌کنیم و در <code>food_position</code> ذخیره می‌نماییم. ارسال بدن مار به این تابع تضمین می‌کند که طعمه روی خود مار ظاهر نشود. در ادامه پیاده سازی این تابع را خواهیم دید.</p>
+<p>در نهایت، سه متغیر مهم برای مدیریت جریان بازی تعریف می‌شوند: <code>score</code> برای نگهداری امتیاز بازیکن که از صفر شروع می‌شود، <code>game_over</code> که وضعیت پایان بازی را نشان می‌دهد و مقدار اولیه آن <code>False</code> است، و <code>game_paused</code> برای کنترل حالت توقف موقت بازی که آن هم با <code>False</code> مقداردهی می‌شود. این مقادیر منطقی در حلقه اصلی بازی پیوسته بررسی می‌شوند تا تصمیم مناسب گرفته شود.
+<img src="../../../../Images/SnakeGameMessages.png" width="auto" height="auto" alt/>
+پیامهای ابتدایی نمایش داده شده در کنسول بازی</p>
+<p>پس از تعریف وضعیت اولیه بازی، نوبت به برقراری ارتباط با بازیکن می‌رسد. یک برنامه مناسب باید کاربر را در جریان آنچه رخ می‌دهد قرار دهد و او را راهنمایی کند. به همین منظور، با استفاده از تابع آشنای <code>print</code>، مجموعه‌ای از پیام‌های آگاهی دهنده را در کنسول نمایش می‌دهیم.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>    print(&quot;🎮 Game Started!&quot;)</span></span>
+<span data-line><span>    print(&quot;⌨️  Controls:&quot;)</span></span>
+<span data-line><span>    print(&quot;Arrow Keys: Move the snake&quot;)</span></span>
+<span data-line><span>    print(&quot;Space Key: Stop/Continue The Game&quot;)</span></span>
+<span data-line><span>    print(&quot;ESC Key: Exit The Game&quot;)</span></span></code></pre></figure>
+<p>نخستین پیام، یعنی <code>&quot;!Game Started 🎮&quot;</code>، به بازیکن اعلام می‌کند که بازی با موفقیت آغاز شده و همه چیز آماده است. سپس، بخش راهنمای کنترل‌ها را با عنوان <code>&quot;:Controls ⌨️&quot;</code> آغاز می‌کنیم تا بازیکن بداند برای تعامل با بازی از چه کلیدهایی باید استفاده کند.</p>
+<p>در خطوط بعدی، عملکرد هر کلید توضیح داده می‌شود: کلیدهای جهت‌نما برای هدایت مار در چهار جهت اصلی، کلید <em>Space</em> برای توقف و ادامه موقت بازی (که متغیر <code>game_paused</code> را تغییر می‌دهد)، و کلید <em>Escape</em> برای خروج از برنامه.</p>
+<h4 id="تکرار-بی-پایان">تکرار بی پایان<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#تکرار-بی-پایان" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>منطق موتور اصلی بازی بر پایه <strong>تکرار بی‌پایان</strong> دنباله‌ای از عملیات استوار است. به زبان ساده، بازی باید لحظه به لحظه صفحه را به‌روزرسانی کند، ورودی کاربر را بخواند و وضعیت را تغییر دهد. برای پیاده‌سازی این چرخه مداوم، از یک حلقه تکرار شرطی استفاده می‌کنیم که با دستور <code>while</code> ساخته می‌شود.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>    # ==========================================</span></span>
+<span data-line><span>    # حلقه اصلی بازی (تا وقتی بازی تمام نشده)</span></span>
+<span data-line><span>    # ==========================================</span></span>
+<span data-line><span>    while not game_over:</span></span></code></pre></figure>
+<p>ساختار <code>:while not game_over</code> دقیقاً به این معناست: «تا زمانی که بازی به پایان نرسیده است، دستورات داخل این حلقه را بارها و بارها تکرار کن». متغیر <code>game_over</code> که پیش‌تر مقدار <code>False</code> گرفته بود، نقش نگهبان این حلقه را ایفا می‌کند. به محض آنکه در جریان بازی، این متغیر به <code>True</code> تغییر یابد (مثلاً در اثر برخورد مار با دیوار)، شرط <code>not game_over</code> نادرست شده و حلقه متوقف می‌شود. این چرخه پیوسته، همان ضربان قلب بازی ماست که آن را زنده نگه می‌دارد و تا لحظه شکست بازیکن به کار خود ادامه می‌دهد. بدون این حلقه، بازی تنها یک تصویر ثابت بیش نبود.</p>
+<p>نخستین و شاید مهم‌ترین گام در هر چرخه از حلقه اصلی بازی، بررسی رویدادها و ورودی‌های کاربر است. در دنیای برنامه‌نویسی بازی، هر اتفاقی که در محیط بازی رخ می‌دهد، از فشردن یک کلید توسط کاربر گرفته تا بستن پنجره، در قالب یک «<strong>رویداد</strong>» یا <strong>Event</strong> ثبت می‌شود. کتابخانه <strong>pygame</strong> تمام این رویدادها را در یک <strong>صف</strong> ذخیره می‌کند و ما می‌توانیم با مرور آن‌ها، واکنش مناسب را نشان دهیم.</p>
+<blockquote>
+<p>صف رویدادها در <strong>pygame</strong> مانند یک صف انتظار عمل می‌کند. هر بار که کاربر کلیدی را فشار می‌دهد، ماوس را حرکت می‌دهد یا پنجره را می‌بندد، یک رویداد جدید به انتهای این صف اضافه می‌شود. تابع <code>()pygame.event.get</code> تمام رویدادهای در انتظار را به ترتیب وقوع از صف خارج کرده و به ما تحویل می‌دهد تا به آن‌ها رسیدگی کنیم. این مکانیزم تضمین می‌کند هیچ ورودی از دست نرود.</p>
+</blockquote>
+<p>برای این منظور، از یک حلقه <code>for</code> استفاده می‌کنیم که روی خروجی تابع <code>()pygame.event.get</code> حرکت می‌کند. حلقه <code>:()for event in pygame.event.get</code> به ما می‌گوید: «تک‌تک این رویدادها را بردار و بررسی کن».</p>
+<p>درون این حلقه، با استفاده از ساختار شرطی <code>if</code>، <strong>نوع هر رویداد</strong> را مشخص می‌کنیم. اگر <code>event.type</code> برابر با <code>pygame.QUIT</code> باشد، یعنی کاربر روی دکمه بستن پنجره کلیک کرده است. در این صورت، متغیر <code>game_over</code> را <code>True</code> می‌کنیم تا حلقه اصلی بازی متوقف شود و برنامه پایان یابد.</p>
+<blockquote>
+<p>در پایتون، مفهوم ثابت (Constant) به متغیری اشاره دارد که مقدار آن در طول اجرای برنامه تغییر نمی‌کند. اگرچه پایتون به صورت درونی سازوکاری برای تعریف ثابت‌های تغییرناپذیر ندارد، اما طبق قرارداد، نام متغیرهایی که با حروف بزرگ نوشته می‌شوند (مانند <code>WINDOW_WIDTH</code> و <code>BLACK</code>) به عنوان ثابت در نظر گرفته می‌شوند و برنامه‌نویس نباید مقدار آن‌ها را تغییر دهد.</p>
+<p>مقادیر شمارشی (Enumerations) نیز نوع خاصی از ثابت‌ها هستند که مجموعه‌ای از مقادیر نام‌گذاری‌شده و مرتبط را تعریف می‌کنند. در pygame، <code>pygame.QUIT</code> نمونه‌ای از این مقادیر شمارشی است که یک عدد صحیح از پیش تعریف‌شده است و نمایانگر نوع خاصی از رویداد (بستن پنجره) می‌باشد. به جای استفاده از اعداد جادویی مبهم مانند <code>256</code>، pygame این ثابت‌های معنادار را استفاده می‌کند تا کد خواناتر و کم‌خطاتر شود. <code>pygame.KEYDOWN</code>، <code>pygame.K_SPACE</code> و <code>pygame.K_ESCAPE</code> نیز همگی مقادیر شمارشی هستند که مجموعه رویدادها و کلیدهای صفحه کلید را به شکلی قابل فهم نام‌گذاری کرده‌اند. استفاده از این ثابت‌ها، احتمال خطا را کاهش و وضوح کد را افزایش می‌دهد.</p>
+</blockquote>
+<h4 id="چه-کلیدی-رو-زدی">چه کلیدی رو زدی؟<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#چه-کلیدی-رو-زدی" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>بخش اصلی مدیریت رویدادها به <strong>فشردن کلیدها</strong> اختصاص دارد. شرط <code>event.type == pygame.KEYDOWN</code> بررسی می‌کند که آیا یک کلید فشرده شده است یا خیر. سپس، با بررسی <code>event.key</code> مشخص می‌کنیم کدام کلید فشرده شده است. برای کلیدهای جهت‌نما، یک شرط اضافی نیز وجود دارد: مثلاً <code>change_x == 0</code> تضمین می‌کند که مار نتواند مستقیماً در خلاف جهت حرکت کند و به درون خود بازگردد. با فشردن هر کلید، مقادیر <code>change_x</code> و <code>change_y</code> متناسب با جهت جدید تنظیم می‌شوند.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>        # ----------------------------------</span></span>
+<span data-line><span>        # مدیریت رویدادها (Events)</span></span>
+<span data-line><span>        # ----------------------------------</span></span>
+<span data-line><span>        for event in pygame.event.get():</span></span>
+<span data-line><span>            # بستن پنجره</span></span>
+<span data-line><span>            if event.type == pygame.QUIT:</span></span>
+<span data-line><span>                game_over = True</span></span>
+<span data-line><span>            </span></span>
+<span data-line><span>            # فشردن کلیدها</span></span>
+<span data-line><span>            if event.type == pygame.KEYDOWN:</span></span>
+<span data-line><span>                # کلیدهای جهت‌نما</span></span>
+<span data-line><span>                if event.key == pygame.K_LEFT and change_x == 0:</span></span>
+<span data-line><span>                    change_x = -BLOCK_SIZE</span></span>
+<span data-line><span>                    change_y = 0</span></span>
+<span data-line><span>                elif event.key == pygame.K_RIGHT and change_x == 0:</span></span>
+<span data-line><span>                    change_x = BLOCK_SIZE</span></span>
+<span data-line><span>                    change_y = 0</span></span>
+<span data-line><span>                elif event.key == pygame.K_UP and change_y == 0:</span></span>
+<span data-line><span>                    change_y = -BLOCK_SIZE</span></span>
+<span data-line><span>                    change_x = 0</span></span>
+<span data-line><span>                elif event.key == pygame.K_DOWN and change_y == 0:</span></span>
+<span data-line><span>                    change_y = BLOCK_SIZE</span></span>
+<span data-line><span>                    change_x = 0</span></span>
+<span data-line><span>                </span></span>
+<span data-line><span>                # توقف/ادامه بازی</span></span>
+<span data-line><span>                elif event.key == pygame.K_SPACE:</span></span>
+<span data-line><span>                    game_paused = not game_paused</span></span>
+<span data-line><span>                    if game_paused:</span></span>
+<span data-line><span>                        print(&quot;⏸️  The Game is Stoped&quot;)</span></span>
+<span data-line><span>                    else:</span></span>
+<span data-line><span>                        print(&quot;▶️  The Game is continued&quot;)</span></span>
+<span data-line><span>                </span></span>
+<span data-line><span>                # خروج با ESC</span></span>
+<span data-line><span>                elif event.key == pygame.K_ESCAPE:</span></span>
+<span data-line><span>                    game_over = True</span></span></code></pre></figure>
+<p>کلید <em>Space</em> برای توقف و ادامه بازی در نظر گرفته شده است. با فشردن آن، مقدار متغیر <code>game_paused</code> معکوس می‌شود و پیامی متناسب با وضعیت جدید در کنسول چاپ می‌گردد. همچنین کلید Escape راهی سریع برای خروج از بازی فراهم می‌کند و با تنظیم <code>game_over = True</code>، به حلقه اصلی پایان می‌دهد. این ساختار ساده اما قدرتمند، ارتباط میان بازیکن و دنیای بازی را ممکن می‌کند.</p>
+<h4 id="لطفاً-یک-لحظه-توقف-کن">لطفاً یک لحظه توقف کن<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#لطفاً-یک-لحظه-توقف-کن" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>پس از پایان بررسی رویدادها، نوبت به <strong>اعمال تغییرات</strong> ناشی از آن‌ها بر وضعیت بازی می‌رسد. اما پیش از هر اقدامی، باید وضعیت توقف بازی را بررسی کنیم. اگر بازیکن کلید <em>Space</em> را فشرده باشد، متغیر <code>game_paused</code> مقدار <code>True</code> گرفته است. در این حالت، با استفاده از یک شرط ساده، بدنه اصلی به‌روزرسانی حرکت مار را دور می‌زنیم. یک پیام توقف روی صفحه نمایش داده می‌شود، صفحه به‌روزرسانی می‌گردد و دستور <code>continue</code> ما را مستقیماً به ابتدای حلقه <code>while</code> بازمی‌گرداند تا چرخه بعدی آغاز شود. بدین ترتیب، بازی در جای خود ثابت می‌ماند.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>        # اگر بازی متوقف شده، رویدادها رو بررسی کن ولی حرکت نده</span></span>
+<span data-line><span>        if game_paused:</span></span>
+<span data-line><span>            show_message(&quot;⏸️ Stop&quot;, RED, 50, WINDOW_WIDTH//2 - 80, WINDOW_HEIGHT//2)</span></span>
+<span data-line><span>            pygame.display.update()</span></span>
+<span data-line><span>            continue</span></span></code></pre></figure>
+<p>‏<code>show_message</code> یک تابع کمکی است که وظیفه نمایش متنی مشخص را بر روی صفحه بازی بر عهده دارد. این تابع، پیام مورد نظر (مانند “Stop ⏸️”) را با رنگ، اندازه و مختصات تعیین‌شده روی بوم بازی ترسیم می‌کند.</p>
+<p>‏<code>()pygame.display.update</code> یکی از توابع حیاتی pygame است. هر تغییری که بر روی سطح نمایش <code>screen</code> اعمال می‌کنیم، بلافاصله روی صفحه نمایش داده نمی‌شود، بلکه در حافظه پنهان باقی می‌ماند. فراخوانی <code>()display.update</code> این تغییرات را از حافظه به صفحه نمایش منتقل می‌کند و باعث می‌شود بازیکن نتیجه اعمال ما را ببیند. بدون این فراخوانی، صفحه بازی همواره ثابت و بدون تغییر به نظر خواهد رسید.</p>
+<blockquote>
+<p>دستورات <code>continue</code> و <code>break</code> دو ابزار کنترلی مهم در حلقه‌های تکرار پایتون هستند که جریان عادی حلقه را تغییر می‌دهند.</p>
+<p>دستور <code>continue</code> هنگامی که در بدنه یک حلقه اجرا شود، اجرای ادامه دستورات آن دور از حلقه را متوقف کرده و حلقه را مستقیماً به ابتدای چرخه بعدی می‌برد. در واقع، <code>continue</code> می‌گوید: «این دور را نیمه‌کاره رها کن و برو سراغ دور بعدی». در بازی ما، وقتی بازی متوقف است، با <code>continue</code> از اجرای کدهای حرکت مار صرف‌نظر کرده و مستقیماً به ابتدای حلقه <code>while</code> بازمی‌گردیم.</p>
+<p>در مقابل، دستور <code>break</code> به طور کامل از حلقه خارج می‌شود و اجرای برنامه را به اولین خط پس از بدنه حلقه منتقل می‌کند. <code>break</code> مانند کلید خروج اضطراری عمل می‌کند و می‌گوید: «کار این حلقه تمام است، برویم بیرون». این دو دستور، کنترل دقیق و انعطاف‌پذیری بر جریان اجرای حلقه‌ها فراهم می‌کنند.</p>
+</blockquote>
+<h4 id="حرکت-مار">حرکت مار<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#حرکت-مار" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>پس از آنکه مطمئن شدیم بازی در حالت توقف نیست، نوبت به یکی از اساسی‌ترین عملیات در چرخه بازی می‌رسد: به‌روزرسانی موقعیت مار. این کار با دو خط کد بسیار ساده انجام می‌شود.مختصات فعلی سر مار که در متغیرهای <code>snake_x</code> و <code>snake_y</code> ذخیره شده‌اند، با مقادیر <code>change_x</code> و <code>change_y</code> جمع بسته می‌شوند.</p>
+<p>عملگر <code>=+</code> که یک عملگر انتساب ترکیبی است، مقدار سمت راست را با مقدار فعلی متغیر جمع کرده و حاصل را دوباره در همان متغیر ذخیره می‌کند. برای نمونه، اگر مار به سمت راست در حال حرکت باشد، <code>change_x</code> برابر با <code>BLOCK_SIZE</code> (یعنی ۱۰ پیکسل) و <code>change_y</code> برابر با صفر است. در نتیجه، <code>snake_x</code> به اندازه یک خانه به سمت راست جابه‌جا می‌شود و <code>snake_y</code> بدون تغییر باقی می‌ماند.</p>
+<p>این دو خط کد، قلب مکانیک حرکت مار را تشکیل می‌دهند. در هر فریم از بازی (که سرعت آن توسط شیء <code>clock</code> تنظیم می‌شود)، این عملیات یک بار اجرا می‌گردد و بدین ترتیب، توهم حرکت پیوسته مار بر روی صفحه ایجاد می‌شود. مقادیر <code>change_x</code> و <code>change_y</code> نیز همان‌طور که پیش‌تر دیدیم، بر اساس ورودی کاربر از صفحه کلید و در بخش مدیریت رویدادها تعیین می‌شوند.</p>
+<p>این جداسازی منطق (دریافت ورودی در یک بخش و اعمال تغییرات در بخش دیگر) نمونه‌ای از طراحی منظم و ساختیافته برنامه است که اشکال‌زدایی و توسعه آن را آسان‌تر می‌کند.</p>
+<h4 id="رفتیم-تو-دیوار">رفتیم تو دیوار؟<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#رفتیم-تو-دیوار" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>یکی دیگر از رویدادهای حیاتی در جریان بازی که باید به طور مداوم کنترل شود، بررسی وضعیت برخورد مار با دیوارهای پیرامونی صفحه است. در صورتی که سر مار از محدوده تعیین‌شده خارج شود، به معنای پایان بازی خواهد بود. این بررسی با یک شرط منطقی مرکب پیاده‌سازی می‌شود که چهار حالت مختلف خروج از صفحه را پوشش می‌دهد.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>        # ----------------------------------</span></span>
+<span data-line><span>        # بررسی برخورد با دیوارها</span></span>
+<span data-line><span>        # ----------------------------------</span></span>
+<span data-line><span>        if (snake_x >= WINDOW_WIDTH or snake_x &lt; 0 or </span></span>
+<span data-line><span>            snake_y >= WINDOW_HEIGHT or snake_y &lt; 0):</span></span>
+<span data-line><span>            print(&quot;💥 Hit the wall! Game is over.&quot;)</span></span>
+<span data-line><span>            game_over = True</span></span></code></pre></figure>
+<p>شرط <code>snake_x >= WINDOW_WIDTH</code> بررسی می‌کند که آیا مختصات افقی سر مار از لبه سمت راست صفحه فراتر رفته است یا خیر. به طور مشابه، <code>snake_x &lt; 0</code> خروج از لبه چپ را کنترل می‌کند. در بعد عمودی نیز <code>snake_y >= WINDOW_HEIGHT</code> خروج از لبه پایین و <code>snake_y &lt; 0</code> خروج از لبه بالای صفحه را تشخیص می‌دهد. استفاده از <strong>عملگر منطقی</strong> <code>or</code> میان این چهار شرط بدان معناست که برقراری تنها یکی از این حالت‌ها برای پایان بازی کافی است. به بیان دیگر، اگر سر مار از هر یک از چهار دیوار عبور کند، بازی به اتمام می‌رسد.</p>
+<blockquote>
+<p>علاوه بر عملگر <code>or</code>، پایتون دو عملگر منطقی اصلی دیگر نیز دارد. نخست، عملگر <code>and</code> که تنها زمانی نتیجه <code>True</code> را بازمی‌گرداند که <strong>هر دو</strong> عبارت شرطی برقرار باشند. برای نمونه، در بازی می‌توان بررسی کرد که آیا مختصات مار هم از عرض و هم از ارتفاع صفحه خارج شده است. دوم، عملگر <code>not</code> است که نتیجه یک عبارت منطقی را معکوس می‌کند. اگر شرطی <code>True</code> باشد، <code>not</code> آن را به <code>False</code> تبدیل می‌کند و برعکس. نمونه آشنای آن، شرط حلقه اصلی بازی ماست: <code>while not game_over</code> که می‌گوید «تا زمانی که بازی تمام نشده است». این سه عملگر، ابزارهای پایه‌ای برای ساخت عبارات شرطی پیچیده و کنترل جریان برنامه هستند.</p>
+</blockquote>
+<p>هنگامی که یکی از این شرایط محقق شود، دو اقدام صورت می‌گیرد: اول، با استفاده از تابع <code>print</code> پیامی گویا در کنسول نمایش داده می‌شود که علت پایان بازی را به بازیکن اطلاع می‌دهد. دوم، متغیر <code>game_over</code> مقدار <code>True</code> را می‌پذیرد. این تغییر مقدار، شرط حلقه اصلی <code>while not game_over</code> را نقض کرده و باعث خروج از چرخه تکرار و در نتیجه توقف کامل بازی می‌شود. بدین ترتیب، یک مکانیزم ساده اما دقیق برای تعیین مرزهای زمین بازی و اعمال قوانین آن پیاده‌سازی شده است. این بخش نمونه‌ای مناسب از کاربرد عملگرهای مقایسه‌ای و منطقی در کنار یکدیگر برای پیاده‌سازی منطق تصمیم‌گیری در برنامه است.</p>
+<h4 id="سر-و-ته-مار-رو-جابجا-کن">سر و ته مار رو جابجا کن<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#سر-و-ته-مار-رو-جابجا-کن" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>در ادامه چرخه به‌روزرسانی بازی، حال باید تغییرات موقعیت مار را به ساختار داده‌ای بدن آن اعمال کنیم. این فرآیند شامل دو مرحله اساسی است: افزودن سر جدید و حذف دم قبلی.</p>
+<p>در مرحله اول، با استفاده از متد <code>append</code> که ویژه لیست‌ها در پایتون است، مختصات جدید سر مار را به انتهای لیست <code>snake_body</code> اضافه می‌کنیم. <code>[snake_x, snake_y]</code> یک لیست دو عضوی است که موقعیت فعلی سر مار را نشان می‌دهد و با <code>append</code> به انتهای بدن مار الصاق می‌شود. این بدان معناست که سر مار همواره آخرین عضو لیست خواهد بود.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>        # اضافه کردن موقعیت جدید به بدن مار</span></span>
+<span data-line><span>        snake_body.append([snake_x, snake_y])</span></span>
+<span data-line><span>        </span></span>
+<span data-line><span>        # حذف دم مار اگر غذا نخورده باشیم</span></span>
+<span data-line><span>        if len(snake_body) > snake_length:</span></span>
+<span data-line><span>            del snake_body[0]</span></span></code></pre></figure>
+<p>مرحله دوم، حذف بخش انتهایی بدن یا همان دم مار است. اما این حذف همیشگی نیست، بلکه مشروط به یک شرط مهم است: <code>if len(snake_body) > snake_length</code>. تابع <code>len</code> طول فعلی لیست <code>snake_body</code> را بازمی‌گرداند و آن را با <code>snake_length</code> مقایسه می‌کند. اگر طول لیست بدن از طول مجاز مار( طول فعلی آن) بیشتر باشد، به این معناست که مار در آخرین حرکت غذایی نخورده است و باید طولش ثابت بماند و بنابراین -به همان میزان که به ناحیه سرش اضافه شد- از ناحیه دم کوتاه می‌شود. در این حالت، دستور <code>del snake_body[0]</code> اولین عضو لیست (قدیمی‌ترین بخش بدن) را حذف می‌کند.</p>
+<p>نکته هوشمندانه این مکانیزم در آن است که اگر مار به تازگی غذایی خورده باشد و <code>snake_length</code> افزایش یافته باشد، شرط <code>len(snake_body) > snake_length</code> در این لحظه برقرار نخواهد بود. بنابراین دم حذف نشده و طول مار عملاً یک واحد افزایش می‌یابد. این دو خط کد ساده، در کنار یکدیگر، هم حرکت نرم و روان مار را شبیه‌سازی می‌کنند و هم مکانیزم رشد آن با خوردن طعمه را پیاده‌سازی می‌نمایند. بدین ترتیب، مفاهیمی مانند <strong>مدیریت پویای لیست‌ها، محاسبه طول ساختارهای داده‌ای و کار با ایندکس‌ها</strong> به شکلی کاملاً عملی در خدمت منطق بازی قرار می‌گیرند.</p>
+<h4 id="خوردم-به-خودم">خوردم به خودم<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#خوردم-به-خودم" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>یکی دیگر از حالت‌های پایان بازی زمانی رخ می‌دهد که طول مار به اندازه کافی افزایش یافته باشد و بازیکن مسیری اشتباه را انتخاب کند بطوریکه سر مار از نقطه‌ای عبور کند که هنوز بخشی از بدنش در آن قرار دارد. به بیان ساده‌تر، مار نباید خودش را گاز بگیرد. این قاعده، چالش اصلی بازی <strong>Snake</strong> راست و مدیریت آن با افزایش طول مار سخت‌تر می‌شود.</p>
+<pre><code>        # ----------------------------------
+        # بررسی برخورد مار با خودش
+        # ----------------------------------
+        for block in snake_body[:-1]:
+            if block == [snake_x, snake_y]:
+                print(&quot;😵 The snake ate itself! The game is over&quot;)
+                game_over = True
+
+</code></pre>
+<p>برای پیاده‌سازی این قسمت، از یک حلقه <code>for</code> استفاده می‌کنیم که بر روی تمام اعضای لیست <code>snake_body</code>، <strong>به جز آخرین عضو</strong>، عبور می‌کند. عبارت <code>snake_body[:-1]</code> یک برش از لیست می‌سازد که شامل همه عناصر به جز عنصر آخر است. دلیل این کار آن است که آخرین عضو لیست <code>snake_body</code> همان مختصات سر مار است که در مرحله قبل با <code>append</code> اضافه کردیم و بررسی برخورد سر با خودش منطقاً بی‌معنا خواهد بود.</p>
+<blockquote>
+<p>بخش <code>[1-:]</code> در دستور فوق اصطلاحاً <strong>برش (Slice)</strong> یا <strong>اسلایسینگ</strong> نام دارد. اسلایسینگ به شما امکان می‌دهد زیرمجموعه‌ای از یک لیست، رشته یا تاپل را استخراج کنید.</p>
+<p>در این مثال خاص، <code>[1-:]</code> به معنای «همه اعضا به جز آخرین عضو» است. نحو کلی اسلایس <code>[start:stop:step]</code> می‌باشد که در اینجا <code>start</code> و <code>step</code> حذف شده‌اند (یعنی از ابتدا و با گام ۱) و <code>stop</code> برابر با ۱- است. ایندکس ۱- در پایتون به آخرین عضو یک دنباله اشاره دارد و از آنجا که <code>stop</code> شامل اسلایس نمی‌شود، نتیجه نهایی همه اعضا به جز آخری خواهد بود.<br/>
+در ادامه نمونه ها و مثالهای متعدد از این ویژگی را خواهیم دید:</p>
+</blockquote>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span># تعریف یک لیست نمونه</span></span>
+<span data-line><span>numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span>
+<span data-line> </span>
+<span data-line><span># استخراج از ایندکس ۲ تا ۵ (۵ شامل نمی‌شود)</span></span>
+<span data-line><span>slice1 = numbers[2:5]         # نتیجه: [2, 3, 4]</span></span>
+<span data-line> </span>
+<span data-line><span># استخراج از ابتدا تا ایندکس ۴</span></span>
+<span data-line><span>slice2 = numbers[:4]          # نتیجه: [0, 1, 2, 3]</span></span>
+<span data-line> </span>
+<span data-line><span># استخراج از ایندکس ۶ تا انتها</span></span>
+<span data-line><span>slice3 = numbers[6:]          # نتیجه: [6, 7, 8, 9]</span></span>
+<span data-line> </span>
+<span data-line><span># استخراج کل لیست با گام ۲ (یکی در میان)</span></span>
+<span data-line><span>slice4 = numbers[::2]         # نتیجه: [0, 2, 4, 6, 8]</span></span>
+<span data-line> </span>
+<span data-line><span># استخراج از ایندکس ۱ تا ۸ با گام ۳</span></span>
+<span data-line><span>slice5 = numbers[1:8:3]       # نتیجه: [1, 4, 7]</span></span>
+<span data-line> </span>
+<span data-line><span># معکوس کردن لیست با گام منفی</span></span>
+<span data-line><span>slice6 = numbers[::-1]        # نتیجه: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</span></span>
+<span data-line> </span>
+<span data-line><span># چهار عضو آخر لیست</span></span>
+<span data-line><span>slice7 = numbers[-4:]         # نتیجه: [6, 7, 8, 9]</span></span></code></pre></figure>
+<p>در هر گام از این حلقه، متغیر <code>block</code> یکی از قطعات بدن مار را در خود نگه می‌دارد. سپس با شرط <code>if block == [snake_x, snake_y]</code> بررسی می‌کنیم که آیا مختصات فعلی سر مار با مختصات یکی از قطعات بدنش یکسان است یا خیر. اگر این شرط برقرار باشد، یعنی مار با خودش برخورد کرده است. در این حالت، مشابه برخورد با دیوار، پیام مناسبی در کنسول چاپ شده و متغیر <code>game_over</code> مقدار <code>True</code> می‌گیرد تا حلقه اصلی بازی پایان پذیرد.</p>
+<h4 id="غذا-خوردم">غذا خوردم<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#غذا-خوردم" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>هرگاه سر مار با موقعیت غذای تصادفی موجود در صفحه برخورد کند، نشانه آن است که بازیکن موفق به خوردن طعمه شده است. در این حالت، طول مار باید از ناحیه دم یک واحد افزایش یابد. کد زیر منطق این بخش حیاتی از <strong>گیم‌پلی</strong> را به شکلی مختصر و کارآمد پیاده‌سازی می‌کند.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>        # ----------------------------------</span></span>
+<span data-line><span>        # بررسی خوردن غذا</span></span>
+<span data-line><span>        # ----------------------------------</span></span>
+<span data-line><span>        if [snake_x, snake_y] == food_position:</span></span>
+<span data-line><span>            food_position = generate_food(snake_body)</span></span>
+<span data-line><span>            snake_length += 1</span></span>
+<span data-line><span>            score += 10</span></span>
+<span data-line><span>            print(f&quot;🍎  New food! Score: {score}&quot;)</span></span></code></pre></figure>
+<p>در خط اول، شرط <code>:if [snake_x, snake_y] == food_position</code> بررسی می‌کند که آیا مختصات فعلی سر مار دقیقاً با مختصات طعمه یکی شده است یا خیر. این <strong>مقایسه مستقیم دو لیست</strong>، یکی از قابلیت‌های کاربردی پایتون است که امکان بررسی تطابق تک‌به‌تک اعضای دو لیست را فراهم می‌کند. به محض برقرار شدن این شرط، چهار اقدام متوالی صورت می‌گیرد.</p>
+<p>اول، تابع <code>generate_food</code> مجدداً فراخوانی می‌شود تا موقعیت جدیدی برای طعمه بعدی تعیین کند. آرگومان <code>snake_body</code> به این تابع ارسال می‌شود تا اطمینان حاصل شود که طعمه جدید روی بدن مار ظاهر نمی‌شود. دوم، متغیر <code>snake_length</code> یک واحد افزایش می‌یابد. این افزایش طول، در مکانیزم حذف دم که پیش‌تر بررسی کردیم، اثر مستقیم دارد: در دور بعدی حلقه، شرط <code>len(snake_body) > snake_length</code> برقرار نخواهد بود و دم حذف نمی‌شود، در نتیجه طول مار عملاً رشد می‌کند. سوم، متغیر <code>score</code> به میزان ۱۰ واحد افزایش می‌یابد تا پیشرفت بازیکن مشخص شود.</p>
+<p>و در نهایت، با استفاده از f-string که روشی مدرن و خوانا برای قالب‌بندی رشته‌ها در پایتون است، پیامی حاوی نماد سیب و امتیاز جدید در کنسول چاپ می‌شود.</p>
+<h4 id="رشته-ها-در-پایتون">رشته ها در پایتون<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#رشته-ها-در-پایتون" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>رشته‌ها یا Stringها یکی از پرکاربردترین انواع داده در پایتون هستند که برای ذخیره و پردازش متن به کار می‌روند. اهمیت آن‌ها در نمایش پیام‌ها، ثبت گزارش‌ها، ارتباط با کاربر و قالب‌بندی خروجی برنامه آشکار می‌شود. پایتون روش‌های متعددی برای ساخت و مدیریت رشته‌ها ارائه می‌دهد: رشته‌های ساده با نقل قول تکی یا دوتایی، رشته‌های چندخطی با سه نقل قول، و رشته‌های فرمت‌شده که در کد زیر نمونه هایی از آنها را آورده ام.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="Python" data-theme="github-light github-dark"><code data-language="Python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span># رشته با نقل قول تکی</span></span>
+<span data-line><span>message1 = 'Hello, World!'</span></span>
+<span data-line> </span>
+<span data-line><span># رشته با نقل قول دوتایی</span></span>
+<span data-line><span>message2 = &quot;Python is fun!&quot;</span></span>
+<span data-line> </span>
+<span data-line><span># رشته چندخطی با سه نقل قول تکی</span></span>
+<span data-line><span>long_text1 = '''This is a</span></span>
+<span data-line><span>multi-line</span></span>
+<span data-line><span>string example.'''</span></span>
+<span data-line> </span>
+<span data-line><span># رشته چندخطی با سه نقل قول دوتایی</span></span>
+<span data-line><span>long_text2 = &quot;&quot;&quot;You can also use</span></span>
+<span data-line><span>double quotes for</span></span>
+<span data-line><span>multi-line strings.&quot;&quot;&quot;</span></span>
+<span data-line> </span>
+<span data-line><span># f-string برای قالب‌بندی رشته‌ها</span></span>
+<span data-line><span>name = &quot;Ali&quot;</span></span>
+<span data-line><span>score = 50</span></span>
+<span data-line><span>formatted = f&quot;Player: {name}, Score: {score}&quot;</span></span>
+<span data-line> </span>
+<span data-line><span># f-string با عبارات محاسباتی</span></span>
+<span data-line><span>price = 100</span></span>
+<span data-line><span>quantity = 3</span></span>
+<span data-line><span>total = f&quot;Total: {price * quantity} Toman&quot;</span></span></code></pre></figure>
+<p>در میان روش‌های قالب‌بندی، <strong>f-string</strong> ها که از نسخه ۳.۶ پایتون معرفی شدند، مدرن‌ترین و خواناترین شیوه هستند. یک f-string با پیشوند <code>f</code> پیش از علامت نقل قول آغاز می‌شود. داخل این رشته، هر عبارتی که درون آکولاد <code>{}</code> قرار گیرد، در زمان اجرا محاسبه شده و نتیجه آن در متن جایگزین می‌شود. برای نمونه، در کد <code>print(f&quot;🍎 New food! Score: {score}&quot;)</code>، مقدار متغیر <code>score</code> به طور خودکار به رشته تبدیل شده و در خروجی نمایش داده می‌شود. این ویژگی، ترکیب متن و مقادیر متغیرها را بدون نیاز به عملگر الحاق <code>+</code> یا تابع <code>format</code>، بسیار ساده و شهودی می‌سازد و احتمال خطا را کاهش می‌دهد.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>نمای گراف</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><ul></ul></footer></div></div><footer class="Globalfooter"><div class="Globalfooter-root" dir="rtl"><div class="Globalfooter-links-grid"><div class="Globalfooter-links-grid-columns"><div class="Globalfooter-column"><h3>دوره ها</h3><ul><li><a href="Courses/زبانهای-برنامه-نویسی/">برنامه نویسی</a></li><li><a href="Courses/هوش مصنوعی/">هوش مصنوعی</a></li></ul></div><div class="Globalfooter-column"><h3>خدمات</h3><ul><li><a href="#">پشتیبانی فنی</a></li></ul></div><div class="Globalfooter-column"><h3>کتابها</h3><ul><li><a href="http://www.igai.ir">هوش مصنوعی خلاق</a></li></ul></div><div class="Globalfooter-column"><h3>درباره</h3><ul><li><a href="/about">هوراژن</a></li></ul></div></div></div><div class="Globalfooter-logo-row"><div class="Globalfooter-logo-row-content"><div class="logo-description"><div class="logo"><img src="/Images/logo.jpg" alt="لوگو"/></div><p class="description justify">دانش نامه آموزشی هوراژن سعی دارد در جهت نشر علوم و فناوریهای نوین تلاش کرده و آنرا با سهولت و سادگی در اختیار علاقمندان کسب دانش و مهارت قرار دهد.</p></div><div class="social-icons"><a href="https://facebook.com/..." aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+      1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.4v7z"></path></svg></a><a href="https://twitter.com/..." aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.3 2H21l-6.6 7.5L22 22h-6.9l-4.3-5.7L5.8 22H3l7.1-8.1L2 2h7l3.9 5.1L18.3 2z"></path></svg></a><a href="https://instagram.com/..." aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5
+      .6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.4 1.1.5 2.3
+      .1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3
+      -.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1.1.4-2.3.5
+      -1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5
+      -.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.4-1.1-.5-2.3
+      -.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3
+      .2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1.1-.4 2.3-.5
+      1.3-.1 1.7-.1 4.9-.1zm0 3.4a6.4 6.4 0 1 0 0 12.8
+      6.4 6.4 0 0 0 0-12.8zm0 10.6a4.2 4.2 0 1 1 0-8.4
+      4.2 4.2 0 0 1 0 8.4zm6.7-10.9a1.5 1.5 0 1 1-3
+      0 1.5 1.5 0 0 1 3 0z"></path></svg></a><a href="https://linkedin.com/..." aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.9h4v12H3zM9.5 8.9h3.8v1.6h.1
+      c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6
+      c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7h-4z"></path></svg></a></div></div></div><div class="Globalfooter-copyright"><p>تمامی حقوق متعلق است به هوراژن. طراحی و توسعه : HooraGen<span>©</span><span>1404</span></p></div></div></footer></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../../../postscript.js" type="module" data-persist="true"></script></html>
