@@ -6,6 +6,54 @@
       <description>تعداد یادداشتهای اخیر : ۱۰ on هوراژن </description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش هشتم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D9%87%D8%B4%D8%AA%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D9%87%D8%B4%D8%AA%D9%85</guid>
+    <description><![CDATA[ در این بخش از مقاله به موضوع انتشار خطا و اصلاح وزن‌ها می‌پردازیم؛ فرآیندی که در آن، پس از محاسبه دقیق گرادیان‌ها برای تمام لایه‌های شبکه، نوبت به مرحله نهایی و اجرایی یادگیری می‌رسد. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 18:07:10 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش هفتم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D9%87%D9%81%D8%AA%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D9%87%D9%81%D8%AA%D9%85</guid>
+    <description><![CDATA[ در این بخش از مقاله به شرح الگوریتم محاسبه بایاس‌ها می پردازیم. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 18:04:27 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش ششم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%B4%D8%B4%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%B4%D8%B4%D9%85</guid>
+    <description><![CDATA[ حال که گرادیان لایه خروجی به‌عنوان نقطه آغازین محاسبه شده است، با استفاده از الگوریتم پس‌انتشار خطا (Backpropagation) و اعمال مکرر قاعده زنجیره‌ای، این سیگنال خطا را گام‌به‌گام از لایه‌های انتهایی به سمت لایه‌های ابتدایی شبکه هدایت می‌کنیم تا سهم دقیق هر یک از نورون‌های پنهان در ایجاد خطای نهایی مشخ... ]]></description>
+    <pubDate>Wed, 15 Jul 2026 17:59:44 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش پنجم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D9%BE%D9%86%D8%AC%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D9%BE%D9%86%D8%AC%D9%85</guid>
+    <description><![CDATA[ در این بخش، قصد داریم به بررسی یکی از حساسترین و کلیدی‌ترین مراحل در آموزش شبکه‌های عصبی، یعنی فرایند پس‌انتشار خطا (Backpropagation) بپردازیم. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 17:56:52 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش چهارم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%DA%86%D9%87%D8%A7%D8%B1%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%DA%86%D9%87%D8%A7%D8%B1%D9%85</guid>
+    <description><![CDATA[ پس از انجام محاسبات پیش رو در تمام لایه ها و حاصل شدن خروجی باید میزان خطا و انحراف از نتیجه مطلوب محاسبه شود. این فرایند را در این بخش مرور می کنیم. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 17:54:54 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش سوم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%B3%D9%88%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%B3%D9%88%D9%85</guid>
+    <description><![CDATA[ الگوریتم اصلی آموزش یک MLP از یک چرخه ۴ مرحله‌ای در هر دور از یادگیری (Epoch) پیروی می‌کند. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 17:49:11 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش دوم</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%AF%D9%88%D9%85</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%AF%D9%88%D9%85</guid>
+    <description><![CDATA[ به عنوان یک دانشمند علوم داده، متن شما را بررسی کردم. متن از نظر آموزشی، پیوستگی و انتقال مفاهیم به زبان ساده بسیار عالی و ساختاریافته است. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 17:40:29 GMT</pubDate>
+  </item><item>
+    <title>آشنایی با شبکه های عصبی پرسپترون چند لایه (MLP) - بخش اول</title>
+    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%A7%D9%88%D9%84</link>
+    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D8%B9%D9%85%DB%8C%D9%82/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B4%D8%A8%DA%A9%D9%87-%D9%87%D8%A7%DB%8C-%D8%B9%D8%B5%D8%A8%DB%8C-%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86-%DA%86%D9%86%D8%AF-%D9%84%D8%A7%DB%8C%D9%87-(MLP)---%D8%A8%D8%AE%D8%B4-%D8%A7%D9%88%D9%84</guid>
+    <description><![CDATA[ در هوش مصنوعی مدرن، به‌ویژه در شاخهٔ پررونق هوش مصنوعی مولد، شبکه‌های عصبی و به‌طور ویژه شبکه‌های عصبی عمیق، نقشی کلیدی و غیرقابل‌انکار ایفا می‌کنند. ]]></description>
+    <pubDate>Wed, 15 Jul 2026 17:13:15 GMT</pubDate>
+  </item><item>
     <title>بازی بساز برنامه نویسی با پایتون یاد بگیر</title>
     <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/</link>
     <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/</guid>
@@ -17,54 +65,6 @@
     <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/</guid>
     <description><![CDATA[  ]]></description>
     <pubDate>Sat, 11 Jul 2026 19:35:48 GMT</pubDate>
-  </item><item>
-    <title>هوش مصنوعی</title>
-    <link>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D8%AA%D8%AC%D8%A7%D8%B1%DB%8C/</link>
-    <guid>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D8%AA%D8%AC%D8%A7%D8%B1%DB%8C/</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Sat, 11 Jul 2026 19:21:46 GMT</pubDate>
-  </item><item>
-    <title>عبور از محدودیت‌های احراز هویت در Power BI Report Server: معرفی یک دروازه امن و مدرن</title>
-    <link>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D8%AA%D8%AC%D8%A7%D8%B1%DB%8C/%D8%B9%D8%A8%D9%88%D8%B1-%D8%A7%D8%B2-%D9%85%D8%AD%D8%AF%D9%88%D8%AF%DB%8C%D8%AA%E2%80%8C%D9%87%D8%A7%DB%8C-%D8%A7%D8%AD%D8%B1%D8%A7%D8%B2-%D9%87%D9%88%DB%8C%D8%AA-%D8%AF%D8%B1-Power-BI-Report-Server</link>
-    <guid>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D8%AA%D8%AC%D8%A7%D8%B1%DB%8C/%D8%B9%D8%A8%D9%88%D8%B1-%D8%A7%D8%B2-%D9%85%D8%AD%D8%AF%D9%88%D8%AF%DB%8C%D8%AA%E2%80%8C%D9%87%D8%A7%DB%8C-%D8%A7%D8%AD%D8%B1%D8%A7%D8%B2-%D9%87%D9%88%DB%8C%D8%AA-%D8%AF%D8%B1-Power-BI-Report-Server</guid>
-    <description><![CDATA[ در این مقاله به بررسی یکی از مهمترین چالش‌های راه‌اندازی سرور Power BI در سازمان‌ها می‌پردازیم: احراز هویت مستقل از ویندوز و اکتیو دایرکتوری. ]]></description>
-    <pubDate>Sat, 11 Jul 2026 14:42:17 GMT</pubDate>
-  </item><item>
-    <title>بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان)</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1---%D8%A8%D8%AE%D8%B4-%D8%B3%D9%88%D9%85-(%D9%BE%D8%A7%DB%8C%D8%A7%D9%86)</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1---%D8%A8%D8%AE%D8%B4-%D8%B3%D9%88%D9%85-(%D9%BE%D8%A7%DB%8C%D8%A7%D9%86)</guid>
-    <description><![CDATA[  سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دوم تا اینجا، هسته اصلی منطق بازی را مرحله به مرحله مرور کردیم. ]]></description>
-    <pubDate>Sat, 11 Jul 2026 14:38:03 GMT</pubDate>
-  </item><item>
-    <title>بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دوم</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1---%D8%A8%D8%AE%D8%B4-%D8%AF%D9%88%D9%85</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1---%D8%A8%D8%AE%D8%B4-%D8%AF%D9%88%D9%85</guid>
-    <description><![CDATA[  سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان) در بخش اول این مقاله، یادگیری برنامه نویسی را با رویکردی عملی و پروژه‌محور آغاز کردیم. ]]></description>
-    <pubDate>Sat, 11 Jul 2026 14:36:25 GMT</pubDate>
-  </item><item>
-    <title>بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش اول</title>
-    <link>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1---%D8%A8%D8%AE%D8%B4-%D8%A7%D9%88%D9%84</link>
-    <guid>https://hooragen.ir/Courses/%D8%B2%D8%A8%D8%A7%D9%86%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C/%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1/%D8%A8%D8%A7%D8%B2%DB%8C-%D8%A8%D8%B3%D8%A7%D8%B2-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1---%D8%A8%D8%AE%D8%B4-%D8%A7%D9%88%D9%84</guid>
-    <description><![CDATA[  سایر بخشهای این مقاله: بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش دوم بازی بساز برنامه نویسی با پایتون یاد بگیر - بخش سوم (پایان) برای یاد گرفتن برنامه‌نویسی لازم نیست همیشه با صفحه‌های سیاه و کسل‌کننده و محاسبات عجیب ریاضی شروع کنیم. ]]></description>
-    <pubDate>Sat, 11 Jul 2026 14:35:26 GMT</pubDate>
-  </item><item>
-    <title>هوش مصنوعی</title>
-    <link>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/</link>
-    <guid>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Fri, 10 Jul 2026 16:04:41 GMT</pubDate>
-  </item><item>
-    <title>وایب کدینگ ( vibe coding ) - تجربه عملی برنامه نویسی برای آنانکه از کدنویسی چیزی نمی دانند</title>
-    <link>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D9%88%D8%A7%DB%8C%D8%A8-%DA%A9%D8%AF%DB%8C%D9%86%DA%AF-(-vibe-coding-)---%D8%AA%D8%AC%D8%B1%D8%A8%D9%87-%D8%B9%D9%85%D9%84%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A2%D9%86%D8%A7%D9%86%DA%A9%D9%87-%D8%A7%D8%B2-%DA%A9%D8%AF%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%DA%86%DB%8C%D8%B2%DB%8C-%D9%86%D9%85%DB%8C-%D8%AF%D8%A7%D9%86%D9%86%D8%AF</link>
-    <guid>https://hooragen.ir/Articles/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D9%88%D8%A7%DB%8C%D8%A8-%DA%A9%D8%AF%DB%8C%D9%86%DA%AF-(-vibe-coding-)---%D8%AA%D8%AC%D8%B1%D8%A8%D9%87-%D8%B9%D9%85%D9%84%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A2%D9%86%D8%A7%D9%86%DA%A9%D9%87-%D8%A7%D8%B2-%DA%A9%D8%AF%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%DA%86%DB%8C%D8%B2%DB%8C-%D9%86%D9%85%DB%8C-%D8%AF%D8%A7%D9%86%D9%86%D8%AF</guid>
-    <description><![CDATA[ این روزها هوش مصنوعی از نگاه بسیاری از متخصصین و حتی مردم عادی دیگر یک امکان نیست بلکه یک ضرورت انکارناپذیر است. ]]></description>
-    <pubDate>Fri, 10 Jul 2026 14:55:53 GMT</pubDate>
-  </item><item>
-    <title>آشنائی با مدلهای پایه</title>
-    <link>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%D9%BE%DB%8C-%D8%A8%D8%A7-%D9%85%D8%AF%D9%84%D9%87%D8%A7%DB%8C-%D9%BE%D8%A7%DB%8C%D9%87/</link>
-    <guid>https://hooragen.ir/Courses/%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C/%D8%A2%D8%B4%D9%86%D8%A7%D9%BE%DB%8C-%D8%A8%D8%A7-%D9%85%D8%AF%D9%84%D9%87%D8%A7%DB%8C-%D9%BE%D8%A7%DB%8C%D9%87/</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Thu, 09 Jul 2026 19:10:09 GMT</pubDate>
   </item>
     </channel>
   </rss>
